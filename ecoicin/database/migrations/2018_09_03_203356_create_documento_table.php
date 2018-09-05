@@ -17,7 +17,6 @@ class CreateDocumentoTable extends Migration
             $table->increments('id_documento');
             $table->string('nombre_documento', 45);
             $table->string('ruta_documento', 100);
-            $table->date('fecha_ingreso');
             $table->unsignedInteger('proyecto_id');
             $table->timestamps();
             $table->foreign('proyecto_id')->references('id_proyecto')->on('proyecto')->onDelete('cascade');

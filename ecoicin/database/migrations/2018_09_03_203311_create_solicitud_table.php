@@ -17,11 +17,11 @@ class CreateSolicitudTable extends Migration
             $table->increments('id_solicitud');
             $table->unsignedInteger('empresa_id');
             $table->text('descripcion_solicitud', 255);
-            $table->unsignedInteger('tipo_area_informatica_id');
-            $table->unsignedInteger('tipo_proyecto_id');
+            $table->unsignedInteger('tipo_area_informatica_id')->nullable();
+            $table->unsignedInteger('tipo_proyecto_id')->nullable();
             $table->unsignedInteger('tipo_estado_id');
-            $table->text('razon_estado', 200);
-            $table->string('codigo_seguimiento', 45);
+            $table->text('razon_estado', 200)->nullable();
+            $table->string('codigo_seguimiento', 45)->nullable();
             $table->timestamps();
             $table->foreign('empresa_id')->references('id_empresa')->on('empresa')->onDelete('cascade');
             $table->foreign('tipo_area_informatica_id')->references('id_tipo_area_informatica')->on('tipo_area_informatica')->onDelete('cascade');

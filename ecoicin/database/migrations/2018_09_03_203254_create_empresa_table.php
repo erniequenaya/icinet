@@ -17,8 +17,8 @@ class CreateEmpresaTable extends Migration
             $table->increments('id_empresa');
             $table->string('rut_empresa', 45);
             $table->string('nombre_empresa', 45);
-            $table->string('telefono', 15);
-            $table->string('email', 45);
+            $table->string('telefono_empresa', 15);
+            $table->string('email_empresa', 45);
             $table->unsignedInteger('rubro_id');
             $table->timestamps();
             $table->foreign('rubro_id')->references('id_rubro')->on('rubro')->onDelete('cascade');

@@ -24,15 +24,15 @@
             </li>
 
             <li class="nav-item {{(request()->route()->getName() == 'trabajamos_para_usted') ? 'active' : ''}}">
-                <a class="nav-link" href="">Trabajamos para usted</a>
+                <a class="nav-link" href="{{route('trabajamos_para_usted')}}">Trabajamos para usted</a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link {{(request()->route()->getName() == 'repositorio') ? 'active' : ''}}" href="how.html">Repositorio</a>
+            <li class="nav-item {{(request()->route()->getName() == 'repositorio') ? 'active' : ''}}">
+                <a class="nav-link" href="{{route('repositorio')}}">Repositorio</a>
             </li>
 
             <li class="nav-item {{(request()->route()->getName() == 'contactanos') ? 'active' : ''}}">
-                <a class="nav-link" href="how.html">Contactanos</a>
+                <a class="nav-link" href="{{route('contactanos')}}">Contactanos</a>
             </li>
         </ul>
     </div>

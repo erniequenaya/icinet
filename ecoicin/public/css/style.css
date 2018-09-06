@@ -9,7 +9,7 @@ html,
 body {
     margin: 0;
     font-size: 100%;
-    font-family: 'Dosis', sans-serif;
+    font-family: "Dosis";
     background: #fff;
 }
 
@@ -1685,8 +1685,6 @@ a.b-home:hover {
 }
 
 ul.links {
-    float: left;
-    width: 50%;
 }
 
 .contact-info h4 {

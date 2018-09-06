@@ -17,11 +17,20 @@
 
               <div class="mid-info mt-5">
                 <h4 class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h4>
-                <br>
               </div>
 
               <div class="mid-info mt-5">
                 <div class="container">
+                  <fieldset class="form-group">
+                    <label for="tipo_proyecto"><b>Filtrar por</b></label>
+                      <select class="form-control" id="tipo_proyecto">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                  </fieldset>
                     @for ($i=0; $i < 3; $i++)
                       <div class="row populor_category_grids mt-5">
                           <div class="col-md-4 category_grid">

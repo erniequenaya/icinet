@@ -14,17 +14,31 @@
                         <a href="{{route('index')}}">Inicio</a>
                     </li>
                     <li>
-                        <a href="http://www.uta.cl/">Universidad de Tarapaca</a>
+                        <a href="{{route('quienes_somos')}}">¿Quienes somos?</a>
                     </li>
                     <li>
-                        <a href="https://web.facebook.com/ICINiqq/?fb_dtsg_ag=Ady-BcrhmdIt2UEr-RrZ77kR3BCkE4n8orBVf-rQefAr1w%3AAdy8iZgsgtPPO2NZQlCU_VPpIfAHaMYb3rJv7Rpc0cf5zQ">Facebook ICIN</a>
+                        <a href="{{route('trabajamos_para_usted')}}">Trabajamos para usted</a>
+                    </li>
+                    <li>
+                        <a href="{{route('repositorio')}}">Repositorio</a>
+                    </li>
+                    <li>
+                        <a href="{{route('contactanos')}}">Contactanos</a>
+                    </li>
+                    <li>
+                        <a href="http://www.uta.cl/" target="_blank">Universidad de Tarapaca</a>
+                    </li>
+                    <li>
+                        <a href="https://web.facebook.com/ICINiqq/?fb_dtsg_ag=Ady-BcrhmdIt2UEr-RrZ77kR3BCkE4n8orBVf-rQefAr1w%3AAdy8iZgsgtPPO2NZQlCU_VPpIfAHaMYb3rJv7Rpc0cf5zQ" target="_blank">Facebook ICIN</a>
                     </li>
                 </ul>
                 <div class="clearfix"></div>
             </div>
 
             <div class="col footer-grid-wthree-w3ls">
-              <iframe alt="Ubicación de la universidad" class="mx-auto d-block" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3743.6125652311152!2d-70.14336828569223!3d-20.23341458643461!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9152140bbd111c49%3A0x274752c1063473c4!2sUniversidad+de+Tarapac%C3%A1+Sede+Esmeralda!5e0!3m2!1ses-419!2scl!4v1536207178551" width="300" height="225" frameborder="0" style="border:0"></iframe>
+              <div class="">
+                <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=2&amp;bgcolor=%23FFFFFF&amp;src=2icpl7rs955s8ebga4smimncro%40group.calendar.google.com&amp;color=%238C500B&amp;src=es.cl%23holiday%40group.v.calendar.google.com&amp;color=%23125A12&amp;ctz=America%2FSantiago" style="border-width:0" width="400" height="300" frameborder="0" scrolling="no"></iframe>
+              </div>
             </div>
         </div>
         <div class="copyright mt-4">
@@ -41,3 +55,7 @@
 @include('include/login')
 
 @include('include/register')
+
+@include('include/completar_solicitud')
+
+@include('include/responder_solicitud')

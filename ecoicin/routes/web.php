@@ -30,3 +30,9 @@ Route::get('/repositorio', function () {
 Route::get('/contactanos', function () {
     return view('contactanos');
 })->name('contactanos');
+
+/* Jefatura */
+
+Route::get('/empresas', function () {
+    return view('empresas');
+})->name('empresas');

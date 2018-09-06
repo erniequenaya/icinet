@@ -22,3 +22,17 @@ Route::get('/quienes_somos', function () {
 Route::get('/trabajamos_para_usted', function () {
     return view('trabajamos_para_usted');
 })->name('trabajamos_para_usted');
+
+Route::get('/repositorio', function () {
+    return view('repositorio');
+})->name('repositorio');
+
+Route::get('/contactanos', function () {
+    return view('contactanos');
+})->name('contactanos');
+
+/* Jefatura */
+
+Route::get('/empresas', function () {
+    return view('empresas');
+})->name('empresas');

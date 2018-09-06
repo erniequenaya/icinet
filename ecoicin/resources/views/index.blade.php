@@ -40,15 +40,15 @@
                               </li>
 
                               <li class="nav-item {{(request()->route()->getName() == 'trabajamos_para_usted') ? 'active' : ''}}">
-                                  <a class="nav-link" href="">Trabajamos para usted</a>
+                                  <a class="nav-link" href="{{route('trabajamos_para_usted')}}">Trabajamos para usted</a>
                               </li>
 
                               <li class="nav-item">
-                                  <a class="nav-link {{(request()->route()->getName() == 'repositorio') ? 'active' : ''}}" href="how.html">Repositorio</a>
+                                  <a class="nav-link {{(request()->route()->getName() == 'repositorio') ? 'active' : ''}}" href="{{route('repositorio')}}">Repositorio</a>
                               </li>
 
                               <li class="nav-item {{(request()->route()->getName() == 'contactanos') ? 'active' : ''}}">
-                                  <a class="nav-link" href="how.html">Contactanos</a>
+                                  <a class="nav-link" href="{{route('contactanos')}}">Contactanos</a>
                               </li>
                           </ul>
                       </div>
@@ -59,9 +59,9 @@
           <div class="banner-info-w3layouts text-center">
               <img src="{{asset('images/logo_icin.png')}}" style="width: 30%; height: auto;" alt="Ingenieria Civil en Informatica">
               <h3>
-                  <span>La computación y la tecnología son parte de nuestras vidas.</span> .
+                  <span>La computación y la tecnología son parte de nuestras vidas.</span>
               </h3>
-              <p>Crear soluciones en este nuevo mundo sin fronteras..</p>
+              <p>Crear soluciones en este nuevo mundo sin fronteras.</p>
           </div>
           <!--//banner-info-w3layouts-->
       </div>
@@ -134,7 +134,7 @@
               <div class="mid-info text-center pt-3">
                   <h3 class="tittle text-center cen mb-lg-5 mb-3">¿Necesita una solucion informatica?</h3>
                   <div class="resume">
-                      <a href="#" data-toggle="modal" data-target="#exampleModalCenter2"></i>Envienos su problema</a>
+                      <a href="{{route('trabajamos_para_usted')}}"></i>Envienos su problema</a>
                   </div>
               </div>
 
@@ -153,32 +153,12 @@
                       <div class="card">
                           <div class="card-body">
                               <div class="member-img">
-                                  <img src="images/team1.jpg" alt=" " class="img-fluid rounded-circle">
+                                  <img src="{{asset('images/jefe_carrera.png')}}" alt="Jefe de carrera" class="img-fluid rounded-circle">
                               </div>
                               <div class="member-info text-center py-lg-4 py-2">
-                                  <h4>Mark Jackman</h4>
+                                  <h4>Jorgue Diaz Ramirez</h4>
 
-                                  <p class="my-4"> Aenean orci erat, placerat id pulvinar nec, tincidunt vel eros.</p>
-                                  <div class="mt-3 team-social text-center">
-
-                                      <ul class="social-icons text-center">
-                                          <li>
-                                              <a href="#">
-                                                  <i class="fab fa-facebook-f"></i>
-                                              </a>
-                                          </li>
-                                          <li class="mx-3">
-                                              <a href="#">
-                                                  <i class="fab fa-twitter"></i>
-                                              </a>
-                                          </li>
-                                          <li>
-                                              <a href="#">
-                                                  <i class="fab fa-google-plus-g"></i>
-                                              </a>
-                                          </li>
-                                      </ul>
-                                  </div>
+                                  <p class="my-4">Jefe Carrera IECI-ICIN Universidad de Tarapacá, EUIIIS Iquique-Chile</p>
                               </div>
                           </div>
                       </div>

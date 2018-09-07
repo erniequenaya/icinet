@@ -36,3 +36,13 @@ Route::get('/contactanos', function () {
 Route::get('/empresas', function () {
     return view('empresas');
 })->name('empresas');
+
+Route::get('/graficos_solicitudes', function () {
+    return view('graficos_solicitudes');
+})->name('graficos_solicitudes');
+
+/* Administrador */
+
+Route::get('/administracion', function () {
+    return view('administracion');
+})->name('administracion');

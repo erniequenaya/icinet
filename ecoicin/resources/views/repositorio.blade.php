@@ -13,6 +13,12 @@
   <section class="banner-bottom-wthree">
       <div class="container">
           <div class="inner-sec-w3ls py-lg-5   py-md-3 py-3">
+            <button class="btn btn-primary btn-block" type="button" data-toggle="modal" data-target="#añadir_proyecto">
+              <i class="fas fa-plus" aria-hidden></i> &nbsp; Añadir proyecto
+            </button>
+
+            <br>
+
               <h3 class="tittle text-center mb-lg-5 mb-3">Repositorio</h3>
 
               <div class="mid-info mt-5">
@@ -112,5 +118,4 @@
           </div>
       </div>
   </section>
-
 @endsection

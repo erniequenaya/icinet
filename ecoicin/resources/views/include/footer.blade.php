@@ -52,10 +52,18 @@
 
 <!--model-forms-->
 
-@include('include/login')
+@include('modals/login')
 
-@include('include/register')
+@include('modals/register')
 
-@include('include/completar_solicitud')
+@include('modals/completar_solicitud')
 
-@include('include/responder_solicitud')
+@include('modals/responder_solicitud')
+
+@include('modals/añadir_proyecto')
+
+@include('modals/modificar_area_informatica')
+
+@include('modals/modificar_tipo_solicitud')
+
+@include('modals/modificar_usuario')

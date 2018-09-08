@@ -15,7 +15,6 @@
                           </div>
                         </div>
                       @endunless
-                      {{auth()->guard()->user()->rut_usuario}}
 
                       @unless (Auth::check())
                         <div class="row">

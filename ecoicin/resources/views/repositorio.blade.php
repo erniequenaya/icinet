@@ -119,3 +119,9 @@
       </div>
   </section>
 @endsection
+
+@section('script')
+  <script type="text/javascript">
+    
+  </script>
+@endsection

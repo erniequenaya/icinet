@@ -19,9 +19,10 @@ Route::get('/quienes_somos', function () {
     return view('quienes_somos');
 })->name('quienes_somos');
 
-Route::get('/trabajamos_para_usted', function () {
-    return view('trabajamos_para_usted');
-})->name('trabajamos_para_usted');
+Route::get('/trabajamos_para_usted', 'SeccionEmpresaController@create')->name('trabajamos_para_usted');
+Route::post('/ingresar_solicitud', 'SeccionEmpresaController@store')->name('ingresar_solicitud');
+Route::get('/empresa/{rut_empresa}', 'SeccionEmpresaController@comprobarEmpresa');
+Route::get('/consultar_solicitud/{codigo_seguimiento}', 'SeccionEmpresaController@consultarSolicitud');
 
 Route::get('/repositorio', function () {
     return view('repositorio');
@@ -41,8 +42,18 @@ Route::get('/graficos_solicitudes', function () {
     return view('graficos_solicitudes');
 })->name('graficos_solicitudes');
 
+Route::get('/encuestas', function () {
+    return view('encuestas');
+})->name('encuestas');
+
+Route::get('/proyectos', function () {
+    return view('proyectos');
+})->name('proyectos');
+
 /* Administrador */
 
 Route::get('/administracion', function () {
     return view('administracion');
 })->name('administracion');
+
+Route::post('/login', 'Auth\LoginController@login')->name('login');

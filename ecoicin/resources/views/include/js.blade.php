@@ -1,6 +1,6 @@
 <!-- js -->
 <!--/slider-->
-<script src="js/jquery-2.2.3.min.js"></script>
+<script src="js/jquery.js"></script>
 <script src="js/modernizr-2.6.2.min.js"></script>
 <script src="js/jquery.zoomslider.min.js"></script>
 

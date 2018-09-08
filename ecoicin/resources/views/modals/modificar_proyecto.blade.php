@@ -1,5 +1,5 @@
 <!--/Login-->
-<div class="modal fade" id="añadir_proyecto" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="modificar_proyecto" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header text-center">
@@ -10,8 +10,9 @@
             <div class="modal-body">
 
                 <div class="login px-4 mx-auto mw-100">
-                    <h5 class="text-center mb-4">Añadir proyecto</h5>
-                    <form action="{{route('repositorio')}}" method="get">
+                    <h5 class="text-center mb-4">Modificar proyecto</h5>
+                    <h5 class="text-center">"Nombre"</h5>
+                    <form action="{{route('proyectos')}}" method="get">
                       <fieldset class="form-group">
                         <label class="mb-2">Nombre proyecto: </label>
                         <input name="nombre_proyecto" type="text" class="form-control" placeholder="" required="">
@@ -40,12 +41,12 @@
 
                       <fieldset class="form-group">
                         <label for="exampleFormControlFile1">Documento N°1</label>
-                        <input type="file" class="form-control-file">
+                        <input type="file" class="form-control-file" >
                       </fieldset>
 
                       <fieldset class="form-group">
                         <label for="exampleFormControlFile1">Documento N°2</label>
-                        <input type="file" class="form-control-file">
+                        <input type="file" class="form-control-file" >
                       </fieldset>
 
                       <button type="submit" class="btn btn-primary submit mb-4 mx-auto d-block">Completar</button>

@@ -79,3 +79,7 @@
       </div>
   </section>
 @endsection
+
+@section('script')
+  <script type="text/javascript" src="{{asset('js/Chart/dist/Chart.bundle.min.js')}}"></script>
+@endsection

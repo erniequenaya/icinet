@@ -6,13 +6,26 @@
           <div class="header-top">
               <header>
                   <div class="top-head ml-lg-auto text-center">
-                      <div class="row">
-                        <div class="col-md-12 float-right">
+                      @unless (!Auth::check())
+
+                        <div class="row">
+                          <div class="col-md-12 float-right">
+                              <a href="{{route('logout')}}">
+                                  <i class="fas fa-lock"></i> Cerrar sesión</a>
+                          </div>
+                        </div>
+                      @endunless
+                      {{auth()->guard()->user()->rut_usuario}}
+
+                      @unless (Auth::check())
+                        <div class="row">
+                          <div class="col-md-12 float-right">
 
                             <a href="#" data-toggle="modal" data-target="#exampleModalCenter">
-                                <i class="fas fa-lock"></i> Iniciar sesión</a>
-                        </div>
-                      </div>
+                              <i class="fas fa-lock"></i> Iniciar sesión</a>
+                            </div>
+                          </div>
+                      @endunless
                   </div>
                   <div class="clearfix"></div>
                   <nav class="navbar navbar-expand-lg navbar-light">
@@ -30,22 +43,22 @@
 
                       <div class="collapse navbar-collapse" id="navbarSupportedContent">
                           <ul class="navbar-nav ml-lg-auto text-center">
-                              <li class="nav-item {{(request()->route()->getName() == 'index') ? 'active' : ''}}">
+                              <li class="nav-item {{(request()->route()->getName() == 'index') ? 'active-navbar' : ''}}">
                                   <a class="nav-link" href="{{route('index')}}">Inicio
                                       <span class="sr-only">(current)</span>
                                   </a>
                               </li>
 
-                              <li class="nav-item {{(request()->route()->getName() == 'quienes_somos') ? 'active' : ''}}">
+                              <li class="nav-item {{(request()->route()->getName() == 'quienes_somos') ? 'active-navbar' : ''}}">
                                   <a class="nav-link" href="{{route('quienes_somos')}}">¿Quienes somos?</a>
                               </li>
 
-                              <li class="nav-item {{(request()->route()->getName() == 'trabajamos_para_usted') ? 'active' : ''}}">
+                              <li class="nav-item {{(request()->route()->getName() == 'trabajamos_para_usted') ? 'active-navbar' : ''}}">
                                   <a class="nav-link" href="{{route('trabajamos_para_usted')}}">Trabajamos para usted</a>
                               </li>
 
                               <li class="nav-item">
-                                  <a class="nav-link {{(request()->route()->getName() == 'repositorio') ? 'active' : ''}}" href="{{route('repositorio')}}">Repositorio</a>
+                                  <a class="nav-link {{(request()->route()->getName() == 'repositorio.index') ? 'active-navbar' : ''}}" href="{{route('repositorio.index')}}">Repositorio</a>
                               </li>
 
                               <li class="nav-item {{(request()->route()->getName() == 'contactanos') ? 'active' : ''}}">

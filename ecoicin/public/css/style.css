@@ -2497,3 +2497,27 @@ ul.links li a:hover {
   width: 100%;
   height: 100%;
 }
+
+.btn{
+  background-color: #678FCA;
+}
+
+.btn-primary{
+  background-color: #678FCA;
+}
+
+.btn:hover{
+  background-color: #446BA9;
+}
+
+.btn-primary:hover{
+  background-color: #446BA9;
+}
+
+.active-navbar{
+  background-color: #22213F;
+}
+
+.bg-primary{
+  background-color: #678FCA;
+}

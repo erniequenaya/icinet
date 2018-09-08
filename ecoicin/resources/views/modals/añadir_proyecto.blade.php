@@ -11,41 +11,40 @@
 
                 <div class="login px-4 mx-auto mw-100">
                     <h5 class="text-center mb-4">Añadir proyecto</h5>
-                    <form action="{{route('repositorio')}}" method="get">
+                    <form id="form_ingresar_proyecto" enctype="multipart/form-data" action="{{route('repositorio.store')}}" method="post">
+                      {{ csrf_field() }}
                       <fieldset class="form-group">
                         <label class="mb-2">Nombre proyecto: </label>
                         <input name="nombre_proyecto" type="text" class="form-control" placeholder="" required="">
                       </fieldset>
 
                       <fieldset class="form-group">
-                        <label class="mb-2">Año: </label>
-                        <input name="fecha_creacion" type="date" class="form-control" placeholder="" required="">
-                      </fieldset>
-
-                      <fieldset class="form-group">
                         <label class="mb-2">Autores: </label>
-                        <input name="autores" type="text" class="form-control" placeholder="" required="">
+                        <input name="autores_proyecto" type="text" class="form-control" placeholder="" required="">
                       </fieldset>
 
                       <fieldset class="form-group">
                         <label for="tipo_proyecto"><b>Area Informatica</b></label>
-                          <select class="form-control">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                          <select class="form-control" name="tipo_proyecto">
+                            @foreach ($tipo_proyecto as $tipo)
+                              <option value="{{$tipo->id_tipo_proyecto}}">{{$tipo->nombre_tipo_proyecto}}</option>
+                            @endforeach
                           </select>
                       </fieldset>
 
                       <fieldset class="form-group">
+                        <label class="mb-2">Año: </label>
+                        <input name="fecha_proyecto" type="date" class="form-control" placeholder="" required="">
+                      </fieldset>
+
+                      <fieldset class="form-group">
                         <label for="exampleFormControlFile1">Documento N°1</label>
-                        <input type="file" class="form-control-file">
+                        <input type="file" name="informe_proyecto" class="form-control-file">
                       </fieldset>
 
                       <fieldset class="form-group">
                         <label for="exampleFormControlFile1">Documento N°2</label>
-                        <input type="file" class="form-control-file">
+                        <input type="file" name="presentacion_proyecto" class="form-control-file">
                       </fieldset>
 
                       <button type="submit" class="btn btn-primary submit mb-4 mx-auto d-block">Completar</button>

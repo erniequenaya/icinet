@@ -13,83 +13,62 @@
   <section class="banner-bottom-wthree">
       <div class="container">
           <div class="inner-sec-w3ls py-lg-5   py-md-3 py-3">
-            <button class="btn btn-primary btn-block" type="button" data-toggle="modal" data-target="#añadir_proyecto">
-              <i class="fas fa-plus" aria-hidden></i> &nbsp; Añadir proyecto
-            </button>
 
-            <br>
-
+            @if (isset($mensaje))
+              {{$mensaje}}
+            @endif
               <h3 class="tittle text-center mb-lg-5 mb-3">Repositorio</h3>
 
               <div class="mid-info mt-5">
                 <h4 class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h4>
               </div>
-
               <div class="mid-info mt-5">
+                <button class="btn btn-primary btn-block" type="button" data-toggle="modal" data-target="#añadir_proyecto">
+                  <i class="fas fa-plus" aria-hidden></i> &nbsp; Añadir proyecto
+                </button><br>
                 <div class="container">
+                @empty ($proyectos)
                   <fieldset class="form-group">
                     <label for="tipo_proyecto"><b>Filtrar por</b></label>
-                      <select class="form-control" id="tipo_proyecto">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                      </select>
+                    <select class="form-control" id="tipo_proyecto">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
                   </fieldset>
-                    @for ($i=0; $i < 3; $i++)
+                  @endempty
+                  @forelse ($proyectos as $proyecto)
+                    @if ($cont % 2 == 0)
                       <div class="row populor_category_grids mt-5">
-                          <div class="col-md-4 category_grid">
-                              <div class="view view-tenth">
-                                  <div class="category_text_box">
-                                      <i class="fas fa-bullhorn"></i>
-                                      <h3> Multimedia</h3>
-                                      <p>(34 open flow-positions)</p>
-                                  </div>
-                                  <div class="mask">
-                                      <a href="#">
-                                          <img src="images/p1.jpg" class="img-fluid" alt="">
-                                      </a>
-                                  </div>
-                              </div>
-                              <br>
-                              <h4 class="text-center">Esta es una pequeña explicacion del proyecto</h4>
-                          </div>
-                          <div class="col-md-4 category_grid">
-                              <div class="view view1 view-tenth">
-                                  <div class="category_text_box">
-                                      <i class="fas fa-graduation-cap"></i>
-                                      <h3>Education</h3>
-                                      <p>(22 open flow-positions)</p>
-                                  </div>
-                                  <div class="mask">
-                                      <a href="#">
-                                          <img src="images/p2.jpg" class="img-fluid" alt="">
-                                      </a>
-                                  </div>
-                              </div>
-                              <br>
-                              <h4 class="text-center">Esta es una pequeña explicacion del proyecto</h4>
-                          </div>
-
-                          <div class="col-md-4 category_grid">
+                    @endif
+                          <div class="col-md-6 category_grid">
                               <div class="view view3 view-tenth">
                                   <div class="category_text_box">
                                       <i class="fas fa-users"></i>
-                                      <h3>Human Resource</h3>
-                                      <p>(4 open flow-positions)</p>
+                                      <h3>{{$proyecto->nombre_proyecto}}</h3>
+                                      <p>{{$proyecto->autores_proyecto}}</p>
                                   </div>
                                   <div class="mask">
                                       <a href="#">
-                                          <img src="images/p4.jpg" class="img-fluid" alt="">
+                                          <img src="images/1.jpg" class="img-fluid" alt="">
                                       </a>
                                   </div>
                               </div>
                               <br>
-                              <h4 class="text-center">Esta es una pequeña explicacion del proyecto</h4>
+                              <div class="row container mx-auto d-block"><a target='_blank' href="/ver_documento/{{$proyecto->informe()}}"><button class="col-5 btn btn-primary" type="button" name="button">Ver Informe</button></a><a href="/descargar_documento/{{$proyecto->informe()}}"><button class="col-5 offset-2 btn btn-primary" type="button" name="button">Descargar Informe</button></a></div>
+                              &nbsp;<div class="row container mx-auto d-block"><a target='_blank' href="/ver_documento/{{$proyecto->presentacion()}}"><button class="col-5 btn btn-primary" type="button" name="button">Ver Presentacion</button></a><a href="/descargar_documento/{{$proyecto->presentacion()}}"><button class="col-5 offset-2 btn btn-primary" type="button" name="button">Descargar Presentacion</button></a></div>
                           </div>
+                      @if ($cont % 2 != 0)
                       </div>
-                    @endfor
+                      @endif
+                      @php
+                        $cont++;
+                      @endphp
+                    @empty
+                      <h3 class="tittle text-center mb-lg-5 mb-3">No se han encontrado proyectos aun.</h3>
+                    @endforelse
                 </div>
               </div>
 
@@ -118,10 +97,17 @@
           </div>
       </div>
   </section>
+
+  @include('modals/añadir_proyecto')
 @endsection
 
 @section('script')
   <script type="text/javascript">
-    
+    /*$(document).on('click', '.ver', function(){
+      var documento = $(this).attr('id');
+
+
+    });*/
+
   </script>
 @endsection

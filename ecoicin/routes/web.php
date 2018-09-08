@@ -24,9 +24,9 @@ Route::post('/ingresar_solicitud', 'SeccionEmpresaController@store')->name('ingr
 Route::get('/empresa/{rut_empresa}', 'SeccionEmpresaController@comprobarEmpresa');
 Route::get('/consultar_solicitud/{codigo_seguimiento}', 'SeccionEmpresaController@consultarSolicitud');
 
-Route::get('/repositorio', function () {
-    return view('repositorio');
-})->name('repositorio');
+Route::resource('repositorio', 'RepositorioController');
+Route::get('/ver_documento/{documento}', 'RepositorioController@verDocumento');
+Route::get('/descargar_documento/{documento}', 'RepositorioController@descargarDocumento');
 
 Route::get('/contactanos', function () {
     return view('contactanos');
@@ -57,3 +57,4 @@ Route::get('/administracion', function () {
 })->name('administracion');
 
 Route::post('/login', 'Auth\LoginController@login')->name('login');
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');

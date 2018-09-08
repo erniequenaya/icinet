@@ -11,14 +11,15 @@
 
                 <div class="login px-4 mx-auto mw-100">
                     <h5 class="text-center mb-4">Iniciar sesión</h5>
-                    <form action="#" method="post">
+                    <form action="{{route('login')}}" method="post">
+                      {{ csrf_field() }}
                         <div class="form-group">
                             <label class="mb-2">Nombre de usuario: </label>
-                            <input name="rut_usuario" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="">
+                            <input name="rut_usuario" type="text" class="form-control" aria-describedby="emailHelp" placeholder="" required="">
                         </div>
                         <div class="form-group">
                             <label class="mb-2">Contraseña: </label>
-                            <input name="clave_usuario" type="password" class="form-control" id="exampleInputPassword1" placeholder="" required="">
+                            <input name="password" type="password" class="form-control" placeholder="" required="">
                         </div>
                         <!--<div class="form-check mb-2">
                             <input type="checkbox" class="form-check-input" id="exampleCheck1">

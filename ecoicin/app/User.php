@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\TipoUsuario;
 
 class User extends Authenticatable
 {
@@ -28,4 +29,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function tipo_usuario(){
+      return $this->belongsTo(TipoUsuario::class, 'tipo_usuario_id', 'id_tipo_usuario');
+    }
 }

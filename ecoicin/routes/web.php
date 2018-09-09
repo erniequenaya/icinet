@@ -52,9 +52,9 @@ Route::get('/proyectos', function () {
 
 /* Administrador */
 
-Route::get('/administracion', function () {
-    return view('administracion');
-})->name('administracion');
+Route::get('/administracion', 'AdministracionController@index')->name('administracion');
+
+Route::post('/ingresar/usuario', 'AdministracionController@ingresar_usuario')->name('ingresar_usuario');
 
 Route::post('/login', 'Auth\LoginController@login')->name('login');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');

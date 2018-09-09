@@ -9,7 +9,7 @@ html,
 body {
     margin: 0;
     font-size: 100%;
-    font-family: "Dosis";
+    font-family: 'Dosis', sans-serif;
     background: #fff;
 }
 
@@ -93,6 +93,11 @@ a.navbar-brand {
 
 li.nav-item {
     margin: 0 1px;
+}
+
+li.nav-item:hover {
+    margin: 0 1px;
+    background-color: #22213F;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -1035,7 +1040,7 @@ li.breadcrumb-item {
 }
 
 li.breadcrumb-item a {
-    color: #ec1c24;
+    color: #C9631F;
     text-shadow: 1px 1px 2px #252424;
 }
 
@@ -2518,6 +2523,10 @@ ul.links li a:hover {
   background-color: #22213F;
 }
 
+.active-breadcrumb{
+    background-color: #DEB01F;
+}
+
 .bg-primary{
-  background-color: #678FCA;
+  background-color: #fff;
 }

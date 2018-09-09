@@ -54,10 +54,4 @@
 
 @include('modals/responder_solicitud')
 
-@include('modals/modificar_area_informatica')
-
-@include('modals/modificar_tipo_solicitud')
-
-@include('modals/modificar_usuario')
-
 @include('modals/modificar_proyecto')

@@ -1,6 +1,5 @@
-
   <div class="page-content">
-      <div>
+      <div>}
           <div class="header-top">
               <header>
                 <div class="top-head ml-lg-auto text-center">

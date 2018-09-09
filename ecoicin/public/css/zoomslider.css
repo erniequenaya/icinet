@@ -50,8 +50,8 @@
     background-color: #fff;
 }
 .zs-enabled .zs-slideshow .zs-bullets .zs-bullet.active {
-    background: #2529d8;
-    border: 2px solid #2529d8;
+    background: #22213F;
+    border: 2px solid #22213F;
 }
 .zs-enabled .zs-slideshow:after {
     content: " ";

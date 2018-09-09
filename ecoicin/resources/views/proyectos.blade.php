@@ -28,5 +28,5 @@
           </div>
       </div>
   </section>
-
+@include('modals/añadir_proyecto')
 @endsection

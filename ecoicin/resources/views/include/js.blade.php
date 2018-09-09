@@ -1,14 +1,17 @@
 <!-- js -->
 <!--/slider-->
-<script src="js/jquery-2.2.3.min.js"></script>
-<script src="js/modernizr-2.6.2.min.js"></script>
-<script src="js/jquery.zoomslider.min.js"></script>
+<script src="{{asset('js/jquery-2.2.3.min.js')}}"></script>
+<script src="{{asset('js/modernizr-2.6.2.min.js')}}"></script>
+<script src="{{asset('js/jquery.zoomslider.min.js')}}"></script>
 
 <!--//slider-->
-<!--search jQuery-->
-<script src="js/classie-search.js"></script>
-<script src="js/demo1-search.js"></script>
-<!--//search jQuery-->
+<!--search jQuery-
+<script src="{{asset('js/classie-search.js')}}"></script>
+<script src="{{asset('js/demo1-search.js')}}"></script>
+//search jQuery-->
+
+<script src="{{asset('js/jquery.datables.min.js')}}" charset="utf-8"></script>
+<script src="{{asset('js/datatables.bootstrap.min.js')}}" charset="utf-8"></script>
 
 <script>
     $(document).ready(function() {
@@ -84,5 +87,16 @@
 
     });
 
+
+    $(document).ready(function() {
+      $('.data_table').DataTable({
+        "language": {
+          "url": "{{asset('js/datatables_esp.json')}}"
+        },
+        "lengthChange": false,
+        "pageLength": 5
+
+      });
+    });
 </script>
 <!--// end-smoth-scrolling -->

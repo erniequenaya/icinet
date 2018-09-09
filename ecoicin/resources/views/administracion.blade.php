@@ -80,9 +80,10 @@
 
                   <div class="collapse" id="ingresar_area_informatica">
                     <div class="card card-body">
-                      <form>
+                      <form action="{{route('ingresar_tipo_area')}}" method="post">
+                        {{ csrf_field() }}
                         <fieldset class="form-group">
-                          <label for="rut_empresa">Nombre Area Informatica</label>
+                          <label>Nombre Area Informatica</label>
                           <input name="nombre_area" type="text" class="form-control" id="nombre_area" placeholder="">
                         </fieldset>
                         <button type="submit" class="btn btn-primary mx-auto d-block">Añadir</button>
@@ -103,10 +104,11 @@
 
                     <div class="collapse" id="ingresar_tipo_solicitud">
                       <div class="card card-body">
-                        <form>
+                        <form action="{{route('ingresar_tipo_proyecto')}}" method="post">
+                          {{ csrf_field() }}
                           <fieldset class="form-group">
                             <label for="rut_empresa">Nombre Tipo Soliciutud</label>
-                            <input name="nombre_tipo_solicitud" type="text" class="form-control" id="nombre_tipo_solicitud" placeholder="">
+                            <input name="nombre_tipo_proyecto" type="text" class="form-control" placeholder="">
                           </fieldset>
                           <button type="submit" class="btn btn-primary mx-auto d-block">Añadir</button>
                         </form>

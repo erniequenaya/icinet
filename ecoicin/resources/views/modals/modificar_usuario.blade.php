@@ -11,27 +11,41 @@
 
                 <div class="login px-4 mx-auto mw-100">
                     <h5 class="text-center mb-4">Modificiar Usuario</h5>
-                    <h5 class="text-center">"Nombre"</h5>
-                    <form action="{{route('administracion')}}" method="get">
+                    <form action='' method="post">
+                      {{ csrf_field() }}
+                      <input type="hidden" name="id_usuario" value="">
                       <fieldset class="form-group">
-                        <label for="rut_empresa">Nombre de usuario</label>
-                        <input name="nombre_usuario" type="text" class="form-control" id="nombre_usuario" placeholder="">
+                        <label>RUT</label>
+                        <input type="text" class="form-control" name="rut_usuario" placeholder="">
+                      </fieldset>
+
+                      <fieldset class="form-group">
+                        <label >Contraseña</label>
+                        <input type="password" class="form-control" name="password" placeholder="">
+                      </fieldset>
+
+                      <fieldset class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" class="form-control" name="nombre_usuario" placeholder="">
                       </fieldset>
                       <fieldset class="form-group">
-                        <label for="rut_empresa">Contraseña</label>
-                        <input name="password" type="text" class="form-control" id="password" placeholder="">
+                        <label >Apellido</label>
+                        <input type="text" class="form-control" name="apellido_usuario" placeholder="">
                       </fieldset>
                       <fieldset class="form-group">
-                        <label for="rubro_empresa">Tipo usuario</label>
-                          <select class="form-control" id="rubro_empresa">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                        <label>Email</label>
+                        <input type="text" class="form-control" name="email_usuario" placeholder="">
+                      </fieldset>
+
+                      <fieldset class="form-group">
+                        <label>Tipo usuario</label>
+                          <select class="form-control" name="tipo_usuario">
+                            @foreach ($tipo_usuario as $tipo)
+                              <option value="{{$tipo->id_tipo_usuario}}">{{$tipo->nombre_tipo_usuario}}</option>
+                            @endforeach
                           </select>
                       </fieldset>
-                          <button type="submit" class="btn btn-primary submit mb-4 mx-auto d-block">Completar</button>
+                      <button type="submit" class="btn btn-primary mx-auto d-block">Añadir</button>
                     </form>
                 </div>
             </div>

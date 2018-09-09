@@ -50,8 +50,4 @@
 
 @include('modals/register')
 
-@include('modals/completar_solicitud')
-
-@include('modals/responder_solicitud')
-
 @include('modals/modificar_proyecto')

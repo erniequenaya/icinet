@@ -7,6 +7,8 @@ use App\Solicitud;
 use App\Empresa;
 use App\Rubro;
 use App\TipoEstado;
+use App\TipoProyecto;
+use App\TipoAreaInformatica;
 
 class SeccionEmpresaController extends Controller
 {
@@ -74,15 +76,47 @@ class SeccionEmpresaController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+    public function listarSolicitudes(){
+
+      $solicitudes = Solicitud::all();
+      $tipo_proyecto = TipoProyecto::all();
+      $tipo_area_informatica = TipoAreaInformatica::all();
+      $tipo_estado = TipoEstado::all();
+
+      return view('empresas', compact('solicitudes', 'tipo_proyecto', 'tipo_area_informatica', 'tipo_estado'));
+    }
+
+    public function obtenerSolicitud($solicitud){
+      $solicitud = Solicitud::where('id_solicitud', $solicitud)->first();
+
+      $nombre_empresa = $solicitud->empresa->nombre_empresa;
+
+      $solicitud = $solicitud->id_solicitud;
+
+      return compact('solicitud', 'nombre_empresa');
+
+    }
+
+    public function completarSolicitud(Request $request){
+      $solicitud = $request->id_solicitud;
+      $tipo_area_informatica_id = $request->tipo_area;
+      $tipo_proyecto_id = $request->tipo_proyecto;
+      $parm_solicitud = compact('tipo_area_informatica_id', 'tipo_proyecto_id');
+      $rs = Solicitud::where('id_solicitud', $solicitud)->update($parm_solicitud);
+      if ($rs) {
+        return back();
+      }
+    }
+
+    public function responderSolicitud(Request $request){
+      $solicitud = $request->id_solicitud;
+      $tipo_estado_id = $request->tipo_estado;
+      $tipo_proyecto_id = $request->razon_estado;
+      $parm_solicitud = compact('tipo_estado_id', 'razon_estado');
+      $rs = Solicitud::where('id_solicitud', $solicitud)->update($parm_solicitud);
+      if ($rs) {
+        return back();
+      }
     }
 
     /**

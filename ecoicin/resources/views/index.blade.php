@@ -6,25 +6,25 @@
           <div class="header-top">
               <header>
                   <div class="top-head ml-lg-auto text-center">
-                      @unless (!Auth::check())
-
-                        <div class="row">
+                        <!--<div class="row">
                           <div class="col-md-12 float-right">
                               <a href="{{route('logout')}}">
                                   <i class="fas fa-lock"></i> Cerrar sesión</a>
                           </div>
-                        </div>
-                      @endunless
+                        </div>-->
 
-                      @unless (Auth::check())
                         <div class="row">
-                          <div class="col-md-12 float-right">
+                          <div class="col-md-6 float-left">
+
+                            <a class="text-light">
+                              <i class="fas fa-user"></i> {{saludarUsuario()}}</a>
+                          </div>
+                          <div class="col-md-6 float-right">
 
                             <a href="#" data-toggle="modal" data-target="#exampleModalCenter">
                               <i class="fas fa-lock"></i> Iniciar sesión</a>
-                            </div>
                           </div>
-                      @endunless
+                        </div>
                   </div>
                   <div class="clearfix"></div>
                   <nav class="navbar navbar-expand-lg navbar-light">

@@ -17,7 +17,9 @@
 
               <div class="mid-info mt-5">
                 <br>
-
+                <button class="btn btn-primary btn-block" type="button" data-toggle="modal" data-target="#añadir_proyecto">
+                  <i class="fas fa-plus" aria-hidden></i> &nbsp; Añadir proyecto
+                </button><br>
                 @include('tablas/tabla_proyectos')
 
               </div>

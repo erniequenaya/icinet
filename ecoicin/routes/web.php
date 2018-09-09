@@ -34,9 +34,10 @@ Route::get('/contactanos', function () {
 
 /* Jefatura */
 
-Route::get('/empresas', function () {
-    return view('empresas');
-})->name('empresas');
+Route::get('/empresas', 'SeccionEmpresaController@listarSolicitudes')->name('empresas');
+Route::get('/solicitud/{id}', 'SeccionEmpresaController@obtenerSolicitud');
+Route::post('/solicitud/completar', 'SeccionEmpresaController@completarSolicitud')->name('empresas.completar');
+Route::post('/solicitud/responder', 'SeccionEmpresaController@responderSolicitud')->name('empresas.responder');
 
 Route::get('/graficos_solicitudes', function () {
     return view('graficos_solicitudes');
@@ -46,15 +47,15 @@ Route::get('/encuestas', function () {
     return view('encuestas');
 })->name('encuestas');
 
-Route::get('/proyectos', function () {
-    return view('proyectos');
-})->name('proyectos');
+Route::get('/proyectos', 'RepositorioController@listarProyectos')->name('proyectos');
 
 /* Administrador */
 
 Route::get('/administracion', 'AdministracionController@index')->name('administracion');
 
 Route::post('/ingresar/usuario', 'AdministracionController@ingresar_usuario')->name('ingresar_usuario');
+Route::post('/ingresar/area', 'AdministracionController@ingresar_tipo_area')->name('ingresar_tipo_area');
+Route::post('/ingresar/tipo_proyecto', 'AdministracionController@ingresar_tipo_proyecto')->name('ingresar_tipo_proyecto');
 
 Route::post('/login', 'Auth\LoginController@login')->name('login');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');

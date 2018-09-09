@@ -43,14 +43,62 @@ class AdministracionController extends Controller
         }
     }
 
+
     public function ingresar_tipo_area(Request $request)
     {
-        //
+        $tipo_area = new TipoAreaInformatica;
+        $tipo_area->nombre_tipo_area_informatica = $request->nombre_area;
+        $rs_tipo_area = $tipo_area->save();
+
+        if($rs_tipo_area){
+          return back()->with('mensaje', 'exito');
+        }
     }
 
     public function ingresar_tipo_proyecto(Request $request)
     {
-        //
+        $tipo_proyecto = new TipoProyecto;
+        $tipo_proyecto->nombre_tipo_proyecto = $request->nombre_tipo_proyecto;
+        $rs_tipo_proyecto = $tipo_proyecto->save();
+
+        if($rs_tipo_proyecto){
+          return back()->with('mensaje','exito');
+        }
+    }
+
+    public function modificar_usuario(){
+      $usuario = $request->id_usuario;
+      $rut_usuario = $request->rut_usuario;
+      $password = bcrypt($request->password);
+      $nombre_usuario = $request->nombre_usuario;
+      $apellido_usuario = $request->apellido_usuario;
+      $email_usuario = $request->email_usuario;
+      $tipo_usuario_id = $request->tipo_usuario;
+      $parm_usuario = compact('rut_usuario','password','nombre_usuario','apellido_usuario','email_usuario','tipo_usuario_id');
+      $rs = User::where('id_usuario', $usuario)->update($parm_usuario);
+      if ($rs) {
+        return back();
+      }
+    }
+
+    public function modificar_tipo_area(){
+      $id_tipo_area_informatica = $request->id_tipo_area;
+      $nombre_tipo_area_informatica = $request->nombre_area;
+      $parm_tipo_area_informatica = compact('nombre_tipo_area_informatica');
+      $rs = TipoAreaInformatica::where('id_tipo_area_informatica', $id_tipo_area_informatica)->update($parm_tipo_area_informatica);
+      if($rs){
+        return back();
+      }
+    }
+
+    public function modificar_tipo_proyecto(){
+      $id_tipo_proyecto = $request->id_tipo_solicitud;
+      $nombre_tipo_proyecto = $request->nombre_tipo_solicitud;
+      $parm_tipo_proyecto = compact('nombre_tipo_proyecto');
+      $rs = TipoProyecto::where('id_tipo_proyecto',$id_tipo_proyecto)->update($parm_tipo_proyecto);
+      if($rs){
+        return back();
+      }
     }
 
     /**

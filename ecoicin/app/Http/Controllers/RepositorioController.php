@@ -25,6 +25,14 @@ class RepositorioController extends Controller
         return view('repositorio', compact('proyectos', 'tipo_proyecto', 'cont'));
     }
 
+    public function listarProyectos(){
+      $proyectos = Proyecto::all();
+      $tipo_proyecto = TipoProyecto::all();
+      $cont = 2;
+
+      return view('proyectos', compact('proyectos', 'tipo_proyecto', 'cont'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

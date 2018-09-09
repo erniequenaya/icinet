@@ -7,4 +7,4 @@
 <link href="{{asset('css/style6.css')}}" rel='stylesheet' type='text/css' />
 <link href="{{asset('css/style.css')}}" rel='stylesheet' type='text/css' />
 <link href="{{asset('css/fontawesome-all.css')}}" rel="stylesheet" type='text/css'>
-<link href="{{asset('app.css')}}" rel="stylesheet" type='text/css'>
+<link rel="stylesheet" href="{{asset('css/datatables.bootstrap.min.css')}}">

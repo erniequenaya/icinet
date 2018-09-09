@@ -12,7 +12,9 @@
                 <div class="login px-4 mx-auto mw-100">
                     <h5 class="text-center mb-4">Modificiar Area Informatica</h5>
                     <h5 class="text-center">"Nombre"</h5>
-                    <form action="{{route('administracion')}}" method="get">
+                    <form action="{{route('administracion')}}" method="post">
+                      {{csrf_token()}}
+                      <input type="hidden" name="id_tipo_area" value="">
                       <fieldset class="form-group">
                         <label class="mb-2">Nombre area: </label>
                         <input name="nombre_area" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="">

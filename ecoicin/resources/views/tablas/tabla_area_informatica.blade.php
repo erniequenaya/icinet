@@ -1,7 +1,7 @@
 <div class="table-responsive">
       @forelse ($tipo_area_informatica as $tipo_area)
         @if ($loop->first)
-          <table class="table table-striped text-center">
+          <table class="table table-striped text-center data_table">
             <thead class="bg-primary text-light">
               <tr>
                 <th scope="col">Nombre area</th>

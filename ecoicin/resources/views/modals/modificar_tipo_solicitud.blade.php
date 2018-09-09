@@ -10,12 +10,14 @@
             <div class="modal-body">
 
                 <div class="login px-4 mx-auto mw-100">
-                    <h5 class="text-center mb-4">Modificiar Tipo Soliciutd</h5>
+                    <h5 class="text-center mb-4">Modificiar Tipo Solicitud</h5>
                     <h5 class="text-center">"Nombre"</h5>
-                    <form action="{{route('administracion')}}" method="get">
+                    <form action="{{route('administracion')}}" method="post">
+                      {{ csrf_field() }}
+                      <input type="hidden" name="id_tipo_solicitud" value="">
                       <fieldset class="form-group">
                         <label class="mb-2">Nombre Tipo: </label>
-                        <input name="nombre_tipo_soliciutd" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="">
+                        <input name="nombre_tipo_solicitud" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="">
                       </fieldset>
                           <button type="submit" class="btn btn-primary submit mb-4 mx-auto d-block">Completar</button>
                     </form>

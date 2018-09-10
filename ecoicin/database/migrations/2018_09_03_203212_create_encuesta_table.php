@@ -20,9 +20,8 @@ class CreateEncuestaTable extends Migration
             $table->date('fecha_inicio_encuesta');
             $table->date('fecha_termino_encuesta');
             $table->boolean('visible');
-            $table->unsignedInteger('tipo_usuario_id');
+            $table->boolean('solo_alumnos');
             $table->timestamps();
-            $table->foreign('tipo_usuario_id')->references('id_tipo_usuario')->on('tipo_usuario')->onDelete('cascade');
         });
     }
 

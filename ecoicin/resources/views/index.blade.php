@@ -19,11 +19,17 @@
                             <a class="text-light">
                               <i class="fas fa-user"></i> {{saludarUsuario()}}</a>
                           </div>
-                          <div class="col-md-6 float-right">
-
-                            <a href="#" data-toggle="modal" data-target="#exampleModalCenter">
-                              <i class="fas fa-lock"></i> Iniciar sesión</a>
-                          </div>
+                            <div class="col-md-6 float-right">
+                              @guest
+                                <a href="#" data-toggle="modal" data-target="#exampleModalCenter">
+                                  <i class="fas fa-lock"></i> Iniciar sesión</a>
+                                </div>
+                              @endguest
+                              @auth
+                                <a href="{{route('logout')}}">
+                                    <i class="fas fa-lock"></i> Cerrar sesión</a>
+                              @endauth
+                            </div>
                         </div>
                   </div>
                   <div class="clearfix"></div>
@@ -88,51 +94,45 @@
     <div class="container">
       <div class="inner-sec-w3ls py-lg-5  py-3">
     <!---728x90--->
-        <h3 class="tittle text-center mb-lg-4 mb-3">Ultimos proyectos realizados</h3>
-        <!---728x90--->
-          <div class="tabs mt-5">
-              <ul class="nav nav-pills my-4" id="pills-tab" role="tablist">
-                  <li class="nav-item mx-auto d-block">
-                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Proyectos</a>
-                  </li>
-              </ul>
+                         @isset($proyecto)
+                           <h3 class="tittle text-center mb-lg-4 mb-3">Ultimos proyectos realizados</h3>
+                           <!---728x90--->
+                             <div class="tabs mt-5">
+                                 <ul class="nav nav-pills my-4" id="pills-tab" role="tablist">
+                                     <li class="nav-item mx-auto d-block">
+                                       <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Proyectos</a>
+                                     </li>
+                                 </ul>
 
-              <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                  <div class="menu-grids mt-4">
-                    <div class="row t-in">
-                      <div class="col-lg-8 text-info-sec mx-auto d-block">
-                        <!--/job1-->
-                          <div class="job-post-main row">
-                              <div class="col-md-9 job-post-info text-left">
-                                  <div class="job-post-icon">
-                                      <i class="fas fa-briefcase"></i>
+                                 <div class="tab-content" id="pills-tabContent">
+                                   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                                     <div class="menu-grids mt-4">
+                                       <div class="row t-in">
+                                         <div class="col-lg-8 text-info-sec mx-auto d-block">
+                            <div class="row populor_category_grids mt-5">
+                                <div class="col-md-12 category_grid">
+                                    <div class="view view3 view-tenth">
+                                        <div class="category_text_box">
+                                            <i class="fas fa-users"></i>
+                                            <h3>{{$proyecto->nombre_proyecto}}</h3>
+                                            <p>{{$proyecto->autores_proyecto}}</p>
+                                        </div>
+                                        <div class="mask">
+                                            <a href="#">
+                                                <img src="images/1.jpg" class="img-fluid" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
                                   </div>
-
-                                  <div class="job-single-sec">
-                                      <h4><a href="#">User Interface Project Manager</a></h4>
-                                      <p class="my-2">Technology Management Consulting</p>
-                                      <ul class="job-list-info d-flex">
-                                          <li><i class="fas fa-briefcase"></i> Comera</li>
-                                          <li><i class="fas fa-map-marker-alt"></i> California</li>
-                                          <li><i class="fas fa-dollar-sign"></i> 300000 - 500000 / Annum</li>
-                                      </ul>
-                                  </div>
-
-                                  <div class="clearfix"></div>
-
-                              </div>
-
-                              <div class="col-md-3 job-single-time text-right">
-                                  <span class="job-time"><i class="far fa-heart"></i> Full Time</span>
-                                  <a href="#" class="aply-btn ">Appy Now</a>
-                              </div>
-                          </div>
-                        <!--//job1-->
+                            </div>
+                          @endisset
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
+              <div class="container responsiveCal">
+                <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=2&amp;bgcolor=%23FFFFFF&amp;src=2icpl7rs955s8ebga4smimncro%40group.calendar.google.com&amp;color=%238C500B&amp;src=es.cl%23holiday%40group.v.calendar.google.com&amp;color=%23125A12&amp;ctz=America%2FSantiago" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
               </div>
             </div>
           </div>

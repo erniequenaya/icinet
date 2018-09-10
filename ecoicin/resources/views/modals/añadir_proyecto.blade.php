@@ -24,7 +24,7 @@
                       </fieldset>
 
                       <fieldset class="form-group">
-                        <label for="tipo_proyecto"><b>Area Informatica</b></label>
+                        <label for="tipo_proyecto">Tipo Proyecto</label>
                           <select class="form-control" name="tipo_proyecto">
                             @foreach ($tipo_proyecto as $tipo)
                               <option value="{{$tipo->id_tipo_proyecto}}">{{$tipo->nombre_tipo_proyecto}}</option>
@@ -38,12 +38,12 @@
                       </fieldset>
 
                       <fieldset class="form-group">
-                        <label for="exampleFormControlFile1">Documento N°1</label>
+                        <label for="exampleFormControlFile1">Informe</label>
                         <input type="file" name="informe_proyecto" class="form-control-file">
                       </fieldset>
 
                       <fieldset class="form-group">
-                        <label for="exampleFormControlFile1">Documento N°2</label>
+                        <label for="exampleFormControlFile1">Presentacion</label>
                         <input type="file" name="presentacion_proyecto" class="form-control-file">
                       </fieldset>
 

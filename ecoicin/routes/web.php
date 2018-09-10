@@ -10,9 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
-    return view('index');
+  $proyecto = App\Proyecto::all()->last();
+    return view('index', compact('proyecto'));
 })->name('index');
 
 Route::get('/quienes_somos', function () {
@@ -24,13 +24,22 @@ Route::post('/ingresar_solicitud', 'SeccionEmpresaController@store')->name('ingr
 Route::get('/empresa/{rut_empresa}', 'SeccionEmpresaController@comprobarEmpresa');
 Route::get('/consultar_solicitud/{codigo_seguimiento}', 'SeccionEmpresaController@consultarSolicitud');
 
-Route::resource('repositorio', 'RepositorioController');
 Route::get('/ver_documento/{documento}', 'RepositorioController@verDocumento');
-Route::get('/descargar_documento/{documento}', 'RepositorioController@descargarDocumento');
 
 Route::get('/contactanos', function () {
-    return view('contactanos');
+  return view('contactanos');
 })->name('contactanos');
+
+Route::get('/repositorio', 'RepositorioController@index')->name('repositorio.index');
+
+Route::post('/login', 'Auth\LoginController@login')->name('login');
+
+// Usuarios Registrados
+
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+//ruta
+Route::get('/descargar_documento/{documento}', 'RepositorioController@descargarDocumento');
+
 
 /* Jefatura */
 
@@ -39,15 +48,14 @@ Route::get('/solicitud/{id}', 'SeccionEmpresaController@obtenerSolicitud');
 Route::post('/solicitud/completar', 'SeccionEmpresaController@completarSolicitud')->name('empresas.completar');
 Route::post('/solicitud/responder', 'SeccionEmpresaController@responderSolicitud')->name('empresas.responder');
 
-Route::get('/graficos_solicitudes', function () {
-    return view('graficos_solicitudes');
-})->name('graficos_solicitudes');
-
-Route::get('/encuestas', function () {
-    return view('encuestas');
-})->name('encuestas');
+Route::get('/encuestas', 'SeccionEncuestasController@index')->name('encuestas');
+Route::get('/encuesta/{encuesta}', 'SeccionEncuestasController@edit');
+Route::post('/encuesta/crear', 'SeccionEncuestasController@store')->name('encuestas.crear');
+Route::post('/encuesta/modificar', 'SeccionEncuestasController@update')->name('encuestas.modificar');
+Route::post('/encuesta/eliminar', 'SeccionEncuestasController@delete')->name('encuestas.eliminar');
 
 Route::get('/proyectos', 'RepositorioController@listarProyectos')->name('proyectos');
+Route::post('repositorio/nuevo_proyecto', 'RepositorioController@store')->name('repositorio.store');
 
 /* Administrador */
 
@@ -56,6 +64,3 @@ Route::get('/administracion', 'AdministracionController@index')->name('administr
 Route::post('/ingresar/usuario', 'AdministracionController@ingresar_usuario')->name('ingresar_usuario');
 Route::post('/ingresar/area', 'AdministracionController@ingresar_tipo_area')->name('ingresar_tipo_area');
 Route::post('/ingresar/tipo_proyecto', 'AdministracionController@ingresar_tipo_proyecto')->name('ingresar_tipo_proyecto');
-
-Route::post('/login', 'Auth\LoginController@login')->name('login');
-Route::get('/logout', 'Auth\LoginController@logout')->name('logout');

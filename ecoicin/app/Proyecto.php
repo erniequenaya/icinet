@@ -23,6 +23,8 @@ class Proyecto extends Model
     return $presentacion->id_documento;
   }
 
-  
+  public function tipo(){
+    return $this->belongsTo(TipoProyecto::class, 'tipo_proyecto_id', 'id_tipo_proyecto');
+  }
 
 }

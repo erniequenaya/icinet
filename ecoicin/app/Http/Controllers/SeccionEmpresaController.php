@@ -94,7 +94,6 @@ class SeccionEmpresaController extends Controller
       $solicitud = $solicitud->id_solicitud;
 
       return compact('solicitud', 'nombre_empresa');
-
     }
 
     public function completarSolicitud(Request $request){

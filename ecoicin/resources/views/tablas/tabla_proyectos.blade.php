@@ -20,9 +20,9 @@
       <td scope="row">{{$proyecto->nombre_proyecto}}</td>
       <td>{{$proyecto->fecha_proyecto}}</td>
       <td>{{$proyecto->autores_proyecto}}</td>
-      <td>{{$proyecto->tipo_proyecto_id}}</td>
-      <td><a href=""><i class="fas fa-eye text-dark"></i></a></td>
-      <td>Presentacion</td>
+      <td>{{$proyecto->tipo->nombre_tipo_proyecto}}</td>
+      <td><a target="_blank" href="/ver_documento/{{$proyecto->informe()}}"><i class="fas fa-eye text-dark"></i></a></td>
+      <td><a target="_blank" href="/ver_documento/{{$proyecto->presentacion()}}"><i class="fas fa-eye text-dark"></i></a></td>
       <td><i class="fas fa-pencil-alt" data-toggle="modal" data-target="#modificar_proyecto"></i> <i class="fas fa-trash" data-toggle="modal" data-target="#responder_solicitud"></i></td>
     </tr>
 

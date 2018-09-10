@@ -118,6 +118,66 @@ class SeccionEmpresaController extends Controller
       }
     }
 
+    public function grafico($item){
+      if ($item == 1) {
+        $item = 'Rubros de empresas';
+        $rubros = Rubro::all();
+        $nombres = [];
+        $cantidades = [];
+        $backgrounds = [];
+        $borders = [];
+        foreach ($rubros as $rubro) {
+          if ($rubro->empresas->count() > 0) {
+            array_push($nombres, $rubro->nombre_rubro);
+            array_push($cantidades, $rubro->empresas->count());
+            $color = 'rgba('.rand(0, 255).', '.rand(0, 255).', '.rand(0, 255);
+            array_push($backgrounds, $color.', 0.2)');
+            array_push($borders, $color.', 1)');
+          }
+        }
+      } elseif ($item == 2) {
+        $item = 'Areas informaticas';
+        $areas = TipoAreaInformatica::all();
+        $nombres = [];
+        $cantidades = [];
+        $backgrounds = [];
+        $borders = [];
+
+        foreach ($areas as $area) {
+          if ($area->solicitudes->count() > 0) {
+            array_push($nombres, $area->nombre_tipo_area_informatica);
+            array_push($cantidades, $area->solicitudes->count());
+            $color = 'rgba('.rand(0, 255).', '.rand(0, 255).', '.rand(0, 255);
+            array_push($backgrounds, $color.', 0.2)');
+            array_push($borders, $color.', 1)');
+          }
+        }
+      } elseif ($item == 3) {
+        $item = 'Tipos de solicitudes';
+        $tipos = TipoProyecto::all();
+        $nombres = [];
+        $cantidades = [];
+        $backgrounds = [];
+        $borders = [];
+
+        foreach ($tipos as $tipo) {
+          if ($tipo->solicitudes->count() > 0) {
+            array_push($nombres, $tipo->nombre_tipo_proyecto);
+            array_push($cantidades, $tipo->solicitudes->count());
+            $color = 'rgba('.rand(0, 255).', '.rand(0, 255).', '.rand(0, 255);
+            array_push($backgrounds, $color.', 0.2)');
+            array_push($borders, $color.', 1)');
+          }
+        }
+      }
+      return compact('nombres', 'cantidades', 'backgrounds', 'borders','item');
+    }
+
+    /*protected function color($num){
+      $color = "rgba(".rand(0, 255).", ".rand(0, 255).", ".rand(0, 255).", ".$num.")";
+      return $color;
+    }*/
+
     /**
      * Show the form for editing the specified resource.
      *

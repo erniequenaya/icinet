@@ -11,4 +11,8 @@ class TipoAreaInformatica extends Model
   protected $fillable = [
     'nombre_tipo_area_informatica'
   ];
+
+  public function solicitudes(){
+    return $this->hasMany(Solicitud::class, 'tipo_area_informatica_id', 'id_tipo_area_informatica');
+  }
 }

@@ -56,6 +56,7 @@ Route::group(['middleware' => 'jefatura'], function(){
   Route::get('/solicitud/{id}', 'SeccionEmpresaController@obtenerSolicitud');
   Route::post('/solicitud/completar', 'SeccionEmpresaController@completarSolicitud')->name('empresas.completar');
   Route::post('/solicitud/responder', 'SeccionEmpresaController@responderSolicitud')->name('empresas.responder');
+  Route::get('/empresas/grafico/{item}', 'SeccionEmpresaController@grafico');
 
   Route::get('/encuesta/{encuesta}', 'SeccionEncuestasController@edit');
   Route::post('/encuesta/crear', 'SeccionEncuestasController@store')->name('encuestas.crear');

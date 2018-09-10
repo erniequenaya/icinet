@@ -55,8 +55,11 @@
                                   </div>
                               </div>
                               <br>
-                              <div class="row container mx-auto d-block"><a target='_blank' href="/ver_documento/{{$proyecto->informe()}}"><button class="col-5 btn btn-primary" type="button" name="button">Ver Informe</button></a><a href="/descargar_documento/{{$proyecto->informe()}}"><button class="col-5 offset-2 btn btn-primary" type="button" name="button">Descargar Informe</button></a></div>
-                              &nbsp;<div class="row container mx-auto d-block"><a target='_blank' href="/ver_documento/{{$proyecto->presentacion()}}"><button class="col-5 btn btn-primary" type="button" name="button">Ver Presentacion</button></a><a href="/descargar_documento/{{$proyecto->presentacion()}}"><button class="col-5 offset-2 btn btn-primary" type="button" name="button">Descargar Presentacion</button></a></div>
+
+                              <div class="row container mx-auto d-block"><a target='_blank' href="/ver_documento/{{$proyecto->informe()}}"><button class="col-5 btn btn-primary" type="button" name="button">Ver Informe</button></a><a target='_blank' href="/ver_documento/{{$proyecto->presentacion()}}"><button class="col-5 offset-2 btn btn-primary" type="button" name="button">Ver Presentacion</button></a></div>
+                              &nbsp;@if (tipoUsuario() == 1)
+                                <div class="row container mx-auto d-block"><a href="/descargar_documento/{{$proyecto->informe()}}"><button class="col-5 btn btn-primary" type="button" name="button">Descargar Informe</button></a><a href="/descargar_documento/{{$proyecto->presentacion()}}"><button class="col-5 offset-2 btn btn-primary" type="button" name="button">Descargar Presentacion</button></a></div>
+                              @endif
                           </div>
                       @if ($cont % 2 != 0)
                       </div>

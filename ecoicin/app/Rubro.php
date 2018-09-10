@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Solicitud;
 
 class Rubro extends Model
 {
@@ -11,4 +12,8 @@ class Rubro extends Model
   protected $fillable = [
     'nombre_rubro'
   ];
+
+  public function empresas(){
+    return $this->hasMany(Empresa::class, 'rubro_id', 'id_rubro');
+  }
 }

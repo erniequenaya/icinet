@@ -25,7 +25,7 @@
                       <form class="form-inline mx-auto d-block">
                         <div class="form-group">
                           <label>Filtrar por &nbsp;</label>
-                          <select class="form-control col" name="tipo_usuario">
+                          <select class="form-control col" id="item_grafico">
                             <option value="1">Rubro de empresas</option>
                             <option value="2">Areas informaticas</option>
                             <option value="3">Tipos de solicitudes</option>
@@ -88,26 +88,8 @@
   var myChart = new Chart(ctx, {
     type: 'pie',
     data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: [],
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
             borderWidth: 1
         }]
     },
@@ -122,8 +104,38 @@
     }
   });
 
+  $(document).on('change', '#item_grafico', function(event){
+    event.preventDefault();
+    var item = $(this).val();
+    alert(item);
+
+    cargar_cantidad(item);
+  })
+
+  $(document).ready(function() {
+    cargar_cantidad(3);
+  });
 
 
+  function cargar_cantidad(item){
+    $.get('/empresas/grafico/'+item, function(resp){
+      ctx.show(500);
+      console.log(resp);
+
+      myChart.data.labels = resp.nombres;
+      myChart.data.datasets[0].label = 'Cantidad';
+      myChart.data.datasets[0].data = resp.cantidades;
+      myChart.data.datasets[0].backgroundColor = resp.backgrounds;
+      myChart.data.datasets[0].borderColor = resp.borders;
+      myChart.options.title.text = resp.item;
+
+      myChart.update();
+      console.log(myChart.data.datasets[0]);
+    }).fail(function(resp){
+      console.log(resp.responseText);
+      $('#myChart').hide();
+    });
+  }
 
   </script>
 @endsection

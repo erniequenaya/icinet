@@ -14,10 +14,10 @@
                   <h5 class="text-center" name="nombre_empresa">"Nombre"</h5>
                   <form action="{{route('empresas.responder')}}" method="post">
                     {{ csrf_field() }}
-                    <input type="hidden" name="id_solicitud" value="">
+                    <input type="hidden" name="id_solicitud" value="" required>
                     <fieldset class="form-group">
                       <label for="tipo_proyecto"><b>Estado</b></label>
-                        <select class="form-control" name="tipo_estado">
+                        <select class="form-control" name="tipo_estado" required>
                           @foreach ($tipo_estado as $estado)
                             <option value="{{$estado->id_tipo_estado}}">{{$estado->nombre_tipo_estado}}</option>
                           @endforeach
@@ -26,7 +26,7 @@
 
                     <fieldset class="form-group">
                       <label for="tipo_proyecto"><b>Razon</b></label>
-                      <textarea class="form-control" name="razon_estado" rows="3"></textarea>
+                      <textarea class="form-control" name="razon_estado" rows="3" required></textarea>
                     </fieldset>
                         <button type="submit" class="btn btn-primary submit mb-4 mx-auto d-block">Completar</button>
                   </form>

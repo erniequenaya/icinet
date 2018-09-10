@@ -110,7 +110,7 @@ class SeccionEmpresaController extends Controller
     public function responderSolicitud(Request $request){
       $solicitud = $request->id_solicitud;
       $tipo_estado_id = $request->tipo_estado;
-      $tipo_proyecto_id = $request->razon_estado;
+      $razon_estado = $request->razon_estado;
       $parm_solicitud = compact('tipo_estado_id', 'razon_estado');
       $rs = Solicitud::where('id_solicitud', $solicitud)->update($parm_solicitud);
       if ($rs) {

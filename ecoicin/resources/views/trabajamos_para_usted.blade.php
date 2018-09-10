@@ -32,23 +32,23 @@
                       {{ csrf_field() }}
                       <fieldset class="form-group">
                         <label for="rut_empresa">Rut de la empresa</label>
-                        <input type="text" class="form-control" id="rut_empresa" name="rut_empresa" placeholder="Ejemplo: 123456789">
+                        <input type="text" class="form-control" id="rut_empresa" name="rut_empresa" placeholder="Ejemplo: 12345678-9">
                       </fieldset>
                       <fieldset class="form-group">
                         <label for="nombre_empresa">Nombre de la empresa</label>
-                        <input type="text" class="form-control empresa" id="nombre_empresa" name="nombre_empresa" placeholder="Another input">
+                        <input type="text" class="form-control empresa" id="nombre_empresa" name="nombre_empresa" placeholder="Another input" required>
                       </fieldset>
                       <fieldset class="form-group">
                         <label for="telefono_empresa">Telefono</label>
-                        <input type="tel" class="form-control empresa" id="telefono_empresa" name="telefono_empresa" placeholder="Ejemplo: 12345678">
+                        <input type="tel" class="form-control empresa" id="telefono_empresa" name="telefono_empresa" placeholder="Ejemplo: 912345678" required>
                       </fieldset>
                       <fieldset class="form-group">
                         <label for="email_empresa">Correo electronico</label>
-                        <input type="email" class="form-control empresa" id="email_empresa" name="email_empresa" placeholder="ejemplo@ejemplo.com">
+                        <input type="email" class="form-control empresa" id="email_empresa" name="email_empresa" placeholder="ejemplo@ejemplo.com" required>
                       </fieldset>
                       <fieldset class="form-group">
                         <label for="rubro_empresa">Rubro de la empresa</label>
-                          <select class="form-control empresa" id="rubro_empresa" name="rubro_empresa">
+                          <select class="form-control empresa" id="rubro_empresa" name="rubro_empresa" required>
                             @foreach ($rubros as $rubro)
                               <option value="{{$rubro->id_rubro}}">{{$rubro->nombre_rubro}}</option>
                             @endforeach
@@ -56,7 +56,7 @@
                       </fieldset>
                       <fieldset class="form-group">
                         <label for="descripcion_solicitud">Descripcion</label>
-                        <textarea class="form-control" id="descripcion_solicitud" name="descripcion_solicitud" rows="3"></textarea>
+                        <textarea class="form-control" id="descripcion_solicitud" name="descripcion_solicitud" rows="3" required></textarea>
                       </fieldset>
                       <button type="submit" class="btn btn-primary mx-auto d-block">Enviar solicitud</button>
                     </form>

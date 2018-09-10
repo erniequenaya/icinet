@@ -25,18 +25,7 @@
               <div class="mid-info mt-5">
 
                 <div class="container">
-                @empty ($proyectos)
-                  <fieldset class="form-group">
-                    <label for="tipo_proyecto"><b>Filtrar por</b></label>
-                    <select class="form-control" id="tipo_proyecto">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select>
-                  </fieldset>
-                  @endempty
+                
                   @forelse ($proyectos as $proyecto)
                     @if ($cont % 2 == 0)
                       <div class="row populor_category_grids mt-5">

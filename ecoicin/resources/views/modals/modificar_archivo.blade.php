@@ -16,7 +16,7 @@
 
                       <fieldset class="form-group">
                         <label for="exampleFormControlFile1">Informe</label>
-                        <input type="file" name="informe_proyecto" class="form-control-file">
+                        <input type="file" name="informe_proyecto" class="form-control-file" required>
                       </fieldset>
 
                       <button type="submit" class="btn btn-primary submit mb-4 mx-auto d-block">Modificar</button>

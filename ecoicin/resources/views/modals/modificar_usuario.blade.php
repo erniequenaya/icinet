@@ -13,33 +13,33 @@
                     <h5 class="text-center mb-4">Modificiar Usuario</h5>
                     <form action='{{route('modificar.usuario')}}' method="post">
                       {{ csrf_field() }}
-                      <input type="hidden" name="id_usuario" value="">
+                      <input type="hidden" name="id_usuario" value="" required>
                       <fieldset class="form-group">
                         <label>RUT</label>
-                        <input type="text" class="form-control" name="rut_usuario" placeholder="">
+                        <input type="text" class="form-control" name="rut_usuario" placeholder="" required>
                       </fieldset>
 
                       <fieldset class="form-group">
                         <label >Contraseña</label>
-                        <input type="password" class="form-control" name="password" placeholder="">
+                        <input type="password" class="form-control" name="password" placeholder="" required>
                       </fieldset>
 
                       <fieldset class="form-group">
                         <label>Nombre</label>
-                        <input type="text" class="form-control" name="nombre_usuario" placeholder="">
+                        <input type="text" class="form-control" name="nombre_usuario" placeholder="" required>
                       </fieldset>
                       <fieldset class="form-group">
                         <label >Apellido</label>
-                        <input type="text" class="form-control" name="apellido_usuario" placeholder="">
+                        <input type="text" class="form-control" name="apellido_usuario" placeholder="" required>
                       </fieldset>
                       <fieldset class="form-group">
                         <label>Email</label>
-                        <input type="text" class="form-control" name="email_usuario" placeholder="">
+                        <input type="email" class="form-control" name="email_usuario" placeholder="" required>
                       </fieldset>
 
                       <fieldset class="form-group">
                         <label>Tipo usuario</label>
-                          <select class="form-control" name="tipo_usuario">
+                          <select class="form-control" name="tipo_usuario" required>
                             @foreach ($tipo_usuario as $tipo)
                               <option value="{{$tipo->id_tipo_usuario}}">{{$tipo->nombre_tipo_usuario}}</option>
                             @endforeach

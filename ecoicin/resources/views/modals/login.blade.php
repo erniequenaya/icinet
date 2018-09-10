@@ -15,11 +15,11 @@
                       {{ csrf_field() }}
                         <div class="form-group">
                             <label class="mb-2">Nombre de usuario: </label>
-                            <input name="rut_usuario" type="text" class="form-control" aria-describedby="emailHelp" placeholder="" required="">
+                            <input name="rut_usuario" type="text" class="form-control" aria-describedby="emailHelp" placeholder="" required>
                         </div>
                         <div class="form-group">
                             <label class="mb-2">Contraseña: </label>
-                            <input name="password" type="password" class="form-control" placeholder="" required="">
+                            <input name="password" type="password" class="form-control" placeholder="" required>
                         </div>
                         <!--<div class="form-check mb-2">
                             <input type="checkbox" class="form-check-input" id="exampleCheck1">

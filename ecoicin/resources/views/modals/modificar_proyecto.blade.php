@@ -17,17 +17,17 @@
                       <input type="hidden" name="id_proyecto" value="">
                       <fieldset class="form-group">
                         <label class="mb-2">Nombre proyecto: </label>
-                        <input name="nombre_proyecto" type="text" class="form-control" placeholder="" required="">
+                        <input name="nombre_proyecto" type="text" class="form-control" placeholder="" required>
                       </fieldset>
 
                       <fieldset class="form-group">
                         <label class="mb-2">Autores: </label>
-                        <input name="autores_proyecto" type="text" class="form-control" placeholder="" required="">
+                        <input name="autores_proyecto" type="text" class="form-control" placeholder="" required>
                       </fieldset>
 
                       <fieldset class="form-group">
                         <label>Tipo Proyecto</label>
-                          <select class="form-control" name="tipo_proyecto">
+                          <select class="form-control" name="tipo_proyecto" required>
                             @foreach ($tipo_proyecto as $tipo)
                               <option value="{{$tipo->id_tipo_proyecto}}">{{$tipo->nombre_tipo_proyecto}}</option>
                             @endforeach
@@ -36,7 +36,7 @@
 
                       <fieldset class="form-group">
                         <label class="mb-2">Año: </label>
-                        <input name="fecha_proyecto" type="date" class="form-control" placeholder="" required="">
+                        <input name="fecha_proyecto" type="date" class="form-control" placeholder="" required>
                       </fieldset>
 
                       <button type="submit" class="btn btn-primary submit mb-4 mx-auto d-block">Modificar</button>

@@ -14,10 +14,10 @@
                     <h5 class="text-center">"Nombre"</h5>
                     <form action="{{route('administracion')}}" method="post">
                       {{csrf_token()}}
-                      <input type="hidden" name="id_tipo_area" value="">
+                      <input type="hidden" name="id_tipo_area" value="" required>
                       <fieldset class="form-group">
                         <label class="mb-2">Nombre area: </label>
-                        <input name="nombre_area" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="">
+                        <input name="nombre_area" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required>
                       </fieldset>
                           <button type="submit" class="btn btn-primary submit mb-4 mx-auto d-block">Completar</button>
                     </form>

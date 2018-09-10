@@ -22,20 +22,16 @@
                   <div class="inner-sec-w3ls py-lg-5 py-md-3 py-3">
 
                     <div class="text-center">
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions"  value="option1">
-                        <label class="form-check-label" for="inlineRadio1">Rubros de empresas</label>
-                      </div>
-
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" value="option1">
-                        <label class="form-check-label" for="inlineRadio1">Areas Informaticas</label>
-                      </div>
-
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" value="option1">
-                        <label class="form-check-label" for="inlineRadio1">Tipos de solicitudes</label>
-                      </div>
+                      <form class="form-inline mx-auto d-block">
+                        <div class="form-group">
+                          <label>Filtrar por &nbsp;</label>
+                          <select class="form-control col" name="tipo_usuario">
+                            <option value="1">Rubro de empresas</option>
+                            <option value="2">Areas informaticas</option>
+                            <option value="3">Tipos de solicitudes</option>
+                          </select>
+                        </div>
+                      </form>
                     </div>
 
                     <canvas id="myChart" width="3" width="3"></canvas>

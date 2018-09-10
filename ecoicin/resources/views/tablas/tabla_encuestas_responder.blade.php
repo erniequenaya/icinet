@@ -17,7 +17,7 @@
       <td scope="row">{{$encuesta->nombre_encuesta}}</td>
       <td scope="row">{{$encuesta->fecha_inicio_encuesta}}</td>
       <td scope="row">{{$encuesta->fecha_termino_encuesta}}</td>
-      <td><i class="fas fa-file-signature modificar" data-toggle="modal" data-target="#responder_encuesta"></i></td> <!-- <a target="_blank" href="{{$encuesta->link_encuesta}}">Formulario</a> -->
+      <td id="{{$encuesta->id_encuesta}}"><i class="fas fa-edit responder_encuesta"></i></td> <!-- <a target="_blank" href="{{$encuesta->link_encuesta}}">Formulario</a> -->
     </tr>
 
     @if ($loop->last)

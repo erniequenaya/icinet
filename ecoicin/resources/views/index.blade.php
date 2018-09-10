@@ -73,7 +73,9 @@
                                     <i class="fas fa-angle-down"></i>
                                   </a>
                                   <div class="dropdown-menu text-center" aria-labelledby="navbarDropdown" style="display: none;">
-                                    <a class="dropdown-item" href="{{route('encuestas')}}" title="">Encuestas</a>
+                                    @if (tipoUsuario() != 2)
+                                      <a class="dropdown-item" href="{{route('encuestas')}}" title="">Encuestas</a>
+                                    @endif
                                     @if (tipoUsuario() == 2)
                                       <a class="dropdown-item" href="{{route('administracion')}}" title="">Administracion</a>
                                     @endif
@@ -146,7 +148,7 @@
                   </div>
                 </div>
               </div>
-              <br>
+              <br><br>
               <div class="container responsiveCal">
                 <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=2&amp;bgcolor=%23FFFFFF&amp;src=2icpl7rs955s8ebga4smimncro%40group.calendar.google.com&amp;color=%238C500B&amp;src=es.cl%23holiday%40group.v.calendar.google.com&amp;color=%23125A12&amp;ctz=America%2FSantiago" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
               </div>

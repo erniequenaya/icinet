@@ -19,7 +19,7 @@
           <th scope="row">{{$usuario->rut_usuario}}</th>
           <th scope="row">{{$usuario->email_usuario}}</th>
           <th scope="row">{{$usuario->tipo_usuario->nombre_tipo_usuario}}</th>
-          <td><i class="fas fa-pencil-alt" data-toggle="modal" data-target="#modificar_usuario"></i> <i class="fas fa-trash" data-toggle="modal" data-target="#"></i></td>
+          <td id="{{$usuario->id}}"><i class="fas fa-pencil-alt modificar_usuario"></i> <i class="fas fa-trash" data-toggle="modal" data-target="#"></i></td>
         </tr>
 
     @if ($loop->last)

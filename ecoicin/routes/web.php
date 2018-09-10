@@ -41,7 +41,8 @@ Route::group(['middleware' => 'auth'], function(){
   Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
   Route::get('/descargar_documento/{documento}', 'RepositorioController@descargarDocumento');
   Route::get('/encuestas', 'SeccionEncuestasController@index')->name('encuestas');
-  
+  Route::get('/encuesta/responder/{encuesta}', 'SeccionEncuestasController@show');
+
 });
 
 //ruta
@@ -78,5 +79,9 @@ Route::group(['middleware' => 'admin'], function(){
   Route::post('/ingresar/usuario', 'AdministracionController@ingresar_usuario')->name('ingresar_usuario');
   Route::post('/ingresar/area', 'AdministracionController@ingresar_tipo_area')->name('ingresar_tipo_area');
   Route::post('/ingresar/tipo_proyecto', 'AdministracionController@ingresar_tipo_proyecto')->name('ingresar_tipo_proyecto');
+
+  Route::get('/usuario/{usuario}', 'AdministracionController@obtenerUsuario');
+
+  Route::post('/modificar/usuario', 'AdministracionController@modificar_usuario')->name('modificar.usuario');
 
 });

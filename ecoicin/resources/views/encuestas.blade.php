@@ -81,6 +81,8 @@
 
   @include('modals.modificar_encuestas')
 
+  @include('modals.responder_encuesta')
+
 @endsection
 
 @section('script')
@@ -102,5 +104,19 @@
       console.log(resp.responseText);
     });
   });
+
+  $(document).on('click', '.responder_encuesta', function(){
+
+    var encuesta = $(this).parents('td').attr('id');
+    $.get('/encuesta/responder/'+encuesta, function(resp){
+      $("#responder_encuesta #encuesta_iframe").html("<iframe class='embed-responsive-item' src='"+resp+"' allowfullscreen></iframe>");
+      $('#responder_encuesta').modal('toggle');
+    }).fail(function(resp){
+      console.log(resp.responseText);
+    });
+
+  });
+
   </script>
+
 @endsection

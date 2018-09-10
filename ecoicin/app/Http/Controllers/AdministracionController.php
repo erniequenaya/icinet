@@ -66,7 +66,14 @@ class AdministracionController extends Controller
         }
     }
 
-    public function modificar_usuario(){
+    public function obtenerUsuario($usuario)
+    {
+      $usuario = User::where('id', $usuario)->first();
+
+      return $usuario;
+    }
+
+    public function modificar_usuario(Request $request){
       $usuario = $request->id_usuario;
       $rut_usuario = $request->rut_usuario;
       $password = bcrypt($request->password);
@@ -75,7 +82,7 @@ class AdministracionController extends Controller
       $email_usuario = $request->email_usuario;
       $tipo_usuario_id = $request->tipo_usuario;
       $parm_usuario = compact('rut_usuario','password','nombre_usuario','apellido_usuario','email_usuario','tipo_usuario_id');
-      $rs = User::where('id_usuario', $usuario)->update($parm_usuario);
+      $rs = User::where('id', $usuario)->update($parm_usuario);
       if ($rs) {
         return back();
       }

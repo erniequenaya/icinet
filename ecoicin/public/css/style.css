@@ -98,6 +98,7 @@ li.nav-item {
 li.nav-item:hover {
     margin: 0 1px;
     background-color: #22213F;
+    border-radius: 5px;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -2521,6 +2522,7 @@ ul.links li a:hover {
 
 .active-navbar{
   background-color: #22213F;
+  border-radius: 5px;
 }
 
 .active-breadcrumb{

@@ -44,7 +44,9 @@
                   <i class="fas fa-angle-down"></i>
                 </a>
                 <div class="dropdown-menu text-center" aria-labelledby="navbarDropdown" style="display: none;">
-                  <a class="dropdown-item" href="{{route('encuestas')}}" title="">Encuestas</a>
+                  @if (tipoUsuario() != 2)
+                    <a class="dropdown-item" href="{{route('encuestas')}}" title="">Encuestas</a>
+                  @endif
                   @if (tipoUsuario() == 2)
                     <a class="dropdown-item" href="{{route('administracion')}}" title="">Administracion</a>
                   @endif

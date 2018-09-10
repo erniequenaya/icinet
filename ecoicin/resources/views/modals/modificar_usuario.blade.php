@@ -11,7 +11,7 @@
 
                 <div class="login px-4 mx-auto mw-100">
                     <h5 class="text-center mb-4">Modificiar Usuario</h5>
-                    <form action='' method="post">
+                    <form action='{{route('modificar.usuario')}}' method="post">
                       {{ csrf_field() }}
                       <input type="hidden" name="id_usuario" value="">
                       <fieldset class="form-group">
@@ -45,7 +45,7 @@
                             @endforeach
                           </select>
                       </fieldset>
-                      <button type="submit" class="btn btn-primary mx-auto d-block">Añadir</button>
+                      <button type="submit" class="btn btn-primary mx-auto d-block">Modificar</button>
                     </form>
                 </div>
             </div>

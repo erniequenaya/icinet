@@ -132,3 +132,28 @@
 
   @include('modals/modificar_usuario')
 @endsection
+
+@section('script')
+
+  <script type="text/javascript">
+  $(document).on('click', '.modificar_usuario', function(){
+    var usuario = $(this).parents('td').attr('id');
+
+    $.get('/usuario/'+usuario, function(resp){
+      console.log(resp);
+      $("#modificar_usuario input[name='id_usuario']").val(resp.id);
+      $("#modificar_usuario input[name='rut_usuario']").val(resp.rut_usuario);
+      $("#modificar_usuario input[name='password']").val(resp.password);
+      $("#modificar_usuario input[name='nombre_usuario']").val(resp.nombre_usuario);
+      $("#modificar_usuario input[name='apellido_usuario']").val(resp.apellido_usuario);
+      $("#modificar_usuario input[name='email_usuario']").val(resp.email_usuario);
+      $("#modificar_usuario input[name='tipo_usuario']").val(resp.tipo_usuario_id);
+      $('#modificar_usuario').modal('toggle');
+    }).fail(function(resp){
+      console.log(resp.responseText);
+    });
+  });
+
+
+</script>
+@endsection

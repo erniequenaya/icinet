@@ -6,12 +6,6 @@
           <div class="header-top">
               <header>
                   <div class="top-head ml-lg-auto text-center">
-                        <!--<div class="row">
-                          <div class="col-md-12 float-right">
-                              <a href="{{route('logout')}}">
-                                  <i class="fas fa-lock"></i> Cerrar sesión</a>
-                          </div>
-                        </div>-->
 
                         <div class="row">
                           <div class="col-md-6 float-left">
@@ -23,7 +17,7 @@
                               @guest
                                 <a href="#" data-toggle="modal" data-target="#exampleModalCenter">
                                   <i class="fas fa-lock"></i> Iniciar sesión</a>
-                                </div>
+
                               @endguest
                               @auth
                                 <a href="{{route('logout')}}">
@@ -66,25 +60,46 @@
                                   <a class="nav-link {{(request()->route()->getName() == 'repositorio.index') ? 'active-navbar' : ''}}" href="{{route('repositorio.index')}}">Repositorio</a>
                               </li>
 
-                              <li class="nav-item {{(request()->route()->getName() == 'contactanos') ? 'active' : ''}}">
+                              @guest
+                                <li class="nav-item {{(request()->route()->getName() == 'contactanos') ? 'active' : ''}}">
                                   <a class="nav-link" href="{{route('contactanos')}}">Contactanos</a>
-                              </li>
+                                </li>
+                              @endguest
+
+                              @auth
+                                <li class="nav-item dropdown">
+                                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Acciones
+                                    <i class="fas fa-angle-down"></i>
+                                  </a>
+                                  <div class="dropdown-menu text-center" aria-labelledby="navbarDropdown" style="display: none;">
+                                    <a class="dropdown-item" href="{{route('encuestas')}}" title="">Encuestas</a>
+                                    @if (tipoUsuario() == 2)
+                                      <a class="dropdown-item" href="{{route('administracion')}}" title="">Administracion</a>
+                                    @endif
+                                    @if (tipoUsuario() == 3)
+                                      <a class="dropdown-item" href="{{route('proyectos')}}" title="">Proyectos</a>
+                                      <a class="dropdown-item" href="{{route('empresas')}}" title="">Solicitudes</a>
+                                    @endif
+                                  </div>
+                                </li>
+                              @endauth
                           </ul>
                       </div>
                   </nav>
               </header>
+              <!--/banner-info-w3layouts-->
+              <div class="banner-info-w3layouts text-center">
+                  <img src="{{asset('images/logo_icin.png')}}" style="width: 30%; height: auto;" alt="Ingenieria Civil en Informatica">
+                  <h3>
+                      <span>La computación y la tecnología son parte de nuestras vidas.</span>
+                  </h3>
+                  <p>Crear soluciones en este nuevo mundo sin fronteras.</p>
+              </div>
+              <!--//banner-info-w3layouts-->
           </div>
-          <!--/banner-info-w3layouts-->
-          <div class="banner-info-w3layouts text-center">
-              <img src="{{asset('images/logo_icin.png')}}" style="width: 30%; height: auto;" alt="Ingenieria Civil en Informatica">
-              <h3>
-                  <span>La computación y la tecnología son parte de nuestras vidas.</span>
-              </h3>
-              <p>Crear soluciones en este nuevo mundo sin fronteras.</p>
-          </div>
-          <!--//banner-info-w3layouts-->
+</div>
       </div>
-  </div>
 @endsection
 
 @section('main')
@@ -131,6 +146,7 @@
                   </div>
                 </div>
               </div>
+              <br>
               <div class="container responsiveCal">
                 <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=2&amp;bgcolor=%23FFFFFF&amp;src=2icpl7rs955s8ebga4smimncro%40group.calendar.google.com&amp;color=%238C500B&amp;src=es.cl%23holiday%40group.v.calendar.google.com&amp;color=%23125A12&amp;ctz=America%2FSantiago" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
               </div>

@@ -11,45 +11,35 @@
 
                 <div class="login px-4 mx-auto mw-100">
                     <h5 class="text-center mb-4">Modificar proyecto</h5>
-                    <h5 class="text-center">"Nombre"</h5>
-                    <form action="{{route('proyectos')}}" method="get">
+                    <h5 class="text-center" name="nombre_proyecto">"Nombre"</h5>
+                    <form enctype="multipart/form-data" action="{{route('repositorio.update')}}" method="post">
+                      {{ csrf_field() }}
+                      <input type="hidden" name="id_proyecto" value="">
                       <fieldset class="form-group">
                         <label class="mb-2">Nombre proyecto: </label>
                         <input name="nombre_proyecto" type="text" class="form-control" placeholder="" required="">
                       </fieldset>
 
                       <fieldset class="form-group">
-                        <label class="mb-2">Año: </label>
-                        <input name="fecha_creacion" type="date" class="form-control" placeholder="" required="">
-                      </fieldset>
-
-                      <fieldset class="form-group">
                         <label class="mb-2">Autores: </label>
-                        <input name="autores" type="text" class="form-control" placeholder="" required="">
+                        <input name="autores_proyecto" type="text" class="form-control" placeholder="" required="">
                       </fieldset>
 
                       <fieldset class="form-group">
-                        <label for="tipo_proyecto"><b>Area Informatica</b></label>
-                          <select class="form-control">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                        <label>Tipo Proyecto</label>
+                          <select class="form-control" name="tipo_proyecto">
+                            @foreach ($tipo_proyecto as $tipo)
+                              <option value="{{$tipo->id_tipo_proyecto}}">{{$tipo->nombre_tipo_proyecto}}</option>
+                            @endforeach
                           </select>
                       </fieldset>
 
                       <fieldset class="form-group">
-                        <label for="exampleFormControlFile1">Documento N°1</label>
-                        <input type="file" class="form-control-file" >
+                        <label class="mb-2">Año: </label>
+                        <input name="fecha_proyecto" type="date" class="form-control" placeholder="" required="">
                       </fieldset>
 
-                      <fieldset class="form-group">
-                        <label for="exampleFormControlFile1">Documento N°2</label>
-                        <input type="file" class="form-control-file" >
-                      </fieldset>
-
-                      <button type="submit" class="btn btn-primary submit mb-4 mx-auto d-block">Completar</button>
+                      <button type="submit" class="btn btn-primary submit mb-4 mx-auto d-block">Modificar</button>
                     </form>
                 </div>
             </div>

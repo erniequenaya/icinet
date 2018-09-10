@@ -36,31 +36,47 @@ Route::post('/login', 'Auth\LoginController@login')->name('login');
 
 // Usuarios Registrados
 
-Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+Route::group(['middleware' => 'auth'], function(){
+
+  Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+  Route::get('/descargar_documento/{documento}', 'RepositorioController@descargarDocumento');
+  Route::get('/encuestas', 'SeccionEncuestasController@index')->name('encuestas');
+  
+});
+
 //ruta
-Route::get('/descargar_documento/{documento}', 'RepositorioController@descargarDocumento');
 
 
 /* Jefatura */
 
-Route::get('/empresas', 'SeccionEmpresaController@listarSolicitudes')->name('empresas');
-Route::get('/solicitud/{id}', 'SeccionEmpresaController@obtenerSolicitud');
-Route::post('/solicitud/completar', 'SeccionEmpresaController@completarSolicitud')->name('empresas.completar');
-Route::post('/solicitud/responder', 'SeccionEmpresaController@responderSolicitud')->name('empresas.responder');
+Route::group(['middleware' => 'jefatura'], function(){
 
-Route::get('/encuestas', 'SeccionEncuestasController@index')->name('encuestas');
-Route::get('/encuesta/{encuesta}', 'SeccionEncuestasController@edit');
-Route::post('/encuesta/crear', 'SeccionEncuestasController@store')->name('encuestas.crear');
-Route::post('/encuesta/modificar', 'SeccionEncuestasController@update')->name('encuestas.modificar');
-Route::post('/encuesta/eliminar', 'SeccionEncuestasController@delete')->name('encuestas.eliminar');
+  Route::get('/empresas', 'SeccionEmpresaController@listarSolicitudes')->name('empresas');
+  Route::get('/solicitud/{id}', 'SeccionEmpresaController@obtenerSolicitud');
+  Route::post('/solicitud/completar', 'SeccionEmpresaController@completarSolicitud')->name('empresas.completar');
+  Route::post('/solicitud/responder', 'SeccionEmpresaController@responderSolicitud')->name('empresas.responder');
 
-Route::get('/proyectos', 'RepositorioController@listarProyectos')->name('proyectos');
-Route::post('repositorio/nuevo_proyecto', 'RepositorioController@store')->name('repositorio.store');
+  Route::get('/encuesta/{encuesta}', 'SeccionEncuestasController@edit');
+  Route::post('/encuesta/crear', 'SeccionEncuestasController@store')->name('encuestas.crear');
+  Route::post('/encuesta/modificar', 'SeccionEncuestasController@update')->name('encuestas.modificar');
+  Route::post('/encuesta/eliminar', 'SeccionEncuestasController@delete')->name('encuestas.eliminar');
+
+  Route::get('/proyectos', 'RepositorioController@listarProyectos')->name('proyectos');
+  Route::post('/repositorio/nuevo_proyecto', 'RepositorioController@store')->name('repositorio.store');
+  Route::get('/repositorio/{proyecto}', 'RepositorioController@edit');
+  Route::post('/repositorio/modificar_proyecto', 'RepositorioController@update')->name('repositorio.update');
+
+});
+
 
 /* Administrador */
 
-Route::get('/administracion', 'AdministracionController@index')->name('administracion');
+Route::group(['middleware' => 'admin'], function(){
 
-Route::post('/ingresar/usuario', 'AdministracionController@ingresar_usuario')->name('ingresar_usuario');
-Route::post('/ingresar/area', 'AdministracionController@ingresar_tipo_area')->name('ingresar_tipo_area');
-Route::post('/ingresar/tipo_proyecto', 'AdministracionController@ingresar_tipo_proyecto')->name('ingresar_tipo_proyecto');
+  Route::get('/administracion', 'AdministracionController@index')->name('administracion');
+
+  Route::post('/ingresar/usuario', 'AdministracionController@ingresar_usuario')->name('ingresar_usuario');
+  Route::post('/ingresar/area', 'AdministracionController@ingresar_tipo_area')->name('ingresar_tipo_area');
+  Route::post('/ingresar/tipo_proyecto', 'AdministracionController@ingresar_tipo_proyecto')->name('ingresar_tipo_proyecto');
+
+});

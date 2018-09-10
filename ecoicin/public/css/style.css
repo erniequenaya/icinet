@@ -149,9 +149,9 @@ li.nav-item.active {
 
 .dropdown-item:hover,
 .dropdown-item:focus {
-    color: #de0f17;
+    color: #fff;
     text-decoration: none;
-    background-color: #f0f0f1;
+    background-color: #22213F;
 }
 
 /*-- //header --*/
@@ -2537,4 +2537,43 @@ position: relative; padding-bottom: 75%; height: 0; overflow: hidden;
 
 position: absolute; top:0; left: 0; width: 100%; height: 100%;
 
+}
+
+.error{
+    background-color: #E74F4F;
+    opacity: 0.9;
+    position: absolute;
+    top: 0;
+    padding: 10px 0 ;
+    border-radius:  0 0 5px 5px;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    display: none;
+}
+
+.exito{
+    background-color: #57FF3A;
+    opacity: 0.9;
+    position: absolute;
+    top: 0;
+    padding: 10px 0 ;
+    border-radius:  0 0 5px 5px;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    display: none;
+}
+
+.problema{
+    background-color: #C9631F;
+    opacity: 0.9;
+    position: absolute;
+    top: 0;
+    padding: 10px 0 ;
+    border-radius:  0 0 5px 5px;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    display: none;
 }

@@ -31,9 +31,30 @@
                 <a class="nav-link" href="{{route('repositorio.index')}}">Repositorio</a>
             </li>
 
-            <li class="nav-item {{(request()->route()->getName() == 'contactanos') ? 'active-navbar' : ''}}">
+            @guest
+              <li class="nav-item {{(request()->route()->getName() == 'contactanos') ? 'active-navbar' : ''}}">
                 <a class="nav-link" href="{{route('contactanos')}}">Contactanos</a>
-            </li>
+              </li>
+            @endguest
+
+            @auth
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Acciones
+                  <i class="fas fa-angle-down"></i>
+                </a>
+                <div class="dropdown-menu text-center" aria-labelledby="navbarDropdown" style="display: none;">
+                  <a class="dropdown-item" href="{{route('encuestas')}}" title="">Encuestas</a>
+                  @if (tipoUsuario() == 2)
+                    <a class="dropdown-item" href="{{route('administracion')}}" title="">Administracion</a>
+                  @endif
+                  @if (tipoUsuario() == 3)
+                    <a class="dropdown-item" href="{{route('proyectos')}}" title="">Proyectos</a>
+                    <a class="dropdown-item" href="{{route('empresas')}}" title="">Solicitudes</a>
+                  @endif
+                </div>
+              </li>
+            @endauth
         </ul>
     </div>
 </nav>

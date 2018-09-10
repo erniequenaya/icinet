@@ -5,11 +5,8 @@
         <thead class="bg-primary text-light">
           <tr>
             <th scope="col">Nombre</th>
-            <th scope="col">Url</th>
             <th scope="col">Fecha inicio</th>
             <th scope="col">Fecha termino</th>
-            <th scope="col">Solo Alumnos</th>
-            <th scope="col">Estado</th>
             <th scope="col">Acciones</th>
           </tr>
         </thead>
@@ -18,12 +15,9 @@
 
     <tr>
       <td scope="row">{{$encuesta->nombre_encuesta}}</td>
-      <td scope="row"><a target="_blank" href="{{$encuesta->link_encuesta}}">Formulario</a></td>
       <td scope="row">{{$encuesta->fecha_inicio_encuesta}}</td>
       <td scope="row">{{$encuesta->fecha_termino_encuesta}}</td>
-      <td scope="row">{{$encuesta->solo_alumnos? 'Si': 'No'}}</td>
-      <td scope="row">{{$encuesta->visible? 'Visible': 'Oculta'}}</td>
-      <td id="{{$encuesta->id_encuesta}}"><i class="fas fa-pencil-alt modificar"></i> <i class="fas fa-trash" data-toggle="modal" data-target="#"></i></td>
+      <td><i class="fas fa-file-signature modificar" data-toggle="modal" data-target="#responder_encuesta"></i></td> <!-- <a target="_blank" href="{{$encuesta->link_encuesta}}">Formulario</a> -->
     </tr>
 
     @if ($loop->last)

@@ -118,9 +118,11 @@ class RepositorioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($proyecto)
     {
-        //
+      $proyecto = Proyecto::where('id_proyecto', $proyecto)->first();
+
+      return $proyecto;
     }
 
     /**
@@ -130,9 +132,18 @@ class RepositorioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+      $proyecto = $request->id_proyecto;
+      $nombre_proyecto = $request->nombre_proyecto;
+      $autores_proyecto = $request->autores_proyecto;
+      $tipo_proyecto_id = $request->tipo_proyecto;
+      $fecha_proyecto = $request->fecha_proyecto;
+      $parm_proyecto = compact('nombre_proyecto', 'autores_proyecto', 'tipo_proyecto_id', 'fecha_proyecto');
+      $rs = Proyecto::where('id_proyecto', $proyecto)->update($parm_proyecto);
+      if ($rs) {
+        return back();
+      }
     }
 
     /**

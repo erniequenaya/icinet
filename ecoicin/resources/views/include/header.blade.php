@@ -10,9 +10,15 @@
                         <i class="fas fa-user"></i> {{saludarUsuario()}}</a>
                     </div>
                     <div class="col-md-6 float-right">
+                      @guest
+                        <a href="#" data-toggle="modal" data-target="#exampleModalCenter">
+                          <i class="fas fa-lock"></i> Iniciar sesión</a>
 
-                      <a href="#" data-toggle="modal" data-target="#exampleModalCenter">
-                        <i class="fas fa-lock"></i> Iniciar sesión</a>
+                      @endguest
+                      @auth
+                        <a href="{{route('logout')}}">
+                            <i class="fas fa-lock"></i> Cerrar sesión</a>
+                      @endauth
                     </div>
                   </div>
                 </div>

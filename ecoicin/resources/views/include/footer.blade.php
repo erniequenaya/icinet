@@ -49,5 +49,3 @@
 @include('modals/login')
 
 @include('modals/register')
-
-@include('modals/modificar_proyecto')

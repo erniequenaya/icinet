@@ -12,9 +12,8 @@ use App\User;
 class AdministracionController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Pagina de administracion que utiliza datos de usuarios, tipos de proyectos, tipos de areas informaticas y tipos de usuarios
+     * @return view [vista de administracion utilizando los datos mencionados anteriormente]
      */
     public function index()
     {
@@ -28,8 +27,8 @@ class AdministracionController extends Controller
 
     /**
      * Se registra los usuarios con los datos ingresados por formulario
-     * @param  Request $request [contiene los datos ingresados]
-     * @return boolean           [estado del registro de usuario]
+     * @param  Request $request [Contiene rut, password, nombre, apellido, email y tipo de usuario]
+     * @return boolean           [vista anterior]
      */
     public function ingresar_usuario(Request $request)
     {
@@ -50,7 +49,7 @@ class AdministracionController extends Controller
     /**
      * Se registran los tipos de areas informaticas ingresadas por formulario
      * @param  Request $request [contiene los datos ingresados]
-     * @return boolean           [estado del registro del tipo de area]
+     * @return back           [vista anterior]
      */
     public function ingresar_tipo_area(Request $request)
     {
@@ -65,8 +64,8 @@ class AdministracionController extends Controller
 
     /**
      * Se regsitran los tipos de proyectos utilizados en repositorio
-     * @param  Request $request [contiene los datos ingresados por formulario]
-     * @return [type]           [description]
+     * @param  Request $request [Contiene nombre del tipo de proyecto]
+     * @return back           [vista anterior]
      */
     public function ingresar_tipo_proyecto(Request $request)
     {
@@ -93,8 +92,8 @@ class AdministracionController extends Controller
 
     /**
      * [modificar_usuario description]
-     * @param  Request $request [description]
-     * @return [type]           [description]
+     * @param  Request $request [Contiene id, rut, nombre, apellido, password, email y tipo de usuario]
+     * @return back           [vista anterior]
      */
 
     public function modificar_usuario(Request $request){
@@ -131,6 +130,12 @@ class AdministracionController extends Controller
         return back();
       }
     }
+
+    /**
+     * Elimina usuario seleccionado del sistema
+     * @param  Request $request [Contiene id del usuario a eliminar]
+     * @return boolean           [estado de la funcion]
+     */
 
     public function eliminar_usuario(Request $request){
       $usuario = $request->id_usuario;

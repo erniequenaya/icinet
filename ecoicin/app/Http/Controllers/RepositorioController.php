@@ -25,6 +25,24 @@ class RepositorioController extends Controller
         return view('repositorio', compact('proyectos', 'tipo_proyecto', 'cont'));
     }
 
+    public function producto()
+    {
+        $proyectos = Proyecto::all();
+        $tipo_proyecto = TipoProyecto::all();
+        $cont = 2;
+
+        return view('producto', compact('proyectos', 'tipo_proyecto', 'cont'));
+    }
+
+    public function documento()
+    {
+        $proyectos = Proyecto::all();
+        $tipo_proyecto = TipoProyecto::all();
+        $cont = 2;
+
+        return view('documento', compact('proyectos', 'tipo_proyecto', 'cont'));
+    }
+
     public function listarProyectos(){
       $proyectos = Proyecto::all();
       $tipo_proyecto = TipoProyecto::all();

@@ -19,7 +19,7 @@ Route::get('/quienes_somos', function () {
     return view('quienes_somos');
 })->name('quienes_somos');
 
-Route::get('/trabajamos_para_usted', 'SeccionEmpresaController@create')->name('trabajamos_para_usted');
+//Route::get('/trabajamos_para_usted', 'SeccionEmpresaController@create')->name('trabajamos_para_usted');  DESHABILITADA TEMPORALMENTE
 Route::post('/ingresar_solicitud', 'SeccionEmpresaController@store')->name('ingresar_solicitud');
 Route::get('/empresa/{rut_empresa}', 'SeccionEmpresaController@comprobarEmpresa');
 Route::get('/consultar_solicitud/{codigo_seguimiento}', 'SeccionEmpresaController@consultarSolicitud');
@@ -41,8 +41,8 @@ Route::group(['middleware' => 'auth'], function(){
 
   Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
   Route::get('/descargar_documento/{documento}', 'RepositorioController@descargarDocumento');
-  //Route::get('/encuestas', 'SeccionEncuestasController@index')->name('encuestas');
-  Route::get('/encuesta/responder/{encuesta}', 'SeccionEncuestasController@show');
+  //Route::get('/encuestas', 'SeccionEncuestasController@index')->name('encuestas'); DESHABILITADA TEMPORALMENTE
+  //Route::get('/encuesta/responder/{encuesta}', 'SeccionEncuestasController@show'); DESHABILITADA TEMPORALMENTE
 
 });
 
@@ -53,16 +53,16 @@ Route::group(['middleware' => 'auth'], function(){
 
 Route::group(['middleware' => 'jefatura'], function(){
 
-  Route::get('/empresas', 'SeccionEmpresaController@listarSolicitudes')->name('empresas');
-  Route::get('/solicitud/{id}', 'SeccionEmpresaController@obtenerSolicitud');
-  Route::post('/solicitud/completar', 'SeccionEmpresaController@completarSolicitud')->name('empresas.completar');
-  Route::post('/solicitud/responder', 'SeccionEmpresaController@responderSolicitud')->name('empresas.responder');
-  Route::get('/empresas/grafico/{item}', 'SeccionEmpresaController@grafico');
+  //Route::get('/empresas', 'SeccionEmpresaController@listarSolicitudes')->name('empresas'); DESHABILITADA TEMPORALMENTE
+  //Route::get('/solicitud/{id}', 'SeccionEmpresaController@obtenerSolicitud'); DESHABILITADA TEMPORALMENTE
+  //Route::post('/solicitud/completar', 'SeccionEmpresaController@completarSolicitud')->name('empresas.completar'); DESHABILITADA TEMPORALMENTE
+  //Route::post('/solicitud/responder', 'SeccionEmpresaController@responderSolicitud')->name('empresas.responder');DESHABILITADA TEMPORALMENTE
+  //Route::get('/empresas/grafico/{item}', 'SeccionEmpresaController@grafico');  DESHABILITADA TEMPORALMENTE
 
-  Route::get('/encuesta/{encuesta}', 'SeccionEncuestasController@edit');
-  Route::post('/encuesta/crear', 'SeccionEncuestasController@store')->name('encuestas.crear');
-  Route::post('/encuesta/modificar', 'SeccionEncuestasController@update')->name('encuestas.modificar');
-  Route::post('/encuesta/eliminar', 'SeccionEncuestasController@delete')->name('encuestas.eliminar');
+  //Route::get('/encuesta/{encuesta}', 'SeccionEncuestasController@edit');  DESHABILITADA TEMPORALMENTE
+  //Route::post('/encuesta/crear', 'SeccionEncuestasController@store')->name('encuestas.crear');  DESHABILITADA TEMPORALMENTE
+  //Route::post('/encuesta/modificar', 'SeccionEncuestasController@update')->name('encuestas.modificar');  DESHABILITADA TEMPORALMENTE
+  //Route::post('/encuesta/eliminar', 'SeccionEncuestasController@delete')->name('encuestas.eliminar');  DESHABILITADA TEMPORALMENTE
 
   Route::get('/proyectos', 'RepositorioController@listarProyectos')->name('proyectos');
   Route::post('/repositorio/nuevo_proyecto', 'RepositorioController@store')->name('repositorio.store');

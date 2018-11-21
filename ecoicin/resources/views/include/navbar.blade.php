@@ -23,9 +23,7 @@
                 <a class="nav-link" href="{{route('quienes_somos')}}">¿Quienes somos?</a>
             </li>
 
-            <li class="nav-item {{(request()->route()->getName() == 'trabajamos_para_usted') ? 'active-navbar' : ''}}">
-                <a class="nav-link" href="{{route('trabajamos_para_usted')}}">Trabajamos para usted</a>
-            </li>
+          <!--  Nav item SECCION EMPRESAS  -->
 
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

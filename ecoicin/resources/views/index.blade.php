@@ -52,9 +52,7 @@
                                   <a class="nav-link" href="{{route('quienes_somos')}}">¿Quienes somos?</a>
                               </li>
 
-                              <li class="nav-item {{(request()->route()->getName() == 'trabajamos_para_usted') ? 'active-navbar' : ''}}">
-                                  <a class="nav-link" href="{{route('trabajamos_para_usted')}}">Trabajamos para usted</a>
-                              </li>
+                            <!--  NAV ITEM SECCION EMPRESAS-->
 
                               <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -168,9 +166,7 @@
           <div class="inner-sec-w3ls py-lg-5  py-3">
               <div class="mid-info text-center pt-3">
                   <h3 class="tittle text-center cen mb-lg-5 mb-3">¿Necesita una solucion informatica?</h3>
-                  <div class="resume">
-                      <a href="{{route('trabajamos_para_usted')}}"></i>Envienos su problema</a>
-                  </div>
+              <!--   REDIRECCION SECCION EMPRESAS  -->
               </div>
 
           </div>

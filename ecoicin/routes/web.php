@@ -30,7 +30,8 @@ Route::get('/contactanos', function () {
   return view('contactanos');
 })->name('contactanos');
 
-Route::get('/repositorio', 'RepositorioController@index')->name('repositorio.index');
+Route::get('/repositorio/producto', 'RepositorioController@producto')->name('producto.index');
+Route::get('/repositorio/documento', 'RepositorioController@documento')->name('documento.index');
 
 Route::post('/login', 'Auth\LoginController@login')->name('login');
 

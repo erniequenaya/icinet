@@ -1,7 +1,7 @@
 <div class="table-responsive">
   @forelse ($usuarios as $usuario)
     @if ($loop->first)
-      <table class="table table-striped text-center data_table">
+      <table id="tabla_usuarios" class="table table-striped text-center data_table">
         <thead class="bg-primary text-light">
           <tr>
             <th scope="col">Nombre Completo</th>
@@ -19,7 +19,7 @@
           <th scope="row">{{$usuario->rut_usuario}}</th>
           <th scope="row">{{$usuario->email_usuario}}</th>
           <th scope="row">{{$usuario->tipo_usuario->nombre_tipo_usuario}}</th>
-          <td id="{{$usuario->id}}"><i class="fas fa-pencil-alt modificar_usuario"></i> <i class="fas fa-trash" data-toggle="modal" data-target="#"></i></td>
+          <td id="{{$usuario->id}}"><i class="fas fa-pencil-alt modificar_usuario"></i> <i class="fas fa-trash eliminar_usuario"></i></td>
         </tr>
 
     @if ($loop->last)

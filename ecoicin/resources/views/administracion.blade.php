@@ -30,30 +30,30 @@
                       {{ csrf_field() }}
                       <fieldset class="form-group">
                         <label>RUT</label>
-                        <input type="text" class="form-control" name="rut_usuario" placeholder="">
+                        <input type="text" class="form-control" name="rut_usuario" placeholder="" required>
                       </fieldset>
 
                       <fieldset class="form-group">
-                        <label >Contraseña</label>
-                        <input type="password" class="form-control" name="password" placeholder="">
+                        <label>Contraseña</label>
+                        <input type="password" class="form-control" name="password" placeholder="" required>
                       </fieldset>
 
                       <fieldset class="form-group">
                         <label>Nombre</label>
-                        <input type="text" class="form-control" name="nombre_usuario" placeholder="">
+                        <input type="text" class="form-control" name="nombre_usuario" placeholder="" required>
                       </fieldset>
                       <fieldset class="form-group">
                         <label >Apellido</label>
-                        <input type="text" class="form-control" name="apellido_usuario" placeholder="">
+                        <input type="text" class="form-control" name="apellido_usuario" placeholder="" required>
                       </fieldset>
                       <fieldset class="form-group">
                         <label>Email</label>
-                        <input type="text" class="form-control" name="email_usuario" placeholder="">
+                        <input type="text" class="form-control" name="email_usuario" placeholder="" required>
                       </fieldset>
 
                       <fieldset class="form-group">
                         <label>Tipo usuario</label>
-                          <select class="form-control" name="tipo_usuario">
+                          <select class="form-control" name="tipo_usuario" required>
                             @foreach ($tipo_usuario as $tipo)
                               <option value="{{$tipo->id_tipo_usuario}}">{{$tipo->nombre_tipo_usuario}}</option>
                             @endforeach
@@ -65,8 +65,9 @@
                 </div>
 
                 <br>
-
-                @include('tablas/tabla_usuarios')
+                <div id="vista_tabla_usuarios">
+                  @include('tablas/tabla_usuarios')
+                </div>
               </div>
 
           </div>
@@ -84,7 +85,7 @@
                         {{ csrf_field() }}
                         <fieldset class="form-group">
                           <label>Nombre Area Informatica</label>
-                          <input name="nombre_area" type="text" class="form-control" id="nombre_area" placeholder="">
+                          <input name="nombre_area" type="text" class="form-control" id="nombre_area" placeholder="" required>
                         </fieldset>
                         <button type="submit" class="btn btn-primary mx-auto d-block">Añadir</button>
                       </form>
@@ -108,7 +109,7 @@
                           {{ csrf_field() }}
                           <fieldset class="form-group">
                             <label for="rut_empresa">Nombre Tipo Soliciutud</label>
-                            <input name="nombre_tipo_proyecto" type="text" class="form-control" placeholder="">
+                            <input name="nombre_tipo_proyecto" type="text" class="form-control" placeholder="" required>
                           </fieldset>
                           <button type="submit" class="btn btn-primary mx-auto d-block">Añadir</button>
                         </form>
@@ -154,6 +155,45 @@
     });
   });
 
+  $(document).on('click', '.eliminar_usuario', function(){
+    var usuario = $(this).parents('td').attr('id');
+    var token = $('input[name=_token]').val();
 
+    $.get('/usuario/'+usuario, function(resp){
+      console.log(resp);
+      var respuesta = confirm('¿Esta seguro que desea eliminar al usuario: '+resp.nombre_usuario+'?');
+      if (respuesta == true) {
+        $.ajax({
+          url: '/eliminar/usuario',
+          headers: {'X-CSRF-TOKEN' : token},
+          type: 'post',
+          data: {id_usuario: resp.id}
+        })
+        .done(function() {
+          cargar_usuarios();
+
+          console.log("success");
+        })
+        .fail(function() {
+          console.log("error");
+        })
+        .always(function() {
+          console.log("complete");
+        });
+
+      }
+    }).fail(function(resp){
+      console.log(resp.responseText);
+    });
+  });
+
+
+  function cargar_usuarios(){
+    var ruta = '/cargar/usuarios';
+    $.get(ruta, function(resp){
+      $('#vista_tabla_usuarios').html(resp);
+      $('#tabla_usuarios').DataTable();
+    });
+  }
 </script>
 @endsection

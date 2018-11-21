@@ -12,9 +12,9 @@ class TipoUsuarioSeeder extends Seeder
     public function run()
     {
       $tipos = [
-        'Alumno',
         'Administrador',
-        'Jefatura'
+        'Jefatura',
+        //'Alumno'
       ];
 
       foreach ($tipos as $tipo) {

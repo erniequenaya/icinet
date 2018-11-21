@@ -75,7 +75,7 @@ Route::group(['middleware' => 'jefatura'], function(){
 /* Administrador */
 
 Route::group(['middleware' => 'admin'], function(){
-
+  
   Route::get('/administracion', 'AdministracionController@index')->name('administracion');
 
   Route::post('/ingresar/usuario', 'AdministracionController@ingresar_usuario')->name('ingresar_usuario');
@@ -83,7 +83,8 @@ Route::group(['middleware' => 'admin'], function(){
   Route::post('/ingresar/tipo_proyecto', 'AdministracionController@ingresar_tipo_proyecto')->name('ingresar_tipo_proyecto');
 
   Route::get('/usuario/{usuario}', 'AdministracionController@obtenerUsuario');
-
+  Route::get('/cargar/usuarios', 'AdministracionController@cargar_usuarios')->name('cargar.usuario');
   Route::post('/modificar/usuario', 'AdministracionController@modificar_usuario')->name('modificar.usuario');
+  Route::post('/eliminar/usuario', 'AdministracionController@eliminar_usuario')->name('eliminar.usuario');
 
 });

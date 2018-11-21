@@ -26,7 +26,11 @@ class AdministracionController extends Controller
         return view('administracion', compact('usuarios', 'tipo_proyecto', 'tipo_area_informatica', 'tipo_usuario'));
     }
 
-
+    /**
+     * Se registra los usuarios con los datos ingresados por formulario
+     * @param  Request $request [contiene los datos ingresados]
+     * @return boolean           [estado del registro de usuario]
+     */
     public function ingresar_usuario(Request $request)
     {
         $usuario = new User;
@@ -43,7 +47,11 @@ class AdministracionController extends Controller
         }
     }
 
-
+    /**
+     * Se registran los tipos de areas informaticas ingresadas por formulario
+     * @param  Request $request [contiene los datos ingresados]
+     * @return boolean           [estado del registro del tipo de area]
+     */
     public function ingresar_tipo_area(Request $request)
     {
         $tipo_area = new TipoAreaInformatica;
@@ -55,6 +63,11 @@ class AdministracionController extends Controller
         }
     }
 
+    /**
+     * Se regsitran los tipos de proyectos utilizados en repositorio
+     * @param  Request $request [contiene los datos ingresados por formulario]
+     * @return [type]           [description]
+     */
     public function ingresar_tipo_proyecto(Request $request)
     {
         $tipo_proyecto = new TipoProyecto;
@@ -66,12 +79,23 @@ class AdministracionController extends Controller
         }
     }
 
+    /**
+     * Se obtiene los datos del usuario en especifico por id
+     * @param  int $usuario [id del usuario a obtener]
+     * @return User          [usuario consultado]
+     */
     public function obtenerUsuario($usuario)
     {
       $usuario = User::where('id', $usuario)->first();
 
       return $usuario;
     }
+
+    /**
+     * [modificar_usuario description]
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
 
     public function modificar_usuario(Request $request){
       $usuario = $request->id_usuario;
@@ -106,6 +130,33 @@ class AdministracionController extends Controller
       if($rs){
         return back();
       }
+    }
+
+    public function eliminar_usuario(Request $request){
+      $usuario = $request->id_usuario;
+      $rs = User::where('id', $usuario)->delete();
+
+      return $rs;
+    }
+
+    public function eliminar_tipo_area(Request $request){
+      $tipo_area = $request->id_tipo_area;
+      $rs = TipoAreaInformatica::where('id_tipo_area_informatica', $tipo_area)->delete();
+
+      return $rs;
+    }
+
+    public function eliminar_tipo_proyecto(Request $request){
+      $tipo_proyecto = $request->id_tipo_proyecto;
+      $rs = TipoProyecto::where('id_tipo_proyecto', $tipo_proyecto)->delete();
+
+      return $rs;
+    }
+
+    public function cargar_usuarios(){
+      $usuarios = User::all();
+
+      return view('tablas.tabla_usuarios', compact('usuarios'));
     }
 
     /**

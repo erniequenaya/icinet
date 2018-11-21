@@ -41,7 +41,7 @@ Route::group(['middleware' => 'auth'], function(){
 
   Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
   Route::get('/descargar_documento/{documento}', 'RepositorioController@descargarDocumento');
-  Route::get('/encuestas', 'SeccionEncuestasController@index')->name('encuestas');
+  //Route::get('/encuestas', 'SeccionEncuestasController@index')->name('encuestas');
   Route::get('/encuesta/responder/{encuesta}', 'SeccionEncuestasController@show');
 
 });
@@ -75,7 +75,7 @@ Route::group(['middleware' => 'jefatura'], function(){
 /* Administrador */
 
 Route::group(['middleware' => 'admin'], function(){
-  
+
   Route::get('/administracion', 'AdministracionController@index')->name('administracion');
 
   Route::post('/ingresar/usuario', 'AdministracionController@ingresar_usuario')->name('ingresar_usuario');

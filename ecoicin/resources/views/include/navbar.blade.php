@@ -23,9 +23,7 @@
                 <a class="nav-link" href="{{route('quienes_somos')}}">¿Quienes somos?</a>
             </li>
 
-            <li class="nav-item {{(request()->route()->getName() == 'trabajamos_para_usted') ? 'active-navbar' : ''}}">
-                <a class="nav-link" href="{{route('trabajamos_para_usted')}}">Trabajamos para usted</a>
-            </li>
+          <!--  Nav item SECCION EMPRESAS  -->
 
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -50,14 +48,11 @@
                   Acciones
                   <i class="fas fa-angle-down"></i>
                 </a>
-                <div class="dropdown-menu text-center" aria-labelledby="navbarDropdown" style="display: none;">
-                  @if (tipoUsuario() != 2)
-                    <a class="dropdown-item" href="{{route('encuestas')}}" title="">Encuestas</a>
-                  @endif
-                  @if (tipoUsuario() == 2)
+                <div class="dropdown-menu text-center" aria-labelledby="navbarDropdown" style="display: none;"
+                  @if (tipoUsuario() == 1)
                     <a class="dropdown-item" href="{{route('administracion')}}" title="">Administracion</a>
                   @endif
-                  @if (tipoUsuario() == 3)
+                  @if (tipoUsuario() == 2)
                     <a class="dropdown-item" href="{{route('proyectos')}}" title="">Proyectos</a>
                     <a class="dropdown-item" href="{{route('empresas')}}" title="">Solicitudes</a>
                   @endif

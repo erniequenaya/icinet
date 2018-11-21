@@ -16,9 +16,7 @@
                     <li>
                         <a href="{{route('quienes_somos')}}">¿Quienes somos?</a>
                     </li>
-                    <li>
-                        <a href="{{route('trabajamos_para_usted')}}">Trabajamos para usted</a>
-                    </li>
+                  <!-- SECCION EMPRESAS -->
                     <li>
                         <a href="{{route('contactanos')}}">Contactanos</a>
                     </li>

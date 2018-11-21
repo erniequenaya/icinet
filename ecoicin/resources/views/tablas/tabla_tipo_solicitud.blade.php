@@ -1,6 +1,6 @@
 <div class="table-responsive">
 
-  @forelse ($tipo_proyecto as $tipo)
+  @foreach ($tipo_proyecto as $tipo)
     @if ($loop->first)
       <table class="table table-striped text-center data_table">
         <thead class="bg-primary text-light">
@@ -21,8 +21,7 @@
       </tbody>
     </table>
     @endif
-  @empty
-    <h3 class="tittle text-center mb-lg-5 mb-3">No se han añadido areas aun.</h3>
-  @endforelse
+
+  @endforeach
 
 </div>

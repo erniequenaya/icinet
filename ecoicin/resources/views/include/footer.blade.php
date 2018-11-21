@@ -20,9 +20,6 @@
                         <a href="{{route('trabajamos_para_usted')}}">Trabajamos para usted</a>
                     </li>
                     <li>
-                        <a href="{{route('repositorio.index')}}">Repositorio</a>
-                    </li>
-                    <li>
                         <a href="{{route('contactanos')}}">Contactanos</a>
                     </li>
                     <li>

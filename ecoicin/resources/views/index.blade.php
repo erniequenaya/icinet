@@ -56,8 +56,15 @@
                                   <a class="nav-link" href="{{route('trabajamos_para_usted')}}">Trabajamos para usted</a>
                               </li>
 
-                              <li class="nav-item">
-                                  <a class="nav-link {{(request()->route()->getName() == 'repositorio.index') ? 'active-navbar' : ''}}" href="{{route('repositorio.index')}}">Repositorio</a>
+                              <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Repositorio
+                                  <i class="fas fa-angle-down"></i>
+                                </a>
+                                <div class="dropdown-menu text-center" aria-labelledby="navbarDropdown" style="display: none;">
+                                    <a class="dropdown-item" href="{{route('producto.index')}}" title="">Productos</a>
+                                    <a class="dropdown-item" href="{{route('documento.index')}}" title="">Documentos</a>
+                                </div>
                               </li>
 
                               @guest

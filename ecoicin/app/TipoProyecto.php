@@ -12,6 +12,10 @@ class TipoProyecto extends Model
     'nombre_tipo_proyecto'
   ];
 
+  /**
+   * Obtiene una coleccion de solicitudes que correspondan al tipo de proyecto
+   * @return Solicitud[] que pertenezcan al tipo de proyecto
+   */
   public function solicitudes(){
     return $this->hasMany(Solicitud::class, 'tipo_proyecto_id', 'id_tipo_proyecto');
   }

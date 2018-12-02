@@ -12,6 +12,10 @@ class TipoAreaInformatica extends Model
     'nombre_tipo_area_informatica'
   ];
 
+  /**
+   * Obtiene una coleccion de solicitudes que correspondan al tipo de area informatica
+   * @return Solicitud[] que pertenezcan al tipo de area informatica
+   */
   public function solicitudes(){
     return $this->hasMany(Solicitud::class, 'tipo_area_informatica_id', 'id_tipo_area_informatica');
   }

@@ -30,6 +30,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * Obtiene los datos del tipo que corresponde el usuario por medio de la funcion belongsTo
+     * @return TipoUsuario al cual pertenece el usuario
+     */
     public function tipo_usuario(){
       return $this->belongsTo(TipoUsuario::class, 'tipo_usuario_id', 'id_tipo_usuario');
     }

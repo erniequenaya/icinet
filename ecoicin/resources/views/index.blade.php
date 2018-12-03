@@ -78,10 +78,10 @@
                                     <i class="fas fa-angle-down"></i>
                                   </a>
                                   <div class="dropdown-menu text-center" aria-labelledby="navbarDropdown" style="display: none;">
-                                    @if (tipoUsuario() == 2)
+                                    @if (tipoUsuario() == 1)
                                       <a class="dropdown-item" href="{{route('administracion')}}" title="">Administracion</a>
                                     @endif
-                                    @if (tipoUsuario() == 3)
+                                    @if (tipoUsuario() == 2)
                                       <a class="dropdown-item" href="{{route('proyectos')}}" title="">Proyectos</a>
                                       <a class="dropdown-item" href="{{route('empresas')}}" title="">Solicitudes</a>
                                     @endif

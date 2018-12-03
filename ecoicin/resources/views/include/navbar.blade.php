@@ -54,7 +54,6 @@
                   @endif
                   @if (tipoUsuario() == 2)
                     <a class="dropdown-item" href="{{route('proyectos')}}" title="">Proyectos</a>
-                    <a class="dropdown-item" href="{{route('empresas')}}" title="">Solicitudes</a>
                   @endif
                 </div>
               </li>

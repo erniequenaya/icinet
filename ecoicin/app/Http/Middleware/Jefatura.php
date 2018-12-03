@@ -18,7 +18,7 @@ class Jefatura
       if (auth()->check()) {
         $usuario = auth()->guard()->user();
 
-        if ($usuario->tipo_usuario_id == 3) {
+        if ($usuario->tipo_usuario_id == 2) {
           return $next($request);
         }
       }

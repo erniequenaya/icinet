@@ -19,10 +19,9 @@ class AdministracionController extends Controller
     {
         $usuarios = User::all();
         $tipo_proyecto = TipoProyecto::all();
-        $tipo_area_informatica = TipoAreaInformatica::all();
         $tipo_usuario = TipoUsuario::all();
 
-        return view('administracion', compact('usuarios', 'tipo_proyecto', 'tipo_area_informatica', 'tipo_usuario'));
+        return view('administracion', compact('usuarios', 'tipo_proyecto', 'tipo_usuario'));
     }
 
     /**
@@ -51,7 +50,7 @@ class AdministracionController extends Controller
      * @param  Request $request [contiene los datos ingresados]
      * @return back           [vista anterior]
      */
-    public function ingresar_tipo_area(Request $request)
+    /*public function ingresar_tipo_area(Request $request)
     {
         $tipo_area = new TipoAreaInformatica;
         $tipo_area->nombre_tipo_area_informatica = $request->nombre_area;
@@ -60,7 +59,7 @@ class AdministracionController extends Controller
         if($rs_tipo_area){
           return back()->with('mensaje', 'exito');
         }
-    }
+    }*/
 
     /**
      * Se regsitran los tipos de proyectos utilizados en repositorio
@@ -111,7 +110,7 @@ class AdministracionController extends Controller
       }
     }
 
-    public function modificar_tipo_area(){
+    /*public function modificar_tipo_area(){
       $id_tipo_area_informatica = $request->id_tipo_area;
       $nombre_tipo_area_informatica = $request->nombre_area;
       $parm_tipo_area_informatica = compact('nombre_tipo_area_informatica');
@@ -119,7 +118,7 @@ class AdministracionController extends Controller
       if($rs){
         return back();
       }
-    }
+    }*/
 
     public function modificar_tipo_proyecto(){
       $id_tipo_proyecto = $request->id_tipo_solicitud;
@@ -144,12 +143,12 @@ class AdministracionController extends Controller
       return $rs;
     }
 
-    public function eliminar_tipo_area(Request $request){
+    /*public function eliminar_tipo_area(Request $request){
       $tipo_area = $request->id_tipo_area;
       $rs = TipoAreaInformatica::where('id_tipo_area_informatica', $tipo_area)->delete();
 
       return $rs;
-    }
+    }*/
 
     public function eliminar_tipo_proyecto(Request $request){
       $tipo_proyecto = $request->id_tipo_proyecto;

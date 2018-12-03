@@ -73,29 +73,6 @@
           </div>
 
 
-              <h3 class="tittle text-center mb-lg-5 mb-3">Area Informatica <button type="button"  data-toggle="collapse" data-target="#area_informatica" aria-expanded="false" aria-controls="collapseExample" class="btn btn-primary"><i class="fas fa-chevron-down"></i></button></h3>
-
-              <div class="mid-info mt-5">
-                <div class="collapse" id="area_informatica">
-                  <button type="button"  data-toggle="collapse" data-target="#ingresar_area_informatica" aria-expanded="false" aria-controls="collapseExample" class="btn btn-primary btn-block">Añadir area informatica</button>
-
-                  <div class="collapse" id="ingresar_area_informatica">
-                    <div class="card card-body">
-                      <form action="{{route('ingresar_tipo_area')}}" method="post">
-                        {{ csrf_field() }}
-                        <fieldset class="form-group">
-                          <label>Nombre Area Informatica</label>
-                          <input name="nombre_area" type="text" class="form-control" id="nombre_area" placeholder="" required>
-                        </fieldset>
-                        <button type="submit" class="btn btn-primary mx-auto d-block">Añadir</button>
-                      </form>
-                    </div>
-                  </div>
-
-                  <br>
-
-                  @include('tablas/tabla_area_informatica')
-                </div>
 
                 <h3 class="tittle text-center mb-lg-5 mb-3">Tipo solicitud <button type="button"  data-toggle="collapse" data-target="#tipo_solicitud" aria-expanded="false" aria-controls="collapseExample" class="btn btn-primary"><i class="fas fa-chevron-down"></i></button></h3>
 
@@ -126,8 +103,6 @@
           </div>
       </div>
   </section>
-
-  @include('modals/modificar_area_informatica')
 
   @include('modals/modificar_tipo_solicitud')
 

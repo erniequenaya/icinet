@@ -18,7 +18,7 @@ class Administrador
       if (auth()->check()) {
         $usuario = auth()->guard()->user();
 
-        if ($usuario->tipo_usuario_id == 2) {
+        if ($usuario->tipo_usuario_id == 1) {
           return $next($request);
         }
       }

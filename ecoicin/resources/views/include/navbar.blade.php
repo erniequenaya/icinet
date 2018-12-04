@@ -2,6 +2,12 @@
     <div> <!--class="logo"-->
         <h1>
             <a class="navbar-brand" href="{{route('index')}}"><i class="fas fa-at" aria-hidden></i> UTA - ICIN</a>
+
+            @auth
+                @if (tipoUsuario() == 2)
+                  <button class="btn celeste-uta text-light" type="button" name="button"><i class="fa fa-edit"></i></button>
+                @endif
+            @endauth
         </h1>
     </div>
 
@@ -36,11 +42,11 @@
               </div>
             </li>
 
-            @guest
+
               <li class="nav-item {{(request()->route()->getName() == 'contactanos') ? 'active-navbar' : ''}}">
                 <a class="nav-link" href="{{route('contactanos')}}">Contactanos</a>
               </li>
-            @endguest
+
 
             @auth
               <li class="nav-item dropdown">

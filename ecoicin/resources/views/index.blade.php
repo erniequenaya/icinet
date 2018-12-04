@@ -30,7 +30,12 @@
                   <nav class="navbar navbar-expand-lg navbar-light">
                       <div> <!--class="logo"-->
                           <h1>
-                              <a class="navbar-brand" href="{{route('index')}}"><i class="fas fa-at" aria-hidden></i> UTA - ICIN</a>
+                              <a class="navbar-brand" href="{{route('index')}}"><i class="fas fa-at" aria-hidden></i> UTA - ICIN </a>
+                              @auth
+                                  @if (tipoUsuario() == 2)
+                                    <button class="btn celeste-uta text-light" type="button" name="button"><i class="fa fa-edit"></i></button>
+                                  @endif
+                              @endauth
                           </h1>
                       </div>
 
@@ -65,11 +70,11 @@
                                 </div>
                               </li>
 
-                              @guest
+
                                 <li class="nav-item {{(request()->route()->getName() == 'contactanos') ? 'active' : ''}}">
                                   <a class="nav-link" href="{{route('contactanos')}}">Contactanos</a>
                                 </li>
-                              @endguest
+
 
                               @auth
                                 <li class="nav-item dropdown">
@@ -94,6 +99,11 @@
               <!--/banner-info-w3layouts-->
               <div class="banner-info-w3layouts text-center">
                   <img src="{{asset('images/logo_icin.png')}}" style="width: 30%; height: auto;" alt="Ingenieria Civil en Informatica">
+                  @auth
+                      @if (tipoUsuario() == 2)
+                        &nbsp;<button class="btn celeste-uta text-light" type="button" name="button"><i class="fa fa-edit"></i></button>
+                      @endif
+                  @endauth
                   <h3>
                       <span>La computación y la tecnología son parte de nuestras vidas.</span>
                   </h3>
@@ -150,6 +160,11 @@
                 </div>
               </div>
               <br><br>
+              @auth
+                  @if (tipoUsuario() == 2)
+                    <h3 class="tittle text-center">Calendario ICIN <button class="btn celeste-uta text-light" type="button" name="button"><i class="fa fa-edit"></i></button></h3>
+                  @endif
+              @endauth
               <div class="container responsiveCal">
                 <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=2&amp;bgcolor=%23FFFFFF&amp;src=2icpl7rs955s8ebga4smimncro%40group.calendar.google.com&amp;color=%238C500B&amp;src=es.cl%23holiday%40group.v.calendar.google.com&amp;color=%23125A12&amp;ctz=America%2FSantiago" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
               </div>
@@ -164,7 +179,11 @@
       <div class="container">
           <div class="inner-sec-w3ls py-lg-5  py-3">
               <div class="mid-info text-center pt-3">
-                  <h3 class="tittle text-center cen mb-lg-5 mb-3">¿Necesita una solucion informatica?</h3>
+                  <h3 class="tittle text-center cen mb-lg-5 mb-3">¿Necesita una solucion informatica? @auth
+                      @if (tipoUsuario() == 2)
+                        <button class="btn celeste-uta text-light" type="button" name="button"><i class="fa fa-edit"></i></button>
+                      @endif
+                  @endauth</h3>
               <!--   REDIRECCION SECCION EMPRESAS  -->
               </div>
 
@@ -177,7 +196,12 @@
   <section class="banner-bottom-wthree bg-light py-lg-5 py-3 text-center">
       <div class="container">
           <div class="inner-sec-w3ls py-lg-4 py-md-4 py-3">
-              <h3 class="tittle text-center mb-lg-5 mb-3">Jefe de carrera</h3>
+              <h3 class="tittle text-center mb-lg-5 mb-3">Jefe de carrera
+                @auth
+                  @if (tipoUsuario() == 2)
+                    <button class="btn celeste-uta text-light" type="button" name="button"><i class="fa fa-edit"></i></button>
+                  @endif
+              @endauth</h3>
               <div class="row mt-5">
                   <div class="col-lg-3 member-main text-center mx-auto d-block">
                       <div class="card">
@@ -186,7 +210,7 @@
                                   <img src="{{asset('images/jefe_carrera.png')}}" alt="Jefe de carrera" class="img-fluid rounded-circle">
                               </div>
                               <div class="member-info text-center py-lg-4 py-2">
-                                  <h4>Jorgue Diaz Ramirez</h4>
+                                  <h4>Jorge Diaz Ramirez</h4>
 
                                   <p class="my-4">Jefe Carrera IECI-ICIN Universidad de Tarapacá, EUIIIS Iquique-Chile</p>
                               </div>

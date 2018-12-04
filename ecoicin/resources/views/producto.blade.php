@@ -19,7 +19,13 @@
             @endif
 
             <!-- TITULO PAGINA -->
-            <h1 class="text-center">Productos</h1>
+            <h1 class="text-center">Productos
+              @auth
+                  @if (tipoUsuario() == 2)
+                    <button class="btn celeste-uta text-light" type="button" name="button"><i class="fa fa-edit"></i></button>
+                  @endif
+              @endauth
+            </h1>
 
             <br>
 
@@ -62,7 +68,7 @@
                 @endphp
 
                 @empty
-
+                <br>
                 <h3 class="tittle text-center mb-lg-5 mb-3">No se han encontrado proyectos aun.</h3>
               @endforelse
             </div>

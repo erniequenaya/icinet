@@ -12,9 +12,8 @@ use Storage;
 class RepositorioController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Muestra todos los proyectos que se encuentran en el repositorio
+     * @return View con los proyectos
      */
     public function index()
     {
@@ -25,6 +24,10 @@ class RepositorioController extends Controller
         return view('repositorio', compact('proyectos', 'tipo_proyecto', 'cont'));
     }
 
+    /**
+     * Muestra todos los proyectos que se encuentran en el repositorio
+     * @return View con los proyectos
+     */
     public function producto()
     {
         $proyectos = Proyecto::all();
@@ -34,6 +37,10 @@ class RepositorioController extends Controller
         return view('producto', compact('proyectos', 'tipo_proyecto', 'cont'));
     }
 
+    /**
+     * Muestra todos los proyectos que se encuentran en el repositorio
+     * @return View con los proyectos
+     */
     public function documento()
     {
         $proyectos = Proyecto::all();
@@ -43,6 +50,10 @@ class RepositorioController extends Controller
         return view('documento', compact('proyectos', 'tipo_proyecto', 'cont'));
     }
 
+    /**
+     * Lista los proyectos en una tabla para ejecutar acciones o agregar nuevos
+     * @return View con todos los proyectos
+     */
     public function listarProyectos(){
       $proyectos = Proyecto::all();
       $tipo_proyecto = TipoProyecto::all();
@@ -131,10 +142,9 @@ class RepositorioController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Obtiene el proyecto por medio de su id con todos sus atributos correspondientes
+     * @param  Int $proyecto id
+     * @return Proyecto   correspondiente al id
      */
     public function edit($proyecto)
     {
@@ -144,11 +154,10 @@ class RepositorioController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Actualiza los atributos del proyecto en la base de datos.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request  con los datos a editar
+     * @return Response  vuelve a la pagina anterior
      */
     public function update(Request $request)
     {

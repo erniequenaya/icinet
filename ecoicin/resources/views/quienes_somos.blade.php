@@ -14,7 +14,13 @@
   <section class="banner-bottom-wthree ">
       <div class="container">
           <div class="inner-sec-w3ls py-lg-5   py-md-3 py-3">
-              <h3 class="tittle text-center mb-lg-5 mb-3">Organigrama institucional</h3>
+              <h3 class="tittle text-center mb-lg-5 mb-3">Organigrama institucional
+                @auth
+                    @if (tipoUsuario() == 2)
+                      <button class="btn celeste-uta text-light" type="button" name="button"><i class="fa fa-edit"></i></button>
+                    @endif
+                @endauth
+              </h3>
 
               <div class="mid-info text-center mt-5">
                   <div class="parent-chart">
@@ -22,7 +28,7 @@
                           <div class="flow-position">
                               <img src="{{asset('images/jefe_carrera.png')}}" alt=" " class="img-fluid rounded-circle">
                               <br>
-                              <strong>Jorgue Diaz Ramirez</strong>
+                              <strong>Jorge Diaz Ramirez</strong>
                               <br> Jefe de carrera
                           </div>
                       </div>
@@ -93,7 +99,13 @@
   <section class="banner-bottom-wthree">
       <div class="container">
           <div class="inner-sec-w3ls">
-              <h3 class="tittle text-center mb-lg-5 mb-3">Perfil de egreso</h3>
+              <h3 class="tittle text-center mb-lg-5 mb-3">Perfil de egreso
+                @auth
+                    @if (tipoUsuario() == 2)
+                      <button class="btn celeste-uta text-light" type="button" name="button"><i class="fa fa-edit"></i></button>
+                    @endif
+                @endauth
+              </h3>
 
               <div class="mid-info mt-5">
                 <h3 class="text-center">Los egresados de Ingeniería Civil en Informática serán capaces de:</h3>
@@ -124,7 +136,13 @@
   <section class="banner-bottom-wthree py-lg-5 py-md-4  py-3">
       <div class="container">
           <div class="inner-sec-w3ls py-lg-5   py-md-3 py-3">
-              <h3 class="tittle text-center mb-lg-5 mb-3">Malla curricular</h3>
+              <h3 class="tittle text-center mb-lg-5 mb-3">Malla curricular
+                @auth
+                    @if (tipoUsuario() == 2)
+                      <button class="btn celeste-uta text-light" type="button" name="button"><i class="fa fa-edit"></i></button>
+                    @endif
+                @endauth
+              </h3>
 
               <img src="{{asset('images/malla_curricular.png')}}" alt="Malla curricular" class="img-fluid">
 

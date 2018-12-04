@@ -19,7 +19,13 @@
             @endif
 
             <!-- TITULO PAGINA -->
-            <h1 class="text-center">Documentos</h1>
+            <h1 class="text-center">Documentos
+              @auth
+                  @if (tipoUsuario() == 2)
+                    <button class="btn celeste-uta text-light" type="button" name="button"><i class="fa fa-edit"></i></button>
+                  @endif
+              @endauth
+            </h1>
 
             <br>
 
@@ -55,6 +61,7 @@
                     </table>
                     @endif
                   @empty
+                  <br>
                       <h3 class="tittle text-center mb-lg-5 mb-3">No se han añadido proyectos aun.</h3>
                   @endforelse
             </div>

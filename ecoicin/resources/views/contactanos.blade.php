@@ -27,7 +27,7 @@
             </h3>
 
             <div class="mid-info mt-5">
-                <h4 class="text-center"><i class="fas fa-phone" aria-hidden></i> +56 9 123123123</h4>
+                <h4 class="text-center"><i class="fas fa-phone" aria-hidden></i> 57 2727118</h4>
               <br>
             </div>
 

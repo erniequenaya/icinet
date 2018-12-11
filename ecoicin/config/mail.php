@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'ecoicintest@gmail.com'),
+        'name' => env('MAIL_FROM_NAME', 'Ecoicin'),
     ],
 
     /*
@@ -118,6 +118,14 @@ return [
         'paths' => [
             resource_path('views/vendor/mail'),
         ],
+    ],
+
+    'stream' => [
+      'ssl' => [
+          'allow_self_singed' => true,
+          'verify_peer' => false,
+          'verify_peer_name' => false,
+      ],
     ],
 
 ];

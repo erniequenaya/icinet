@@ -52,7 +52,8 @@
 
     <div class="contenedor">
 
-      <form class="form" action="" method="post">
+      <form  class="form" method="post" action="{{route('mensajes')}}">
+        {{ csrf_field() }}
 
         <div class="form-header">
           <h1 class="form-title">Contacto</h1>

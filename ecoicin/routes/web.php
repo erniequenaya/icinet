@@ -25,6 +25,18 @@ Route::get('/quienes_somos', function () {
 
 Route::get('/ver_documento/{documento}', 'RepositorioController@verDocumento');
 
+Route::post('mensajes', function(){
+$data = request()->all();
+    Mail::send('emails.mensaje', $data, function($message) use ($data){
+      $message->from($data['email'], $data['nombre'])
+      ->to('ecoicintest@gmail.com','Gonzalo');
+      //->subject($data['Subject']);
+    });
+
+    return back();
+    //return request()->all();
+})->name('mensajes');
+
 Route::get('/contactanos', function () {
   return view('contactanos');
 })->name('contactanos');

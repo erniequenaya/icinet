@@ -7,6 +7,7 @@ use App\TipoUsuario;
 use App\TipoAreaInformatica;
 use App\TipoProyecto;
 use App\User;
+use App\Contenido;
 
 
 class AdministracionController extends Controller
@@ -162,6 +163,26 @@ class AdministracionController extends Controller
 
       return view('tablas.tabla_usuarios', compact('usuarios'));
     }
+
+    
+    public function ckeditorGuardar(Request $request){
+        $todo=request()->all;
+        $cont_con=request()->subtitulo;
+        $cont_secc=key($todo);
+        $compactando=compact('cont_secc','cont_con');
+        echo $cont_secc;
+        echo $cont_con;
+        var_dump($compactando);
+        echo "aaa";
+        $rs=Contenido::where('cont_secc',$cont_secc)->update($compactando);
+        var_dump($rs);
+        if($rs){
+            echo  "no hay registro con esta id";
+        }else{
+            echo "insertate porfa";
+        }
+    }
+
 
     /**
      * Display the specified resource.

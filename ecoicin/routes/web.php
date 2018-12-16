@@ -72,6 +72,9 @@ Route::group(['middleware' => 'jefatura'], function(){
   Route::post('/repositorio/nuevo_proyecto', 'RepositorioController@store')->name('repositorio.store');
   Route::get('/repositorio/{proyecto}', 'RepositorioController@edit');
   Route::post('/repositorio/modificar_proyecto', 'RepositorioController@update')->name('repositorio.update');
+  //post para guardar cambios en el contenido (texto) del sitio
+  Route::get('/ckeditor/guardar', 'AdministracionController@ckeditorGuardar')->name('ckeditor/guardar');
+
 });
 
 /* Administrador */

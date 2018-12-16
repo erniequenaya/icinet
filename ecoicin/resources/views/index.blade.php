@@ -1,6 +1,15 @@
 @extends('layout')
 
 @section('header')
+
+                              @auth
+                                  @if (tipoUsuario() == 2)
+                                    <!-- cargar el ckeditor-->
+                                        <script src="{{ asset('/vendor/ckeditor/ckeditor.js') }}"></script>
+                                  @endif
+                              @endauth
+
+
   <div id="demo-1" data-zs-src='["images/1.jpg", "images/2.jpg"]' data-zs-overlay="dots">
       <div class="demo-inner-content">
           <div class="header-top">
@@ -99,16 +108,34 @@
               <!--/banner-info-w3layouts-->
               <div class="banner-info-w3layouts text-center">
                   <img src="{{asset('images/logo_icin.png')}}" style="width: 30%; height: auto;" alt="Ingenieria Civil en Informatica">
-                  @auth
-                      @if (tipoUsuario() == 2)
-                        &nbsp;<button class="btn celeste-uta text-light" type="button" name="button"><i class="fa fa-edit"></i></button>
-                      @endif
-                  @endauth
-                  <h3>
-                      <span>La computación y la tecnología son parte de nuestras vidas.</span>
-                  </h3>
-                  <p>Crear soluciones en este nuevo mundo sin fronteras.</p>
-              </div>
+
+
+
+
+<br>
+        @if (tipoUsuario() == 2)
+    @auth
+    <!-- en realidad no se como lo de arriba funciona-->
+    <form action="{{ route('ckeditor/guardar') }}" method="get" id="form1">
+        
+        <textarea name="subtitulo" id="subtitulo" contenteditable="true"  >
+        {{ App\Contenido::where('cont_secc','subtitulo')->value('cont_con') }}
+        </textarea>
+        <script>
+            //CKEDITOR.replace('subtitulo');
+            CKEDITOR.disableAutoInlinem=true;
+            CKEDITOR.inline('subtitulo');
+        </script>
+    </form>
+        <button type="submit" form="form1" value="Submit">Submit</button> 
+    @endauth
+        @else
+        {!! App\Contenido::where('cont_secc','subtitulo')->value('cont_con')  !!}
+        @endif
+
+            <!-- //los tags 'llave exclamacion exclamacion' permiten a la query escapar del parsing seguro de laravel, permitiendo que el html del contenido sea renderizado -->
+
+
               <!--//banner-info-w3layouts-->
           </div>
 </div>
@@ -220,6 +247,21 @@
               </div>
           </div>
       </div>
+
+                              @auth
+                                  @if (tipoUsuario() == 2)
+                                    <!-- nombrar los contenteditable -->
+                                    <script>
+                                        CKEDITOR.replace('editor1');
+                                        // Turn off automatic editor creation first.
+                                        CKEDITOR.disableAutoInline = true;
+                                        CKEDITOR.inline( 'editor2' );
+                                    </script>
+                                    <!-- parsear a base de datos lo editado-->
+
+                                  @endif
+                              @endauth
+
   </section>
   <!--/candidates -->
 @endsection

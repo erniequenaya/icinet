@@ -166,8 +166,9 @@ class AdministracionController extends Controller
 
     
     public function ckeditorGuardar(Request $request){
-        $todo=request()->all;
-        $cont_con=request()->subtitulo;
+        $todo=$request->all();
+        var_dump($todo);
+        $cont_con=$request->subtitulo;
         $cont_secc=key($todo);
         $compactando=compact('cont_secc','cont_con');
         echo $cont_secc;

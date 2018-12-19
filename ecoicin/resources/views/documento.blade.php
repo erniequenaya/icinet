@@ -3,6 +3,17 @@
 @include('include/header')
 
 @section('main')
+
+
+<!-- carga del ckeditor-->
+@auth
+@if (tipoUsuario() == 2)
+<script src="{{ asset('/vendor/ckeditor/ckeditor.js') }}"></script>
+@endif
+@endauth
+<!-- fin carga del ckeditor-->
+
+
   <!-- MIGA DE PAN -->
   <ol class="breadcrumb justify-content-left">
       <li class="breadcrumb-item">
@@ -19,18 +30,29 @@
             @endif
 
             <!-- TITULO PAGINA -->
-            <h1 class="text-center">Documentos
               @auth
                   @if (tipoUsuario() == 2)
                     <button class="btn celeste-uta text-light" type="button" name="button"><i class="fa fa-edit"></i></button>
                   @endif
               @endauth
-            </h1>
 
-            <br>
-
-            <!-- DESCRIPCION PAGINA -->
-            <h4 class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h4>
+<br>
+@if (tipoUsuario() == 2)
+@auth
+    <form action="{{ route('ckeditor/guardar') }}" method="get" id="formDocumentos">
+        <textarea name="documentos" id="documentos" contenteditable="true"  >
+        {{ App\Contenido::where('cont_secc','documentos')->value('cont_con') }}
+        </textarea>
+        <script>
+            CKEDITOR.disableAutoInline=true;
+            CKEDITOR.inline('documentos');
+        </script>
+    </form>
+        <button type="submit" form="formDocumentos" value="Submit">Submit</button> 
+@endauth
+@else
+        {!! App\Contenido::where('cont_secc','documentos')->value('cont_con')  !!}
+@endif
 
             <br>
 

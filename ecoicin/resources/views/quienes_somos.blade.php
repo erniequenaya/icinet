@@ -3,6 +3,17 @@
 @include('include/header')
 
 @section('main')
+
+
+                              @auth
+                                    <!-- cargar el ckeditor-->
+                                  @if (tipoUsuario() == 2)
+                                        <script src="{{ asset('/vendor/ckeditor/ckeditor.js') }}"></script>
+                                  @endif
+                              @endauth
+
+
+
   <ol class="breadcrumb justify-content-left">
       <li class="breadcrumb-item">
           <a href="{{route('index')}}">Inicio</a>
@@ -108,25 +119,29 @@
               </h3>
 
               <div class="mid-info mt-5">
-                <h3 class="text-center">Los egresados de Ingeniería Civil en Informática serán capaces de:</h3>
 
-                <br>
-                <ul>
-                  <li>Que sea capaz de percibir, respetar y aceptar la naturaleza humana en su totalidad y que, desde esta perspectiva, sea un facilitador del desarrollo integral del individuo.</li>
-                  <li>Dirigir proyectos que incorporen tecnologías de información y comunicación en la mejora e innovación de procesos industriales y de negocios.</li>
-                  <li>Identificar y evaluar riesgos; aplicar aspectos de calidad y seguridad involucrados en un proceso de desarrollo, mantenimiento y operación de un sistema computacional.</li>
-                </ul>
 
-                <br>
 
-                <h3 class="text-center">Además, exhibirán:</h3>
+        @if (tipoUsuario() == 2)
+    @auth
+    <form action="{{ route('ckeditor/guardar') }}" method="get" id="formPerfil">
+        
+        <textarea name="quienesSomosPerfil" id="quienesSomosPerfil" contenteditable="true"  >
+        {{ App\Contenido::where('cont_secc','quienesSomosPerfil')->value('cont_con') }}
+        </textarea>
+        <script>
+            //CKEDITOR.replace('quienesSomosPerfil');
+            CKEDITOR.disableAutoInline=true;
+            CKEDITOR.inline('quienesSomosPerfil');
+        </script>
+    </form>
+        <button type="submit" form="formPerfil" value="Submit">Submit</button> 
+    @endauth
+        @else
+        {!! App\Contenido::where('cont_secc','quienesSomosPerfil')->value('cont_con')  !!}
+        @endif
 
-                <br>
 
-                <ul>
-                  <li>Capacidad para seguir estudios avanzados y de actualización, adaptándose a nuevas responsabilidades y cambios tecnológicos.</li>
-                  <li>Capacidad para participar en equipos multidisciplinarios aportando a la consecución de metas comunes, considerando la habilidad para escuchar y entender a los demás, estableciendo una comunicación bilingüe en un mundo globalizado.</li>
-                </ul>
               </div>
 
           </div>

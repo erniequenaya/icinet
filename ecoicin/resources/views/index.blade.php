@@ -109,9 +109,6 @@
               <div class="banner-info-w3layouts text-center">
                   <img src="{{asset('images/logo_icin.png')}}" style="width: 30%; height: auto;" alt="Ingenieria Civil en Informatica">
 
-
-
-
 <br>
         @if (tipoUsuario() == 2)
     @auth
@@ -123,7 +120,7 @@
         </textarea>
         <script>
             //CKEDITOR.replace('subtitulo');
-            CKEDITOR.disableAutoInlinem=true;
+            CKEDITOR.disableAutoInline=true;
             CKEDITOR.inline('subtitulo');
         </script>
     </form>
@@ -132,7 +129,6 @@
         @else
         {!! App\Contenido::where('cont_secc','subtitulo')->value('cont_con')  !!}
         @endif
-
             <!-- //los tags 'llave exclamacion exclamacion' permiten a la query escapar del parsing seguro de laravel, permitiendo que el html del contenido sea renderizado -->
 
 
@@ -206,11 +202,31 @@
       <div class="container">
           <div class="inner-sec-w3ls py-lg-5  py-3">
               <div class="mid-info text-center pt-3">
-                  <h3 class="tittle text-center cen mb-lg-5 mb-3">¿Necesita una solucion informatica? @auth
+
+<!-- ckeditor para el que solia ser trabajamos para usted -->
+@if (tipoUsuario() == 2)
+@auth
+    <form action="{{ route('ckeditor/guardar') }}" method="get" id="formContactanos">
+        <textarea name="contactanos" id="contactanos" contenteditable="true"  >
+        {{ App\Contenido::where('cont_secc','contactanos')->value('cont_con') }}
+        </textarea>
+        <script>
+            CKEDITOR.disableAutoInline=true;
+            CKEDITOR.inline('contactanos');
+        </script>
+    </form>
+        <button type="submit" form="formContactanos" value="Submit">Submit</button> 
+@endauth
+@else
+        {!! App\Contenido::where('cont_secc','contactanos')->value('cont_con')  !!}
+@endif
+                  <!-- <h3 class="tittle text-center cen mb-lg-5 mb-3">¿Necesita una solucion informatica?</h3> -->
+                  
+                  @auth
                       @if (tipoUsuario() == 2)
                         <button class="btn celeste-uta text-light" type="button" name="button"><i class="fa fa-edit"></i></button>
                       @endif
-                  @endauth</h3>
+                  @endauth
               <!--   REDIRECCION SECCION EMPRESAS  -->
               </div>
 
@@ -233,14 +249,33 @@
                   <div class="col-lg-3 member-main text-center mx-auto d-block">
                       <div class="card">
                           <div class="card-body">
-                              <div class="member-img">
+
+<!-- ckeditor para la descripcion del cliente-->
+@if (tipoUsuario() == 2)
+@auth
+    <form action="{{ route('ckeditor/guardar') }}" method="get" id="formDescripcionCliente">
+        <textarea name="descripcionCliente" id="descripcionCliente" contenteditable="true"  >
+        {{ App\Contenido::where('cont_secc','descripcionCliente')->value('cont_con') }}
+        </textarea>
+        <script>
+            CKEDITOR.disableAutoInline=true;
+            CKEDITOR.inline('descripcionCliente');
+        </script>
+    </form>
+        <button type="submit" form="formDescripcionCliente" value="Submit">Submit</button> 
+@endauth
+@else
+        {!! App\Contenido::where('cont_secc','descripcionCliente')->value('cont_con')  !!}
+@endif
+                              <!-- <div class="member-img">
                                   <img src="{{asset('images/jefe_carrera.png')}}" alt="Jefe de carrera" class="img-fluid rounded-circle">
                               </div>
                               <div class="member-info text-center py-lg-4 py-2">
                                   <h4>Jorge Diaz Ramirez</h4>
 
                                   <p class="my-4">Jefe Carrera IECI-ICIN Universidad de Tarapacá, EUIIIS Iquique-Chile</p>
-                              </div>
+                              </div> -->
+
                           </div>
                       </div>
                   </div>
@@ -248,19 +283,6 @@
           </div>
       </div>
 
-                              @auth
-                                  @if (tipoUsuario() == 2)
-                                    <!-- nombrar los contenteditable -->
-                                    <script>
-                                        CKEDITOR.replace('editor1');
-                                        // Turn off automatic editor creation first.
-                                        CKEDITOR.disableAutoInline = true;
-                                        CKEDITOR.inline( 'editor2' );
-                                    </script>
-                                    <!-- parsear a base de datos lo editado-->
-
-                                  @endif
-                              @endauth
 
   </section>
   <!--/candidates -->

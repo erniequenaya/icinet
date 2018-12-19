@@ -16,7 +16,7 @@ class TextosIndex extends Migration
         Schema::create('contenido', function (Blueprint $table) {
             $table->increments('CONT_ID');
             $table->string('CONT_SECC',20);
-            $table->string('CONT_CON',500)->nullable();
+            $table->string('CONT_CON',2500)->nullable();
             $table->timestamps();
         });
     }

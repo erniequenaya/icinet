@@ -168,17 +168,15 @@ class AdministracionController extends Controller
     public function ckeditorGuardar(Request $request){
         $todo=$request->all();
         var_dump($todo);
-        $cont_con=$request->subtitulo;
         $cont_secc=key($todo);
+        $cont_con=$request->$cont_secc;
         $compactando=compact('cont_secc','cont_con');
         echo $cont_secc;
         echo $cont_con;
         var_dump($compactando);
-        echo "aaa";
         $rs=Contenido::where('cont_secc',$cont_secc)->update($compactando);
-        var_dump($rs);
         if($rs){
-            echo  "no hay registro con esta id";
+            return back();
         }else{
             echo "insertate porfa";
         }

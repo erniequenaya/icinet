@@ -43,26 +43,26 @@
                   {{ csrf_field() }}
                   <fieldset class="form-group">
                     <label for="nombre_encuesta">Nombre</label>
-                    <input name="nombre_encuesta" type="text" class="form-control" placeholder="">
+                    <input name="nombre_encuesta" type="text" class="form-control" placeholder="" required>
                   </fieldset>
                   <fieldset class="form-group">
                     <label for="url_encuesta">URL</label>
-                    <input name="url_encuesta" type="text" class="form-control" placeholder="">
+                    <input name="url_encuesta" type="text" class="form-control" placeholder="" required>
                   </fieldset>
                   <fieldset class="form-group">
                     <label for="fecha_inicio_encuesta">Fecha de inicio</label>
-                    <input name="fecha_inicio_encuesta" type="date" class="form-control" placeholder="">
+                    <input name="fecha_inicio_encuesta" type="date" class="form-control" placeholder="" required>
                   </fieldset>
                   <fieldset class="form-group">
                     <label for="fecha_termino_encuesta">Fecha de termino</label>
-                    <input name="fecha_termino_encuesta" type="date" class="form-control" placeholder="">
+                    <input name="fecha_termino_encuesta" type="date" class="form-control" placeholder="" required>
                   </fieldset>
                   <fieldset class="form-check">
-                    <input name='solo_alumnos' class="form-check-input" type="checkbox" value="1">
+                    <input name='solo_alumnos' class="form-check-input" type="checkbox" value="1" required>
                     <label class="form-check-label" for="defaultCheck1">Solo para alumnos</label>
                   </fieldset>
                   <fieldset class="form-check">
-                    <input name='visible' class="form-check-input" type="checkbox" value="1">
+                    <input name='visible' class="form-check-input" type="checkbox" value="1" required>
                     <label class="form-check-label" for="defaultCheck1">Visible</label>
                   </fieldset>
 

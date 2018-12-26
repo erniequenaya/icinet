@@ -60,20 +60,20 @@
         </div>
 
         <label for="nombre" class="form-label">Nombre:</label>
-        <input type="text" class="form-input" name="nombre" id="nombre" placeholder="" value="">
+        <input type="text" class="form-input" name="nombre" id="nombre" placeholder="" value="" required>
 
         <label for="apellido" class="form-label">Apellido:</label>
-        <input type="text" class="form-input" name="apellido" id="apellido" placeholder="" value="">
+        <input type="text" class="form-input" name="apellido" id="apellido" placeholder="" value="" required>
 
         <label for="telefono" class="form-label">Telefono:</label>
-        <input type="text" class="form-input" name="telefono" id="telefono" placeholder="" value="">
+        <input type="text" class="form-input" name="telefono" id="telefono" placeholder="" value="" required>
 
 
         <label for="correo" class="form-label">Correo:</label>
-        <input id="correo" class="form-input" name="email" type="email" placeholder="ejemplo@email.com">
+        <input id="correo" class="form-input" name="email" type="email" placeholder="ejemplo@email.com" required>
 
         <label for="ocupacion" class="form-label">Ocupacion:</label>
-        <select class="form-select" name="ocupacion" id="ocupacion" class="form-label">
+        <select class="form-select" name="ocupacion" id="ocupacion" class="form-label" required>
               <option value="estudiante">Estudiante</option>
               <option value="empresa">Empresa</option>
               <option value="persona">Persona</option>
@@ -81,7 +81,7 @@
 
 
         <label for="mensaje" class="form-label">Mensaje:</label>
-        <textarea id="mensaje" class="form-textarea" name="mensaje" placeholder="Danos tu mensaje"></textarea>
+        <textarea id="mensaje" class="form-textarea" name="mensaje" placeholder="Danos tu mensaje" required></textarea>
 
 
         <input id="submit" class="btn-submit" name="submit" type="submit" value="Enviar">

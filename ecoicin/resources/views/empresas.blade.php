@@ -25,7 +25,7 @@
                       <form class="form-inline mx-auto d-block">
                         <div class="form-group">
                           <label>Filtrar por &nbsp;</label>
-                          <select class="form-control col" id="item_grafico">
+                          <select class="form-control col" id="item_grafico" required>
                             <option value="1">Rubro de empresas</option>
                             <option value="2">Areas informaticas</option>
                             <option value="3">Tipos de solicitudes</option>

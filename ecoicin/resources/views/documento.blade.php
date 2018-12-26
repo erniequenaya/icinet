@@ -32,15 +32,18 @@
             <!-- TITULO PAGINA -->
               @auth
                   @if (tipoUsuario() == 2)
-                    <button class="btn celeste-uta text-light" type="button" name="button"><i class="fa fa-edit"></i></button>
+
                   @endif
               @endauth
 
 <br>
+
+<h3 class="tittle text-center mb-lg-4 mb-3">Documentos</h3>
+
 @if (tipoUsuario() == 2)
 @auth
     <form action="{{ route('ckeditor/guardar') }}" method="get" id="formDocumentos">
-        <textarea name="documentos" id="documentos" contenteditable="true"  >
+        <textarea name="documentos" id="documentos" contenteditable="true" required>
         {{ App\Contenido::where('cont_secc','documentos')->value('cont_con') }}
         </textarea>
         <script>
@@ -48,7 +51,7 @@
             CKEDITOR.inline('documentos');
         </script>
     </form>
-        <button type="submit" form="formDocumentos" value="Submit">Submit</button> 
+        <button type="submit" form="formDocumentos" value="Submit" class="btn celeste-uta text-light d-block mx-auto"><i class="fa fa-edit"></i></button>
 @endauth
 @else
         {!! App\Contenido::where('cont_secc','documentos')->value('cont_con')  !!}

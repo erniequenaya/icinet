@@ -2,14 +2,14 @@
 
 @section('header')
 
-                              @auth
-                                  @if (tipoUsuario() == 2)
-                                    <!-- cargar el ckeditor-->
-                                        <script src="{{ asset('/vendor/ckeditor/ckeditor.js') }}"></script>
-                                  @endif
-                              @endauth
+  @auth
+    @if (tipoUsuario() == 2)
+      <!-- Cargar el ckeditor-->
+      <script src="{{ asset('/vendor/ckeditor/ckeditor.js') }}"></script>
+    @endif
+  @endauth
 
-
+  <!-- Barra de navegacion -->
   <div id="demo-1" data-zs-src='["images/1.jpg", "images/2.jpg"]' data-zs-overlay="dots">
       <div class="demo-inner-content">
           <div class="header-top">
@@ -18,7 +18,6 @@
 
                         <div class="row">
                           <div class="col-md-6 float-left">
-
                             <a class="text-light">
                               <i class="fas fa-user"></i> {{saludarUsuario()}}</a>
                           </div>
@@ -40,11 +39,6 @@
                       <div> <!--class="logo"-->
                           <h1>
                               <a class="navbar-brand" href="{{route('index')}}"><i class="fas fa-at" aria-hidden></i> UTA - ICIN </a>
-                              @auth
-                                  @if (tipoUsuario() == 2)
-                                    <button class="btn celeste-uta text-light" type="button" name="button"><i class="fa fa-edit"></i></button>
-                                  @endif
-                              @endauth
                           </h1>
                       </div>
 
@@ -114,9 +108,9 @@
     @auth
     <!-- en realidad no se como lo de arriba funciona-->
     <form action="{{ route('ckeditor/guardar') }}" method="get" id="form1">
-        
-        <textarea name="subtitulo" id="subtitulo" contenteditable="true"  >
-        {{ App\Contenido::where('cont_secc','subtitulo')->value('cont_con') }}
+
+        <textarea name="subtitulo" id="subtitulo" contenteditable="true" required>
+          {{ App\Contenido::where('cont_secc','subtitulo')->value('cont_con') }}
         </textarea>
         <script>
             //CKEDITOR.replace('subtitulo');
@@ -124,7 +118,7 @@
             CKEDITOR.inline('subtitulo');
         </script>
     </form>
-        <button type="submit" form="form1" value="Submit">Submit</button> 
+        <button type="submit" form="form1" value="Submit" class="btn celeste-uta text-light"><i class="fa fa-edit"></i></button>
     @endauth
         @else
         {!! App\Contenido::where('cont_secc','subtitulo')->value('cont_con')  !!}
@@ -191,6 +185,9 @@
               <div class="container responsiveCal">
                 <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=2&amp;bgcolor=%23FFFFFF&amp;src=2icpl7rs955s8ebga4smimncro%40group.calendar.google.com&amp;color=%238C500B&amp;src=es.cl%23holiday%40group.v.calendar.google.com&amp;color=%23125A12&amp;ctz=America%2FSantiago" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
               </div>
+
+              <br>
+
             </div>
           </div>
         </div>
@@ -207,7 +204,7 @@
 @if (tipoUsuario() == 2)
 @auth
     <form action="{{ route('ckeditor/guardar') }}" method="get" id="formContactanos">
-        <textarea name="contactanos" id="contactanos" contenteditable="true"  >
+        <textarea name="contactanos" id="contactanos" contenteditable="true" required>
         {{ App\Contenido::where('cont_secc','contactanos')->value('cont_con') }}
         </textarea>
         <script>
@@ -215,16 +212,16 @@
             CKEDITOR.inline('contactanos');
         </script>
     </form>
-        <button type="submit" form="formContactanos" value="Submit">Submit</button> 
+        <button type="submit" form="formContactanos" value="Submit" class="btn celeste-uta text-light"><i class="fa fa-edit"></i></button>
 @endauth
 @else
         {!! App\Contenido::where('cont_secc','contactanos')->value('cont_con')  !!}
 @endif
                   <!-- <h3 class="tittle text-center cen mb-lg-5 mb-3">¿Necesita una solucion informatica?</h3> -->
-                  
+
                   @auth
                       @if (tipoUsuario() == 2)
-                        <button class="btn celeste-uta text-light" type="button" name="button"><i class="fa fa-edit"></i></button>
+
                       @endif
                   @endauth
               <!--   REDIRECCION SECCION EMPRESAS  -->
@@ -239,12 +236,7 @@
   <section class="banner-bottom-wthree bg-light py-lg-5 py-3 text-center">
       <div class="container">
           <div class="inner-sec-w3ls py-lg-4 py-md-4 py-3">
-              <h3 class="tittle text-center mb-lg-5 mb-3">Jefe de carrera
-                @auth
-                  @if (tipoUsuario() == 2)
-                    <button class="btn celeste-uta text-light" type="button" name="button"><i class="fa fa-edit"></i></button>
-                  @endif
-              @endauth</h3>
+              <h3 class="tittle text-center mb-lg-5 mb-3">Jefe de carrera</h3>
               <div class="row mt-5">
                   <div class="col-lg-3 member-main text-center mx-auto d-block">
                       <div class="card">
@@ -254,7 +246,7 @@
 @if (tipoUsuario() == 2)
 @auth
     <form action="{{ route('ckeditor/guardar') }}" method="get" id="formDescripcionCliente">
-        <textarea name="descripcionCliente" id="descripcionCliente" contenteditable="true"  >
+        <textarea name="descripcionCliente" id="descripcionCliente" contenteditable="true" required>
         {{ App\Contenido::where('cont_secc','descripcionCliente')->value('cont_con') }}
         </textarea>
         <script>
@@ -262,7 +254,7 @@
             CKEDITOR.inline('descripcionCliente');
         </script>
     </form>
-        <button type="submit" form="formDescripcionCliente" value="Submit">Submit</button> 
+        <button type="submit" form="formDescripcionCliente" value="Submit" class="btn celeste-uta text-light"><i class="fa fa-edit"></i></button>
 @endauth
 @else
         {!! App\Contenido::where('cont_secc','descripcionCliente')->value('cont_con')  !!}

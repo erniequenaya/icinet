@@ -125,8 +125,8 @@
         @if (tipoUsuario() == 2)
     @auth
     <form action="{{ route('ckeditor/guardar') }}" method="get" id="formPerfil">
-        
-        <textarea name="quienesSomosPerfil" id="quienesSomosPerfil" contenteditable="true"  >
+
+        <textarea name="quienesSomosPerfil" id="quienesSomosPerfil" contenteditable="true" required>
         {{ App\Contenido::where('cont_secc','quienesSomosPerfil')->value('cont_con') }}
         </textarea>
         <script>
@@ -135,7 +135,7 @@
             CKEDITOR.inline('quienesSomosPerfil');
         </script>
     </form>
-        <button type="submit" form="formPerfil" value="Submit">Submit</button> 
+        <button type="submit" form="formPerfil" value="Submit" class="btn celeste-uta text-light mx-auto d-block"><i class="fa fa-edit"></i></button>
     @endauth
         @else
         {!! App\Contenido::where('cont_secc','quienesSomosPerfil')->value('cont_con')  !!}

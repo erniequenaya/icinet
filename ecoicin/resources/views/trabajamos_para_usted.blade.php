@@ -32,7 +32,7 @@
                       {{ csrf_field() }}
                       <fieldset class="form-group">
                         <label for="rut_empresa">Rut de la empresa</label>
-                        <input type="text" class="form-control" id="rut_empresa" name="rut_empresa" placeholder="Ejemplo: 12345678-9">
+                        <input type="text" class="form-control" id="rut_empresa" name="rut_empresa" placeholder="Ejemplo: 12345678-9" required>
                       </fieldset>
                       <fieldset class="form-group">
                         <label for="nombre_empresa">Nombre de la empresa</label>
@@ -83,7 +83,7 @@
                     <form>
                       <fieldset class="form-group">
                         <label for="codigo_empresa">Codigo de seguimiento</label>
-                        <input type="text" class="form-control" id="codigo_seguimiento" placeholder="Ejemplo: 123asd456zxc">
+                        <input type="text" class="form-control" id="codigo_seguimiento" placeholder="Ejemplo: 123asd456zxc" required>
                       </fieldset>
                       <button type="button" id="btn_consultar_solicitud" class="btn btn-primary mx-auto d-block">Consultar solicitud</button>
                     </form>

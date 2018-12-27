@@ -39,6 +39,21 @@
                         <input name="fecha_proyecto" type="date" class="form-control" placeholder="" required>
                       </fieldset>
 
+                      <fieldset class="form-group">
+                        <label class="mb-2">URL: </label>
+                        <input name="url_proyecto" type="text" class="form-control" placeholder="https://icin.uta.cl/" required>
+                      </fieldset>
+
+                      <fieldset class="form-group">
+                        <label >Informe</label>
+                        <input type="file" name="informe_proyecto" class="form-control-file">
+                      </fieldset>
+
+                      <fieldset class="form-group">
+                        <label >Presentacion</label>
+                        <input type="file" name="presentacion_proyecto" class="form-control-file">
+                      </fieldset>
+
                       <button type="submit" class="btn btn-primary submit mb-4 mx-auto d-block">Modificar</button>
                     </form>
                 </div>

@@ -87,6 +87,7 @@ class RepositorioController extends Controller
           $proyecto->autores_proyecto = $request->autores_proyecto;
           $proyecto->tipo_proyecto_id = $request->tipo_proyecto;
           $proyecto->fecha_proyecto = $request->fecha_proyecto;
+          $proyecto->url_proyecto = $request->url_proyecto;
           $rs_proyecto = $proyecto->save();
 
           if($rs_proyecto){
@@ -150,7 +151,15 @@ class RepositorioController extends Controller
     {
       $proyecto = Proyecto::where('id_proyecto', $proyecto)->first();
 
-      return $proyecto;
+      //$informe = Documento::where('nombre_documento', 'like', '%informe%')->get()->where('proyecto_id', $proyecto->id_proyecto)->first()->id_documento;
+
+      //$presentacion = Documento::where('nombre_documento', 'like', '%presentacion%')->get()->where('proyecto_id', $proyecto->id_proyecto)->first()->id_documento;
+
+      //$informe = $this->verDocumento($informe->id_documento);
+
+      //$presentacion = $this->verDocumento($presentacion->id_documento);
+
+      return compact('proyecto');
     }
 
     /**
@@ -168,6 +177,36 @@ class RepositorioController extends Controller
       $fecha_proyecto = $request->fecha_proyecto;
       $parm_proyecto = compact('nombre_proyecto', 'autores_proyecto', 'tipo_proyecto_id', 'fecha_proyecto');
       $rs = Proyecto::where('id_proyecto', $proyecto)->update($parm_proyecto);
+
+      if(isset($request->informe_proyecto)){
+        $informe = Documento::where('nombre_documento', 'like', '%informe%')->get()->where('proyecto_id', $proyecto)->first();
+        if (Storage::exists($informe->ruta_documento)) {
+            Storage::delete($informe->ruta_documento);
+        }
+
+        $ruta_documento = $this->almacenarDocumento($request->informe_proyecto, $nombre_proyecto.'_informe', 'informe');
+
+        $nombre_documento = $nombre_proyecto.'_informe';
+        $parm_informe = compact('nombre_documento', 'ruta_documento');
+
+        $rs = Documento::where('id_documento', $informe->id_documento)->update($parm_informe);
+      }
+
+      if(isset($request->presentacion_proyecto)){
+
+        $presentacion = Documento::where('nombre_documento', 'like', '%presentacion%')->get()->where('proyecto_id', $proyecto)->first();
+        if (Storage::exists($presentacion->ruta_documento)) {
+            Storage::delete($presentacion->ruta_documento);
+        }
+
+        $ruta_documento = $this->almacenarDocumento($request->presentacion_proyecto, $nombre_proyecto.'_presentacion', 'presentacion');
+
+        $nombre_documento = $nombre_proyecto.'_presentacion';
+        $parm_presentacion = compact('nombre_documento', 'ruta_documento');
+
+        $rs = Documento::where('id_documento', $presentacion->id_documento)->update($parm_presentacion);
+      }
+
       if ($rs) {
         return back();
       }
@@ -179,9 +218,25 @@ class RepositorioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy(Request $request){
+      $proyecto = $request->id_proyecto;
+      $informe = Documento::where('nombre_documento', 'like', '%informe%')->get()->where('proyecto_id', $proyecto)->first();
+      if (Storage::exists($informe->ruta_documento)) {
+        Storage::delete($informe->ruta_documento);
+      }
+
+      //$rs = Documento::where('id_documento', $informe->id_documento)->delete();
+
+      $presentacion = Documento::where('nombre_documento', 'like', '%presentacion%')->get()->where('proyecto_id', $proyecto)->first();
+      if (Storage::exists($presentacion->ruta_documento)) {
+        Storage::delete($presentacion->ruta_documento);
+      }
+      $rs = Proyecto::where('id_proyecto', $proyecto)->delete();
+
+
+      //$rs = Documento::where('id_documento', $presentacion->id_documento)->delete();
+
+      return $rs;
     }
 
     protected function almacenarDocumento($documento, $nombre_documento, $tipo){

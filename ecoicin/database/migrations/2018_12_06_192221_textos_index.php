@@ -28,6 +28,6 @@ class TextosIndex extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('textos_index');
+        Schema::dropIfExists('contenido');
     }
 }

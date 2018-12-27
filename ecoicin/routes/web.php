@@ -18,6 +18,14 @@ Route::get('/quienes_somos', function () {
     return view('quienes_somos');
 })->name('quienes_somos');
 
+Route::get('/prueba_doc', function(){
+  $ruta_informe_anterior = App\Documento::where('nombre_documento', 'like', '%informe%')->get()->where('proyecto_id', 1)->first()->ruta_documento;
+  if (Storage::exists($ruta_informe_anterior)) {
+      $var = Storage::delete($ruta_informe_anterior);
+  }
+  return $var;
+});
+
 //Route::get('/trabajamos_para_usted', 'SeccionEmpresaController@create')->name('trabajamos_para_usted');  DESHABILITADA TEMPORALMENTE
 //Route::post('/ingresar_solicitud', 'SeccionEmpresaController@store')->name('ingresar_solicitud');
 //Route::get('/empresa/{rut_empresa}', 'SeccionEmpresaController@comprobarEmpresa');
@@ -72,6 +80,7 @@ Route::group(['middleware' => 'jefatura'], function(){
   Route::post('/repositorio/nuevo_proyecto', 'RepositorioController@store')->name('repositorio.store');
   Route::get('/repositorio/{proyecto}', 'RepositorioController@edit');
   Route::post('/repositorio/modificar_proyecto', 'RepositorioController@update')->name('repositorio.update');
+  Route::post('/repositorio/eliminar_proyecto', 'RepositorioController@destroy')->name('repositorio.destroy');
   //post para guardar cambios en el contenido (texto) del sitio
   Route::get('/ckeditor/guardar', 'AdministracionController@ckeditorGuardar')->name('ckeditor/guardar');
 

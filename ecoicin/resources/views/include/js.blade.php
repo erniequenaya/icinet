@@ -87,6 +87,46 @@
 
     });
 
+    $(document).ready(function() {
+      $('#error-rut').hide();
+      $('#password_group').hide();
+    });
+
+    $(document).on('click', '#cerrar-error', function(){
+      $('#error-rut').hide(500);
+    });
+
+    $(document).on('submit', '#form_login', function(event){
+      event.preventDefault();
+
+      var ruta = $(this).attr('action');
+      var datos = $(this).serialize();
+      var token = $('input[name=_token]').val();
+
+      $.ajax({
+        url: ruta,
+        headers: {'X-CSRF-TOKEN' : token},
+        type: 'post',
+        dataType: 'json',
+        data: datos
+      })
+      .done(function(resp) {
+        console.log(resp);
+        console.log('exito');
+        if(resp == 1){
+          location.reload(true);
+        }
+      })
+      .fail(function(resp) {
+        //$('#error-rut').html("<div class='alert alert-danger'><span>No coincide con los registros.</span><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>");
+        $('#error-rut').show(500);
+        console.log(resp.responseText);
+      })
+      .always(function() {
+        console.log("complete");
+      });
+
+    });
 
     $(document).ready(function() {
       $('.data_table').DataTable({

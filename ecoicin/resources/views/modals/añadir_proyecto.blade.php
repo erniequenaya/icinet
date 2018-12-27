@@ -15,12 +15,12 @@
                       {{ csrf_field() }}
                       <fieldset class="form-group">
                         <label class="mb-2">Nombre proyecto: </label>
-                        <input name="nombre_proyecto" type="text" class="form-control" placeholder="" required>
+                        <input name="nombre_proyecto" type="text" class="form-control" placeholder="Ecosistema ICIN" required>
                       </fieldset>
 
                       <fieldset class="form-group">
                         <label class="mb-2">Autores: </label>
-                        <input name="autores_proyecto" type="text" class="form-control" placeholder="" required>
+                        <input name="autores_proyecto" type="text" class="form-control" placeholder="Adaro; Davalos; Quenaya; Liberona; Ulloa" required>
                       </fieldset>
 
                       <fieldset class="form-group">
@@ -35,6 +35,11 @@
                       <fieldset class="form-group">
                         <label class="mb-2">Año: </label>
                         <input name="fecha_proyecto" type="date" class="form-control" placeholder="" required>
+                      </fieldset>
+
+                      <fieldset class="form-group">
+                        <label class="mb-2">URL: </label>
+                        <input name="url_proyecto" type="text" class="form-control" placeholder="https://icin.uta.cl/" required>
                       </fieldset>
 
                       <fieldset class="form-group">

@@ -11,7 +11,7 @@
 
                 <div class="login px-4 mx-auto mw-100">
                     <h5 class="text-center mb-4">Iniciar sesión</h5>
-                    <form action="{{route('login')}}" method="post">
+                    <form action="{{route('login')}}" method="post" id="form_login">
                       {{ csrf_field() }}
                         <div class="form-group">
                             <label class="mb-2">Nombre de usuario: </label>
@@ -20,6 +20,14 @@
                         <div class="form-group">
                             <label class="mb-2">Contraseña: </label>
                             <input name="password" type="password" class="form-control" placeholder="" required>
+                        </div>
+                        <div id="error-rut">
+                          <div class="alert alert-danger alert-dismissible fade show">
+                            <span class="">No coincide con los registros.</span>
+                            <button type="button" class="close">
+                              <span id="cerrar-error" aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
                         </div>
                         <!--<div class="form-check mb-2">
                             <input type="checkbox" class="form-check-input" id="exampleCheck1">

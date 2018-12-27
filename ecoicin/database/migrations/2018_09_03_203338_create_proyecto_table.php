@@ -18,6 +18,7 @@ class CreateProyectoTable extends Migration
             $table->string('nombre_proyecto', 45);
             $table->string('autores_proyecto', 150);
             $table->date('fecha_proyecto');
+            $table->string('url_proyecto', 150);
             $table->unsignedInteger('tipo_proyecto_id');
             $table->timestamps();
             $table->foreign('tipo_proyecto_id')->references('id_tipo_proyecto')->on('tipo_proyecto')->onDelete('cascade');

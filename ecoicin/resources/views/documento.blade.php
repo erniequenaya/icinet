@@ -67,7 +67,9 @@
                       <table class="table table-striped text-center data_table">
                         <thead class="bg-primary text-light">
                           <tr>
-                            <th scope="col">Proyecto</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Autor(es)</th>
                             <th scope="col">Informe</th>
                             <th scope="col">Presentación</th>
                           </tr>
@@ -77,6 +79,8 @@
 
                     <tr>
                       <th scope="row">{{$proyecto->nombre_proyecto}}</th>
+                      <td>{{$proyecto->tipo->nombre_tipo_proyecto}}</td>
+                      <td>{{$proyecto->autores_proyecto}}</td>
                       <td><a href="/ver_documento/{{$proyecto->informe()}}"><i class="fas fa-file-word" data-toggle="modal"></i></a></td>
                       <td><a href="/ver_documento/{{$proyecto->informe()}}"><i class="fas fa-file-pdf" data-toggle="modal"></i></a></td>
                     </tr>

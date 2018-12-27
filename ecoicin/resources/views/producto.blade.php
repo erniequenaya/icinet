@@ -74,8 +74,8 @@
                         </div>
 
                         <div class="mask">
-                          <a href="#">
-                            <img src="images/1.jpg" class="img-fluid" alt="">
+                          <a target="_blank" href="{{$proyecto->url_proyecto}}">
+                            <img src="{{asset('images/1.jpg')}}" class="img-fluid" alt="">
                           </a>
                         </div>
                       </div>

@@ -113,9 +113,8 @@
       .done(function(resp) {
         console.log(resp);
         console.log('exito');
-        if(resp == 1){
-          location.reload(true);
-        }
+        location.reload(true);
+
       })
       .fail(function(resp) {
         //$('#error-rut').html("<div class='alert alert-danger'><span>No coincide con los registros.</span><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>");

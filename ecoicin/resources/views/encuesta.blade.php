@@ -44,7 +44,7 @@
 
     <br>
 
-    
+
 
     <form  class="form" method="post" action="{{route('mensajes')}}">
       {{ csrf_field() }}
@@ -56,11 +56,11 @@
                   <div class="card-header font-weight-bold">{{ $i + 1 }}. I understand something better after I</div>
                   <div class="card-body">
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                      <input class="form-check-input" type="radio" name="resp_{{$i+1}}" id="resp_{{$i+1}}a" value="a">
                       <label class="form-check-label" for="inlineRadio1">a) try it out.</label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                      <input class="form-check-input" type="radio" name="resp_{{$i+1}}" id="resp_{{$i+1}}b" value="b">
                       <label class="form-check-label" for="inlineRadio2">b) think it through.</label>
                     </div>
                   </div>

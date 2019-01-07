@@ -73,6 +73,9 @@
                                 </div>
                               </li>
 
+                              <li class="nav-item {{(request()->route()->getName() == 'encuesta') ? 'active' : ''}}">
+                                <a class="nav-link" href="{{route('encuesta')}}">Encuesta</a>
+                              </li>
 
                                 <li class="nav-item {{(request()->route()->getName() == 'contactanos') ? 'active' : ''}}">
                                   <a class="nav-link" href="{{route('contactanos')}}">Contactanos</a>

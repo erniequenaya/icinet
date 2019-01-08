@@ -45,9 +45,7 @@ $data = request()->all();
     //return request()->all();
 })->name('mensajes');
 
-Route::get('/encuesta', function () {
-  return view('encuesta');
-})->name('encuesta');
+Route::get('/encuesta', 'EncuestaController@index')->name('encuesta');
 
 Route::get('/contactanos', function () {
   return view('contactanos');

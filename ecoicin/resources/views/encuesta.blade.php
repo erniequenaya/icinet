@@ -36,9 +36,9 @@
       <div class="input-group-prepend">
         <label class="input-group-text" for="inputGroupSelect01">Idioma</label>
       </div>
-      <select class="custom-select" id="inputGroupSelect01">
-        <option selected value="1">Español</option>
-        <option value="2">Ingles</option>
+      <select class="custom-select" id="idioma">
+        <option selected value="espanol">Español</option>
+        <option value="ingles">Ingles</option>
       </select>
     </div>
 
@@ -48,29 +48,66 @@
 
     <form  class="form" method="post" action="{{route('mensajes')}}">
       {{ csrf_field() }}
-        @for ($i = 0; $i < 44; $i++)
-          <div class="container-fluid">
-            <div class="row">
-              <div class="container">
-                <div class="card">
-                  <div class="card-header font-weight-bold">{{ $i + 1 }}. I understand something better after I</div>
-                  <div class="card-body">
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="resp_{{$i+1}}" id="resp_{{$i+1}}a" value="a">
-                      <label class="form-check-label" for="inlineRadio1">a) try it out.</label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="resp_{{$i+1}}" id="resp_{{$i+1}}b" value="b">
-                      <label class="form-check-label" for="inlineRadio2">b) think it through.</label>
+      <div id="espanol">
+      @forelse ($preguntas as $pregunta)
+        <div class="container-fluid">
+          <div class="row">
+
+                <div class="container">
+                  <div class="card">
+                    <div class="card-header font-weight-bold">{{$pregunta->id_pregunta}}. {{$pregunta->enun_esp}}:</div>
+                    <div class="card-body">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="resp_{{$pregunta->id_pregunta}}" id="resp_{{$pregunta->id_pregunta}}a" value="a">
+                        <label class="form-check-label" for="inlineRadio1">a) {{$pregunta->alt_a_esp}}.</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="resp_{{$pregunta->id_pregunta}}" id="resp_{{$pregunta->id_pregunta}}b" value="b">
+                        <label class="form-check-label" for="inlineRadio2">b) {{$pregunta->alt_b_esp}}.</label>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+
+
           </div>
 
-          <br>
-        @endfor
+
+        <br>
+        @empty
+          <h1>Estamos trabajando para usted.</h1>
+      @endforelse
+      </div>
+
+      <div id="ingles">
+      @forelse ($preguntas as $pregunta)
+        <div class="container-fluid">
+          <div class="row">
+
+                <div class="container">
+                  <div class="card">
+                    <div class="card-header font-weight-bold">{{$pregunta->id_pregunta}}. {{$pregunta->enun_ing}}:</div>
+                    <div class="card-body">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="resp_{{$pregunta->id_pregunta}}" id="resp_{{$pregunta->id_pregunta}}a" value="a" required>
+                        <label class="form-check-label" for="inlineRadio1">a) {{$pregunta->alt_a_ing}}.</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="resp_{{$pregunta->id_pregunta}}" id="resp_{{$pregunta->id_pregunta}}b" value="b" required>
+                        <label class="form-check-label" for="inlineRadio2">b) {{$pregunta->alt_b_ing}}.</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+        <br>
+        @empty
+          <h1>Estamos trabajando para usted.</h1>
+      @endforelse
+      </div>
       <input id="submit" class="btn btn-primary d-block mx-auto" name="submit" type="submit" value="Enviar">
     </form>
 

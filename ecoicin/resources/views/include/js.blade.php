@@ -15,7 +15,7 @@
 
 <script>
     $(document).ready(function() {
-      
+
         $(".dropdown").hover(
             function() {
                 $('.dropdown-menu', this).stop(true, true).slideDown("fast");
@@ -26,7 +26,24 @@
                 $(this).toggleClass('open');
             }
         );
-    });
+
+        $('#ingles').hide();
+  });
+
+    $(document).on('change', '#idioma', function(event){
+      event.preventDefault();
+
+      var idioma = $(this).val();
+
+      if(idioma == 'espanol'){
+        $('#ingles').hide();
+        $('#espanol').show();
+      }
+      else if (idioma == 'ingles') {
+        $('#espanol').hide();
+        $('#ingles').show();
+      }
+    })
 </script>
 <!-- //dropdown nav -->
 <!-- password-script -->

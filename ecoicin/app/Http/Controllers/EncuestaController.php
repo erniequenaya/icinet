@@ -45,7 +45,7 @@ class EncuestaController extends Controller
 
       dd($grupos);
 
-      echo 'Sus resultados son:'
+      //echo 'Sus resultados son:'
 
     }
 

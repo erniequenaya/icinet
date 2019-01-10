@@ -32,22 +32,21 @@
         </div>
     </div>
 
-    <div class="input-group container col-2 ">
-      <div class="input-group-prepend">
-        <label class="input-group-text" for="inputGroupSelect01">Idioma</label>
-      </div>
-      <select class="custom-select" id="idioma">
-        <option selected value="espanol">Español</option>
-        <option value="ingles">Ingles</option>
-      </select>
-    </div>
-
-    <br>
 
 
-
-    <form  class="form" method="post" action="{{route('mensajes')}}">
+    <form  class="form" method="post" action="{{route('procesar')}}">
       {{ csrf_field() }}
+      <div class="input-group container col-2 ">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">Idioma</label>
+        </div>
+        <select class="custom-select" id="idioma" name='idioma'>
+          <option selected value="espanol">Español</option>
+          <option value="ingles">Ingles</option>
+        </select>
+      </div>
+
+      <br>
       <div id="espanol">
       @forelse ($preguntas as $pregunta)
         <div class="container-fluid">

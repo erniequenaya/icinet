@@ -18,6 +18,10 @@ Route::get('/quienes_somos', function () {
     return view('quienes_somos');
 })->name('quienes_somos');
 
+Route::get('/graficosencuestas', function () {
+    return view('graficosencuestas');
+})->name('graficosencuestas');
+
 Route::get('/prueba_doc', function(){
   $ruta_informe_anterior = App\Documento::where('nombre_documento', 'like', '%informe%')->get()->where('proyecto_id', 1)->first()->ruta_documento;
   if (Storage::exists($ruta_informe_anterior)) {

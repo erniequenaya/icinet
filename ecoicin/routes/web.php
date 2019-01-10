@@ -26,6 +26,8 @@ Route::get('/prueba_doc', function(){
   return $var;
 });
 
+Route::post('/encuesta/procesar', 'EncuestaController@procesar')->name('procesar');
+
 //Route::get('/trabajamos_para_usted', 'SeccionEmpresaController@create')->name('trabajamos_para_usted');  DESHABILITADA TEMPORALMENTE
 //Route::post('/ingresar_solicitud', 'SeccionEmpresaController@store')->name('ingresar_solicitud');
 //Route::get('/empresa/{rut_empresa}', 'SeccionEmpresaController@comprobarEmpresa');

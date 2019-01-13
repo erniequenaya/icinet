@@ -11,6 +11,22 @@ class EstilosPreguntasSeeder extends Seeder
      */
     public function run()
     {
-        //
+
+        $alts = ['a', 'b'];
+        $est = 1;
+        for ($preg=1; $preg < 45; $preg++) {
+          foreach ($alts as $alt) {
+            DB::table('estilos_preguntas')->insert([
+              'pregunta_id' => $preg,
+              'alternativa' => $alt,
+              'estilo_id' => $est
+            ]);
+            if ($est < 8) {
+              $est++;
+            } else {
+              $est = 1;
+            }
+          }
+        }
     }
 }

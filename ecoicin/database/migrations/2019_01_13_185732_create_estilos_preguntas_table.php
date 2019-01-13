@@ -16,8 +16,8 @@ class CreateEstilosPreguntasTable extends Migration
         Schema::create('estilos_preguntas', function (Blueprint $table) {
             $table->increments('id_estilo_pregunta');
             $table->unsignedInteger('estilo_id');
-            $table->unsignedInteger('pregunta_id');
             $table->string('alternativa', 1);
+            $table->unsignedInteger('pregunta_id');
             $table->foreign('estilo_id')->references('id_estilo')->on('estilos')->onDelete('cascade');
             $table->foreign('pregunta_id')->references('id_pregunta')->on('preguntas')->onDelete('cascade');
             $table->timestamps();

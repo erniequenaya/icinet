@@ -17,5 +17,7 @@ class DatabaseSeeder extends Seeder
         //seeder textos en la pagina
         $this->call(ContenidoSeeder::class);
         $this->call(PreguntasSeeder::class);
+        $this->call(EstilosSeeder::class);
+        $this->call(EstilosPreguntasSeeder::class);
     }
 }

@@ -11,6 +11,21 @@ class EstilosSeeder extends Seeder
      */
     public function run()
     {
-        //
+      $estilos = [
+        'Activo',
+        'Reflexivo',
+        'Perceptivo',
+        'Intuitivo',
+        'Visual',
+        'Verbal',
+        'Secuencial',
+        'Global'
+      ];
+
+      foreach ($estilos as $estilo) {
+        DB::table('estilos')->insert([
+          'nombre_estilo' => $estilo
+        ]);
+      }
     }
 }

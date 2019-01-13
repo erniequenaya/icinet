@@ -13,7 +13,7 @@ class tableUsersTest extends TestCase
      *
      * @return void
      */
-    use RefreshDatabase;
+    //use RefreshDatabase;
     public function testExisteAdministrador()
     {
         $this->assertDatabaseHas('users',[

@@ -33,7 +33,7 @@
         </div>
     </div>
 
-    <form  class="form" method="post" action="{{route('mensajes')}}">
+    <form  class="form" method="get" action="{{route('encuesta')}}">
       {{ csrf_field() }}
       <div id="espanol">
         <div class="container-fluid">

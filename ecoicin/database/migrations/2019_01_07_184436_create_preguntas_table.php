@@ -21,7 +21,7 @@ class CreatePreguntasTable extends Migration
             $table->string('alt_a_ing');
             $table->string('alt_b_esp');
             $table->string('alt_b_ing');
-            $table->timestamps();
+            //$table->timestamps();
         });
     }
 

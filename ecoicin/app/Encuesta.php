@@ -6,9 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Encuesta extends Model
 {
-  protected $table = 'encuesta';
+  protected $table = 'encuestas';
 
   protected $fillable = [
-    'nombre_encuesta', 'link_encuesta', 'fecha_inicio_encuesta', ' fecha_termino_encuesta', 'visible', 'tipo_usuario_id'
+    'nombre', 'apellido', 'rut', 'email', 'genero'
   ];
+
+  public $cont_a = 0;
+  
+  public $cont_b = 0;
 }

@@ -20,7 +20,7 @@ class CreateEstilosPreguntasTable extends Migration
             $table->unsignedInteger('pregunta_id');
             $table->foreign('estilo_id')->references('id_estilo')->on('estilos')->onDelete('cascade');
             $table->foreign('pregunta_id')->references('id_pregunta')->on('preguntas')->onDelete('cascade');
-            $table->timestamps();
+            //$table->timestamps();
         });
     }
 

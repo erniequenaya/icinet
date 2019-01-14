@@ -13,6 +13,7 @@ class UserTest extends TestCase
      *
      * @return void
      */
+     //use RefreshDatabase;
     public function testExample()
     {
         $this->assertTrue(true);

@@ -60,6 +60,10 @@ $data = request()->all();
 
 Route::get('/encuesta', 'EncuestaController@index')->name('encuesta');
 
+Route::get('/consentimiento', function () {
+  return view('consentimiento');
+})->name('consentimiento');
+
 Route::get('/contactanos', function () {
   return view('contactanos');
 })->name('contactanos');

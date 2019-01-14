@@ -9,6 +9,8 @@ class Pregunta extends Model
 {
     protected $table = 'preguntas';
 
+    public $timestamps = false;
+
     protected $fillable = [
       'id_pregunta', 'enun_esp', 'enun_ing', 'alt_a_esp', 'alt_a_ing', 'alt_b_esp', 'alt_b_ing'
     ];

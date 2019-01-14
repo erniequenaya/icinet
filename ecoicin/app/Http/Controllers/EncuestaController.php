@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Pregunta;
 use App\Respuesta;
+use App\Encuesta;
+use App\Estilo;
+use App\EstiloPregunta;
 
 class EncuestaController extends Controller
 {
@@ -46,6 +49,10 @@ class EncuestaController extends Controller
       dd($grupos);
 
       //echo 'Sus resultados son:'
+
+    }
+
+    public function procesar_nuevo(Request $request){
 
     }
 

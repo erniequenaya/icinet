@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Estilo extends Model
+class EstiloPregunta extends Model
 {
-    protected $table = 'estilos';
+    protected $table = 'estilos_preguntas';
 
     public $timestamps = false;
 }

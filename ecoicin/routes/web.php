@@ -29,6 +29,13 @@ Route::get('/prueba_doc', function(){
   }
   return $var;
 });
+Route::get('/consentimiento', function () {
+  return view('consentimiento');
+})->name('consentimiento');
+
+Route::get('/resultado_encuesta', function () {
+  return view('resultado_encuesta');
+})->name('resultado_encuesta');
 
 Route::post('/encuesta/procesar', 'EncuestaController@procesar')->name('procesar');
 

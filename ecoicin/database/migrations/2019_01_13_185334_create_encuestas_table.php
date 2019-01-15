@@ -15,11 +15,11 @@ class CreateEncuestasTable extends Migration
     {
         Schema::create('encuestas', function (Blueprint $table) {
             $table->increments('id_encuesta');
-            $table->string('rut', 12);
             $table->string('nombre', 80);
             $table->string('apellido', 80);
             $table->string('email', 120);
             $table->string('genero', 1);
+            $table->unsignedInteger('edad');
             $table->timestamps();
         });
     }

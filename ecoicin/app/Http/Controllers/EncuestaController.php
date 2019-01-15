@@ -20,9 +20,9 @@ class EncuestaController extends Controller
     }
 
     public function responder(Request $request){
-
+      dd($request->all());
       if($request->consent){
-        $this->encuestaGuardar($request);
+        $this->guardar($request);
       }
 
       $cuestionario = $this->procesar();
@@ -30,16 +30,18 @@ class EncuestaController extends Controller
       return view('resultado_encuesta', compact('cuestionario'));
     }
 
-    private function encuestaGuardar(Request $request){
+    private function guardar(Request $request){
         //estoy en tu documento?si
         //abre tmb el encuesta de resultado, la vista
         //falta poner un if referenciando el checkbox yap Discord?
           $encuesta = new Encuesta;
+
           $encuesta->nombre=$request->Nombre;
           $encuesta->apellido=$request->Apellido;
           $encuesta->email=$request->Correo;
           $encuesta->genero = $request->genero;
           $encuesta->edad=$request->edad;
+
           $encuesta->save();
 
           for($i = 1; $i<=44 ; $i++){

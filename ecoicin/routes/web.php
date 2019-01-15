@@ -29,17 +29,16 @@ Route::get('/prueba_doc', function(){
   }
   return $var;
 });
-Route::get('/consentimiento', function () {
-  return view('consentimiento');
-})->name('consentimiento');
-//guarda datos del encuestado si es que existen
+
+//guarda datos del encuestado si es que existen, tambien carga las preguntas al view 'encuesta'
 Route::get('/encuesta/guardar', 'EncuestaController@encuestaGuardar')->name('encuesta/guardar');
+
 
 Route::get('/resultado_encuesta', function () {
   return view('resultado_encuesta');
 })->name('resultado_encuesta');
 
-Route::post('/encuesta/procesar', 'EncuestaController@procesar')->name('procesar');
+Route::post('/encuesta/responder', 'EncuestaController@responder')->name('responder_encuesta');
 
 //Route::get('/trabajamos_para_usted', 'SeccionEmpresaController@create')->name('trabajamos_para_usted');  DESHABILITADA TEMPORALMENTE
 //Route::post('/ingresar_solicitud', 'SeccionEmpresaController@store')->name('ingresar_solicitud');

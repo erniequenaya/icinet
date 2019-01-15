@@ -34,6 +34,10 @@
 
         <br>
 
+        <div class="container">
+          <h4></h4>
+        </div>
+
         <div class="text-justify">
           <p>
             De acuerdo con el modelo en el que se basa el ILS, hay cuatro dimensiones del estilo de aprendizaje, y cada dimensión tiene dos categorías opuestas (como activa y reflexiva). La puntuación informada para una dimensión indica su preferencia por una categoría u otra.
@@ -50,6 +54,11 @@
           <p>
             Si su puntaje para una dimensión es 9 u 11, tiene una fuerte preferencia por una categoría de esa dimensión. Es posible que tenga dificultades para aprender en un entorno que no logra abordar esa preferencia al menos parte del tiempo.
           </p>
+
+          <p>
+
+          </p>
+
         </div>
     </div>
 

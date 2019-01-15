@@ -71,7 +71,7 @@
                     </div>
                     <div class="card-footer">
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="genero" id="genero">
+                        <input class="form-check-input" type="checkbox" name="consent" id="consent">
                         <label class="form-check-label" for="inlineRadio1">Acepto los terminos y condiciones de uso.</label>
                       </div>
                     </div>

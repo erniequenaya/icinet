@@ -19,7 +19,7 @@ class EncuestaController extends Controller
       return view('encuesta', compact('preguntas', 'idioma'));
     }
 
-    public function responder(){
+    public function responder(Request $request){
 
       if($request->consent){
         $this->encuestaGuardar($request);

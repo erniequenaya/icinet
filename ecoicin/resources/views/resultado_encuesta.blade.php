@@ -35,7 +35,10 @@
         <br>
 
         <div class="container">
-          <h4></h4>
+          <h4>Activo/Reflexivo: {{$cuestionario[0]['puntaje'].$cuestionario[0]['alt_mayor']}}</h4>
+          <h4>Sensitivo/Intuitivo: {{$cuestionario[1]['puntaje'].$cuestionario[1]['alt_mayor']}}</h4>
+          <h4>Visual/Verbal:{{$cuestionario[2]['puntaje'].$cuestionario[2]['alt_mayor']}}</h4>
+          <h4>Secuencial/Global:{{$cuestionario[3]['puntaje'].$cuestionario[3]['alt_mayor']}}</h4>
         </div>
 
         <div class="text-justify">
@@ -62,74 +65,79 @@
         </div>
     </div>
 
-    <script>
-      var ctx = document.getElementById("myChart").getContext('2d');
-      var myChart = new Chart(ctx, {
-          type: 'horizontalBar',
-          data: {
-              labels: ["Activo/Reflexivo", "Sensitivo/Auditivo", "Visual/Verbal", "Secuencial/Global"],
-              datasets: [{
-                  label: '',
-                  data: [8, 3, 7, 1],
-                  backgroundColor: [
-                      'rgba(255, 99, 132, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(255, 206, 86, 0.2)',
-                      'rgba(75, 192, 192, 0.2)'
-                  ],
-                  borderColor: [
-                      'rgba(255,99,132,1)',
-                      'rgba(54, 162, 235, 1)',
-                      'rgba(255, 206, 86, 1)',
-                      'rgba(75, 192, 192, 1)'
-                  ],
-                  borderWidth: 1
-              },
-              {
-                  label: '',
-                  data: [-5, -2, -8, -10],
-                  backgroundColor: [
-                      'rgba(255, 99, 132, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(255, 206, 86, 0.2)',
-                      'rgba(75, 192, 192, 0.2)'
-                  ],
-                  borderColor: [
-                      'rgba(255,99,132,1)',
-                      'rgba(54, 162, 235, 1)',
-                      'rgba(255, 206, 86, 1)',
-                      'rgba(75, 192, 192, 1)'
-                  ],
-                  borderWidth: 1
-              }
-            ],
-          },
-          options: {
-            legend: {
-              display: false,
-            },
-            tooltips: {
-         enabled: false
-    },
-              responsive: true,
-              scales: {
-                  yAxes: [{
-                      stacked: true,
-                      ticks: {
-                          beginAtZero:true
-                      }
-                  }],
-                  xAxes: [{
-                    stacked: true,
-                    ticks: {
-                      max: 11,
-                      min: -11,
-                    }
-                  }]
-              }
-          }
-      });
-      </script>
     <br>
   </section>
+@endsection
+
+@section('script')
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+  <script>
+    var ctx = document.getElementById("myChart").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'horizontalBar',
+        data: {
+            labels: ["Activo/Reflexivo", "Sensitivo/Auditivo", "Visual/Verbal", "Secuencial/Global"],
+            datasets: [{
+                label: '',
+                data: [8, 3, 7, 1],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)'
+                ],
+                borderWidth: 1
+            },
+            {
+                label: '',
+                data: [-5, -2, -8, -10],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)'
+                ],
+                borderWidth: 1
+            }
+          ],
+        },
+        options: {
+          legend: {
+            display: false,
+          },
+          tooltips: {
+       enabled: false
+  },
+            responsive: true,
+            scales: {
+                yAxes: [{
+                    stacked: true,
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }],
+                xAxes: [{
+                  stacked: true,
+                  ticks: {
+                    max: 11,
+                    min: -11,
+                  }
+                }]
+            }
+        }
+    });
+    </script>
 @endsection

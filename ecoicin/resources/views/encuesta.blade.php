@@ -30,7 +30,7 @@
     </div>
 
 
-    <form class="form" action="{{'encuesta/responder'}}" method="post">
+    <form class="form" action="{{route('responder_encuesta')}}" method="post">
 
       <div class="text-center" id="cargar">
         <div class="spinner-border" role="status">
@@ -53,11 +53,11 @@
                   <div class="card">
                     <div class="card-header">
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="consent">
+                        <input class="form-check-input" type="checkbox" id="check_consent" name="consent">
                         <label class="form-check-label" for="inlineRadio1">Acepto los terminos y condiciones de uso.</label>
                       </div>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" id="datos_personales">
 
                       <div class="form-row">
                         <div class="form-group col-md-6">
@@ -71,8 +71,8 @@
                       </div>
                       <div class="form-row">
                         <div class="form-group col-md-6">
-                          <label for="ciudad">Ciudad</label>
-                          <input type="text" class="form-control" name="ciudad" placeholder="Iquique">
+                          <label for="email">Email</label>
+                          <input type="email" class="form-control" name="email" placeholder="ejemplo@uta.cl">
                         </div>
                         <div class="form-group col-md-4">
                           <label for="inputState">Genero</label>
@@ -198,6 +198,16 @@
   <script type="text/javascript">
     $(document).ready(function() {
       $('#cuestionario').hide();
+      $('#datos_personales').hide();
+    });
+
+    $(document).on('change', '#check_consent', function(){
+      if($(this).is(":checked")) {
+        $('#datos_personales').show(500);
+     }
+     else {
+       $('#datos_personales').hide(500);
+     }
     });
 
     $(document).on('click', '#btn_consentimiento', function(){

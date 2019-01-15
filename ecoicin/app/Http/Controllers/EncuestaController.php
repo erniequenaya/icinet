@@ -20,12 +20,12 @@ class EncuestaController extends Controller
     }
 
     public function responder(Request $request){
-      dd($request->all());
+      //var_dump($request->all());
       if($request->consent){
         $this->guardar($request);
       }
 
-      $cuestionario = $this->procesar();
+      $cuestionario = $this->procesar($request);
 
       return view('resultado_encuesta', compact('cuestionario'));
     }
@@ -34,11 +34,13 @@ class EncuestaController extends Controller
         //estoy en tu documento?si
         //abre tmb el encuesta de resultado, la vista
         //falta poner un if referenciando el checkbox yap Discord?
+        //
+        //var_dump($request);
           $encuesta = new Encuesta;
 
-          $encuesta->nombre=$request->Nombre;
-          $encuesta->apellido=$request->Apellido;
-          $encuesta->email=$request->Correo;
+          $encuesta->nombre=$request->nombre;
+          $encuesta->apellido=$request->apellido;
+          $encuesta->email=$request->email;
           $encuesta->genero = $request->genero;
           $encuesta->edad=$request->edad;
 
@@ -50,9 +52,9 @@ class EncuestaController extends Controller
             $respuesta->encuesta_id=Encuesta::all()->last()->id_encuesta;;
             $respuesta->alternativa=$alt;
             $respuesta->pregunta_id=$i;
-            echo $respuesta->pregunta_id;
-            echo $respuesta->alternativa;
-            echo "<br>";
+            //echo $respuesta->pregunta_id;
+            //echo $respuesta->alternativa;
+            //echo "<br>";
             //echo $respuesta::all();
             $respuesta->save();
           }
@@ -69,10 +71,10 @@ class EncuestaController extends Controller
 
         //var_dump($request->all());
         //echo "#############################################################\n";
-      $act_ref = ['num' => [1, 5, 9 , 13, 17, 21, 25, 29, 33, 37, 41], 'cont_total' => 0, 'cont_a' => 0, 'cont_b' => 0, 'dif' => 0, 'alt_mayor' => ''];
-      $sns_int = ['num' => [2, 6, 10, 14, 18, 22, 26, 30, 34, 38, 42], 'cont_total' => 0, 'cont_a' => 0, 'cont_b' => 0, 'dif' => 0, 'alt_mayor' => ''];
-      $vis_vrb = ['num' => [3, 7, 11, 15, 19, 23, 27, 31, 35, 39, 43], 'cont_total' => 0, 'cont_a' => 0, 'cont_b' => 0, 'dif' => 0, 'alt_mayor' => ''];
-      $seq_glo = ['num' => [4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44], 'cont_total' => 0, 'cont_a' => 0, 'cont_b' => 0, 'dif' => 0, 'alt_mayor' => ''];
+      $act_ref = ['num' => [1, 5, 9 , 13, 17, 21, 25, 29, 33, 37, 41], 'cont_total' => 0, 'cont_a' => 0, 'cont_b' => 0, 'puntaje' => 0, 'alt_mayor' => ''];
+      $sns_int = ['num' => [2, 6, 10, 14, 18, 22, 26, 30, 34, 38, 42], 'cont_total' => 0, 'cont_a' => 0, 'cont_b' => 0, 'puntaje' => 0, 'alt_mayor' => ''];
+      $vis_vrb = ['num' => [3, 7, 11, 15, 19, 23, 27, 31, 35, 39, 43], 'cont_total' => 0, 'cont_a' => 0, 'cont_b' => 0, 'puntaje' => 0, 'alt_mayor' => ''];
+      $seq_glo = ['num' => [4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44], 'cont_total' => 0, 'cont_a' => 0, 'cont_b' => 0, 'puntaje' => 0, 'alt_mayor' => ''];
 
       $grupos = [$act_ref, $sns_int, $vis_vrb, $seq_glo];
 
@@ -83,14 +85,11 @@ class EncuestaController extends Controller
           if(in_array($i, $grupos[$j]['num'])){
             $grupos[$j]['cont_total']++;
             $grupos[$j]['cont_'.$alt]++;
-            echo '<br>';
-            echo $i.$alt;
-            echo '<br>';
           }
         }
       }
       for ($i=0; $i < 4 ; $i++) {
-        $grupos[$i]['dif'] = abs($grupos[$i]['cont_a'] - $grupos[$i]['cont_b']);
+        $grupos[$i]['puntaje'] = abs($grupos[$i]['cont_a'] - $grupos[$i]['cont_b']);
         $grupos[$i]['alt_mayor'] = ($grupos[$i]['cont_a'] > $grupos[$i]['cont_b']) ? 'a' : 'b';
       }
       //var_dump($grupos);

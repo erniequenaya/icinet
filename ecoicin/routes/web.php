@@ -32,6 +32,8 @@ Route::get('/prueba_doc', function(){
 Route::get('/consentimiento', function () {
   return view('consentimiento');
 })->name('consentimiento');
+//guarda datos del encuestado si es que existen
+Route::get('/encuesta/guardar', 'EncuestaController@encuestaGuardar')->name('encuesta/guardar');
 
 Route::get('/resultado_encuesta', function () {
   return view('resultado_encuesta');
@@ -59,10 +61,6 @@ $data = request()->all();
 })->name('mensajes');
 
 Route::get('/encuesta', 'EncuestaController@index')->name('encuesta');
-
-Route::get('/consentimiento', function () {
-  return view('consentimiento');
-})->name('consentimiento');
 
 Route::get('/contactanos', function () {
   return view('contactanos');

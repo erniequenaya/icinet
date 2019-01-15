@@ -33,7 +33,7 @@
         </div>
     </div>
 
-    <form  class="form" method="get" action="{{route('encuesta')}}">
+    <form  action="{{route('encuesta/guardar')}}" class="form" method="get" id=formConsentimiento>
       {{ csrf_field() }}
       <div id="espanol">
         <div class="container-fluid">
@@ -45,33 +45,33 @@
                         <div class="input-group-append">
                           <span class="input-group-text" id="basic-addon2">Nombre</span>
                         </div>
-                        <input type="text" class="form-control" name="" id="">
+                        <input type="text" class="form-control" name="Nombre" id="Nombre">
                       </div>
 
                       <div class="input-group mb-3">
                         <div class="input-group-append">
                           <span class="input-group-text" id="basic-addon2">Apellido</span>
                         </div>
-                        <input type="text" class="form-control" name="" id="">
+                        <input type="text" class="form-control" name="Apellido" id="Apellido">
                       </div>
 
                       <div class="input-group mb-3">
                         <div class="input-group-append">
                           <span class="input-group-text" id="basic-addon2">Rut</span>
                         </div>
-                        <input type="text" class="form-control" name="" id="">
+                        <input type="text" class="form-control" name="Rut" id="Rut">
                       </div>
 
                       <div class="input-group mb-3">
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="basic-addon1">@</span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Correo electronico" name="" id="">
+                        <input type="text" class="form-control" placeholder="Correo electronico" name="Correo" id="Correo">
                       </div>
                     </div>
                     <div class="card-footer">
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="" id="">
+                        <input class="form-check-input" type="checkbox" name="genero" id="genero">
                         <label class="form-check-label" for="inlineRadio1">Acepto los terminos y condiciones de uso.</label>
                       </div>
                     </div>
@@ -81,8 +81,9 @@
           </div>
         <br>
       </div>
-      <input id="submit" class="btn btn-primary d-block mx-auto" name="submit" type="submit" value="Enviar">
+      <!--<input id="submit" class="btn btn-primary d-block mx-auto" name="submit" type="submit" value="Enviar">-->
     </form>
+    <button type="submit" class="btn btn-primary d-block mx-auto" form="formConsentimiento" value="Submit" >Enviar</button>
 
     <br>
   </section>

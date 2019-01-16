@@ -89,7 +89,7 @@ class EncuestaController extends Controller
         }
       }
       for ($i=0; $i < 4 ; $i++) {
-        $grupos[$i]['puntaje'] = abs($grupos[$i]['cont_a'] - $grupos[$i]['cont_b']);
+        $grupos[$i]['puntaje'] = $grupos[$i]['cont_b'] - $grupos[$i]['cont_a'];
         $grupos[$i]['alt_mayor'] = ($grupos[$i]['cont_a'] > $grupos[$i]['cont_b']) ? 'a' : 'b';
       }
       //var_dump($grupos);

@@ -38,10 +38,10 @@
 
         <div class="container">
           <h4>Diferencias finales</h4>
-          <h4>Activo/Reflexivo: {{$cuestionario[0]['puntaje'].$cuestionario[0]['alt_mayor']}}</h4>
-          <h4>Sensitivo/Intuitivo: {{$cuestionario[1]['puntaje'].$cuestionario[1]['alt_mayor']}}</h4>
-          <h4>Visual/Verbal:{{$cuestionario[2]['puntaje'].$cuestionario[2]['alt_mayor']}}</h4>
-          <h4>Secuencial/Global:{{$cuestionario[3]['puntaje'].$cuestionario[3]['alt_mayor']}}</h4>
+          <h4>Activo/Reflexivo: {{abs($cuestionario[0]['puntaje']).$cuestionario[0]['alt_mayor']}}</h4>
+          <h4>Sensitivo/Intuitivo: {{abs($cuestionario[1]['puntaje']).$cuestionario[1]['alt_mayor']}}</h4>
+          <h4>Visual/Verbal:{{abs($cuestionario[2]['puntaje']).$cuestionario[2]['alt_mayor']}}</h4>
+          <h4>Secuencial/Global:{{abs($cuestionario[3]['puntaje']).$cuestionario[3]['alt_mayor']}}</h4>
         </div>
 
         <div class="text-justify">
@@ -206,24 +206,7 @@
             labels: ["Activo/Reflexivo", "Sensitivo/Auditivo", "Visual/Verbal", "Secuencial/Global"],
             datasets: [{
                 label: '',
-                data: [JSON.parse("-{{ json_encode($cuestionario[0]['cont_a']) }}"), JSON.parse("{{ -json_encode($cuestionario[1]['cont_a']) }}"), JSON.parse("{{ -json_encode($cuestionario[2]['cont_a']) }}"), JSON.parse("{{ -json_encode($cuestionario[3]['cont_a']) }}")],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)'
-                ],
-                borderWidth: 1
-            },
-            {
-                label: '',
-                data: [JSON.parse("{{ json_encode($cuestionario[0]['cont_b']) }}"), JSON.parse("{{ json_encode($cuestionario[1]['cont_b']) }}"), JSON.parse("{{ json_encode($cuestionario[2]['cont_b']) }}"), JSON.parse("{{ json_encode($cuestionario[3]['cont_b']) }}")],
+                data: [{{$cuestionario[0]['puntaje'] }},{{ $cuestionario[1]['puntaje'] }}, {{ $cuestionario[2]['puntaje'] }}, {{$cuestionario[3]['puntaje'] }}],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',

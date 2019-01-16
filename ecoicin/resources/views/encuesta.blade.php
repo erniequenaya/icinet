@@ -53,7 +53,7 @@
                   <div class="card">
                     <div class="card-header">
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="check_consent" name="consent">
+                        <input class="form-check-input" type="checkbox" id="check_consent" name="consent" >
                         <label class="form-check-label" for="inlineRadio1">Acepto los terminos y condiciones de uso.</label>
                       </div>
                     </div>
@@ -62,17 +62,17 @@
                       <div class="form-row">
                         <div class="form-group col-md-6">
                           <label for="">Nombre</label>
-                          <input type="text" class="form-control" name="nombre" placeholder="Miguel">
+                          <input type="text" class="form-control" name="nombre" placeholder="Miguel" >
                         </div>
                         <div class="form-group col-md-6">
                           <label for="">Apellido</label>
-                          <input type="text" class="form-control" name="apellido" placeholder="Pinto">
+                          <input type="text" class="form-control" name="apellido" placeholder="Pinto" >
                         </div>
                       </div>
                       <div class="form-row">
                         <div class="form-group col-md-6">
                           <label for="email">Email</label>
-                          <input type="email" class="form-control" name="email" placeholder="ejemplo@uta.cl">
+                          <input type="email" class="form-control" name="email" placeholder="ejemplo@uta.cl" >
                         </div>
                         <div class="form-group col-md-4">
                           <label for="inputState">Genero</label>
@@ -84,7 +84,7 @@
                         </div>
                         <div class="form-group col-md-2">
                           <label for="inputState">Edad</label>
-                          <select name="edad" class="form-control">
+                          <select name="edad" class="form-control" >
                             <option selected>Seleccionar...</option>
                             @for ($e=12; $e < 100; $e++)
                               <option value="{{$e}}">{{$e}}</option>
@@ -204,6 +204,7 @@
     $(document).on('change', '#check_consent', function(){
       if($(this).is(":checked")) {
         $('#datos_personales').show(500);
+
      }
      else {
        $('#datos_personales').hide(500);
